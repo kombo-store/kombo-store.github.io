@@ -5,7 +5,8 @@
 </head>
 <body style="background:black;color:white;text-align:center;">
   <h1>KOMBO STORE</h1>
-  <p>Ride. Train. Live.</p>
+  <p> Performance Gear for Riders & Athletes </p>
   <p>قريبًا</p>
 </body>
 </html>
+<img width="1024" height="1024" alt="logo" src="https://github.com/user-attachments/assets/c016cc2e-70c5-488a-b1b7-cc46903be87a" />
