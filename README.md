@@ -52,7 +52,7 @@
 </head>
 <body>
   <div class="neon-frame">
-    Cyan Neon Frame Background
+    Performance Gear for Riders & Athletes
   </div>
 </body>
 
