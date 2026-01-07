@@ -1,4 +1,3 @@
-<img width="1024" height="1024" alt="logo" src="https://github.com/user-attachments/assets/3e2d4b16-8043-42db-8fe5-449a7243d535" />
 <head>
   <meta charset="UTF-8">
   <title>KOMBO STORE</title>
@@ -125,9 +124,9 @@
 
 <body>
 
-  <div class="neon-frame">
-    <img src="<img width="1200" height="1200" alt="logo png" src="https://github.com/user-attachments/assets/b4ab65b7-aaf0-47fc-bedd-f963f396ccad" />
-">
+  <div class="neon-frame">">
+    <img src="images/logo.png" alt="<img width="1200" class="center-logo">
+
   </div>
 
 </body>
