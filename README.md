@@ -8,4 +8,52 @@
   <p> Performance Gear for Riders & Athletes </p>
   <p>قريبًا</p>
 </body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon Frame Background</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: #000; /* خلفية سوداء */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .neon-frame {
+    width: 80%;
+    height: 80%;
+    border: 4px solid cyan; /* الإطار الرئيسي */
+    box-shadow:
+      0 0 10px cyan,
+      0 0 20px cyan,
+      0 0 40px cyan,
+      0 0 60px cyan; /* تأثير النيون */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: cyan;
+    font-size: 2rem;
+    text-align: center;
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    0% { box-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 40px cyan, 0 0 60px cyan; }
+    50% { box-shadow: 0 0 20px cyan, 0 0 40px cyan, 0 0 60px cyan, 0 0 100px cyan; }
+    100% { box-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 40px cyan, 0 0 60px cyan; }
+  }
+</style>
+</head>
+<body>
+  <div class="neon-frame">
+    Cyan Neon Frame Background
+  </div>
+</body>
 </html>
+
