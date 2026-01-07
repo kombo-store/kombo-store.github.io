@@ -126,7 +126,8 @@
 <body>
 
   <div class="neon-frame">
-    <img src="![logo png](https://github.com/user-attachments/assets/e26f381d-271b-4edc-b5d0-53a377f18650)">
+    <img src="<img width="1200" height="1200" alt="logo png" src="https://github.com/user-attachments/assets/b4ab65b7-aaf0-47fc-bedd-f963f396ccad" />
+">
   </div>
 
 </body>
