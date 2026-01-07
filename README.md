@@ -5,7 +5,8 @@
 </head>
 <body style="background:black;color:white;text-align:center;">
   <h1>KOMBO STORE</h1>
-  <p> Performance Gear for Riders & Athletes </p>
+  <p> ![s-l1200](https://github.com/user-attachments/assets/34718fe1-9543-426b-8bab-c0ea42393eb7)
+ </p>
   <p>قريبًا</p>
 </body>
 
@@ -117,7 +118,8 @@
   <div class="neon-frame">
     <div class="content">
       <h1>Welcome to My Website</h1>
-      <p>Cyan Neon Frame Full Website</p>
+      <p> ![02e0d381-a01f-4c16-9e9a-1eece73f845b](https://github.com/user-attachments/assets/17d5b279-dafc-440f-a94d-789039f1443d)
+ </p>
     </div>
   </div>
 
