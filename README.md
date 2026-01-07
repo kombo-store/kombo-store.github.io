@@ -1,4 +1,4 @@
-<html lang="ar"><img width="1024" height="1024" alt="logo" src="https://github.com/user-attachments/assets/b14986a8-39e6-4ad6-918b-b0873f52f8d0" />
+<img width="1024" height="1024" alt="logo" src="https://github.com/user-attachments/assets/3e2d4b16-8043-42db-8fe5-449a7243d535" />
 <head>
   <meta charset="UTF-8">
   <title>KOMBO STORE</title>
