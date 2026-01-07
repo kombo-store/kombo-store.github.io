@@ -1,9 +1,12 @@
-![KOMBO STORE Logo](Kombo%20store.png)
-
-# KOMBO STORE
-
-Performance Gear for Riders & Athletes
-
----
-
-Welcome to KOMBO STORE! Here you'll find high-quality gear designed for riders and athletes to enhance your performance and style.
+<html lang="ar"><img width="1024" height="1024" alt="logo" src="https://github.com/user-attachments/assets/b14986a8-39e6-4ad6-918b-b0873f52f8d0" />
+<head>
+  <meta charset="UTF-8">
+  <title>KOMBO STORE</title>
+</head>
+<body style="background:black;color:white;text-align:center;">
+  <h1>KOMBO STORE</h1>
+  <p> Performance Gear for Riders & Athletes </p>
+  <p>قريبًا</p>
+  <img width="1024" height="1024" alt="logo" src="https://github.com/user-attachments/assets/c016cc2e-70c5-488a-b1b7-cc46903be87a" />
+</body>
+</html>
