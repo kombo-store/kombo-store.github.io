@@ -67,6 +67,6 @@
 
 </head>
 
-<a href="[0https://wa.me/20123456789](https://www.instagram.com/epicsceneshub_/?utm_source=ig_web_button_share_sheet)" class="side-box">
+<a href="https://www.instagram.com/epicsceneshub_/?utm_source=ig_web_button_share_sheet)" class="side-box">
   انستاجرام
 </a>
