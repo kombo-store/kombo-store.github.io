@@ -132,12 +132,7 @@ footer {
 
   <!-- Header -->
   <header>
-
-<div class="neon-frame">
   <img src="![logo gif]" alt="Animated Logo" class="center-gif">
-</div>
-
-
   </header>
 
   <!-- Hero -->
