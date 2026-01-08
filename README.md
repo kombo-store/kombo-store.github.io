@@ -54,12 +54,13 @@
   </div>
 </body>
 
-</head>
+<head>
 
 
 <img width="768" height="768" alt="logo png" src="https://github.com/user-attachments/assets/8d7ad18b-9d09-4245-86ea-08a0473670e1" />
 
 </head>
+<head>
 
 <img width="768" height="768" alt="logo png 2" src="https://github.com/user-attachments/assets/22525ff2-d053-493d-a4c7-c7ba7430f4f6" />
 
