@@ -132,7 +132,9 @@ footer {
 
   <!-- Header -->
   <header>
-    <img width="300" height="100" alt="logo png (2)" src="https://github.com/user-attachments/assets/aa1f65d0-d863-4986-b799-7040bdf6d0de" />
+
+  ![standard](https://github.com/user-attachments/assets/84492150-ca45-4c27-a07a-ff5d1b6c5ad0)
+
 
   </header>
 
