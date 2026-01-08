@@ -66,3 +66,6 @@
 
 </head>
 
+<a href="https://wa.me/201234567890" class="side-box">
+  واتساب
+</a>
