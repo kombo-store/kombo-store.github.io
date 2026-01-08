@@ -56,6 +56,7 @@
 
 <head>
 
+<hr class="line">
 
 <img width="400" height="400" alt="logo png" src="https://github.com/user-attachments/assets/8d7ad18b-9d09-4245-86ea-08a0473670e1" />
 
