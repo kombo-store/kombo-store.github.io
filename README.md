@@ -132,7 +132,7 @@ footer {
 
   <!-- Header -->
   <header>
-    <img width="1024" height="1024" alt="logo png" src="https://github.com/user-attachments/assets/696a72e5-5c93-41d8-bf53-8be5fc111a9a" />
+    <img width="300" height="100" alt="logo png" src="https://github.com/user-attachments/assets/696a72e5-5c93-41d8-bf53-8be5fc111a9a" />
   </header>
 
   <!-- Hero -->
