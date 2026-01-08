@@ -45,7 +45,8 @@ body {
 }
 
 /* ===== Layout ===== */
-header {
+header {<img width="1024" height="1024" alt="logo" src="https://github.com/user-attachments/assets/7cf35efa-e993-4eb8-924f-781908c13e36" />
+
   padding: 20px;
   text-align: center;
 }
