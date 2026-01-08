@@ -133,7 +133,10 @@ footer {
   <!-- Header -->
   <header>
 
-  ![standard](https://github.com/user-attachments/assets/84492150-ca45-4c27-a07a-ff5d1b6c5ad0)
+<div class="neon-frame">
+  <img src="![logo gif](https://github.com/user-attachments/assets/670a321f-27a7-4e00-9657-30b940f4ef66)
+" alt="Animated Logo" class="center-gif">
+</div>
 
 
   </header>
