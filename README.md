@@ -112,7 +112,7 @@ section h2 {
 }
 
 .card {
-  border: 1px solid cyan;
+  border: 1px solid red;
   padding: 30px;
   box-shadow: 0 0 20px rgba(0,255,255,0.3);
 }
