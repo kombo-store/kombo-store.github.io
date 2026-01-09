@@ -117,7 +117,7 @@ section h2 {
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s;
-  background: #111; /* خلفية الكارت */
+  background: #111;
   border-radius: 12px;
 }
 
@@ -127,8 +127,8 @@ section h2 {
 
 .card img {
   width: 100%;
-  height: 180px;       /* ارتفاع الصورة متناسق */
-  object-fit: cover;    /* لعدم تشويه الصورة */
+  height: 180px;      
+  object-fit: cover;   
   border-radius: 10px;
   margin-bottom: 15px;
 }
@@ -185,20 +185,19 @@ footer {
     <h2>Our Products</h2>
     <div class="cards">
       <div class="card">
-        <!-- ضع صورتك هنا -->
-        <img src="gear.jpg" alt="High Performance Gear">
+        <img src="gear.jpg" alt="High Performance Gear" />
         <h3>High Performance Gear</h3>
-        <a href="product1.html" class="product-btn">View Product</a>
+        <a href="gear.jpg" class="product-btn" target="_blank">View Product</a>
       </div>
       <div class="card">
-        <img width="1200" height="1200" alt="wear sport" src="https://github.com/user-attachments/assets/c5e261cf-5148-4eee-8513-d9cbe6b1b220" />
+        <img width="1200" height="1200" alt="wear sport" src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f" />
         <h3>Athletic Wear</h3>
-        <a href="product2.html" class="product-btn">View Product</a>
+        <a href="athletic.jpg" class="product-btn" target="_blank">View Product</a>
       </div>
       <div class="card">
-        <img width="1200" height="1200" alt="mask protection" src="https://github.com/user-attachments/assets/e4193bff-ba03-4264-b7df-051db6c96607" />
+        <img width="1200" height="1200" alt="mask protection" src="https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd" />
         <h3>Rider Protection</h3>
-        <a href="product3.html" class="product-btn">View Product</a>
+        <a href="rider.jpg" class="product-btn" target="_blank">View Product</a>
       </div>
     </div>
   </section>
