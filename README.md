@@ -185,7 +185,6 @@ footer {
     <h2>Our Products</h2>
     <div class="cards">
       <div class="card">
-        <img src="https://github.com/user-attachments/assets/24e77390-843e-43cb-a7fd-7bfeeaa2fed6" alt="High Performance Gear" />
         <h3>High Performance Gear</h3>
         <a href="https://github.com/user-attachments/assets/24e77390-843e-43cb-a7fd-7bfeeaa2fed6" class="product-btn" target="_blank">View Product</a>
       </div>
