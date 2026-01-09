@@ -127,8 +127,8 @@ section h2 {
 
 .card img {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  height: 180px;       /* ارتفاع الصورة متناسق */
+  object-fit: cover;    /* لعدم تشويه الصورة */
   border-radius: 10px;
   margin-bottom: 15px;
 }
@@ -185,17 +185,18 @@ footer {
     <h2>Our Products</h2>
     <div class="cards">
       <div class="card">
-        <img src="https://via.placeholder.com/250x180?text=Gear" alt="High Performance Gear">
+        <!-- ضع صورتك هنا -->
+        <img src="gear.jpg" alt="High Performance Gear">
         <h3>High Performance Gear</h3>
         <a href="product1.html" class="product-btn">View Product</a>
       </div>
       <div class="card">
-        <img src="https://via.placeholder.com/250x180?text=Athletic+Wear" alt="Athletic Wear">
+        <img src="athletic.jpg" alt="Athletic Wear">
         <h3>Athletic Wear</h3>
         <a href="product2.html" class="product-btn">View Product</a>
       </div>
       <div class="card">
-        <img src="https://via.placeholder.com/250x180?text=Rider+Protection" alt="Rider Protection">
+        <img width="1200" height="1200" alt="mask protection" src="https://github.com/user-attachments/assets/e4193bff-ba03-4264-b7df-051db6c96607" />
         <h3>Rider Protection</h3>
         <a href="product3.html" class="product-btn">View Product</a>
       </div>
