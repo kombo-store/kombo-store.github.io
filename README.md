@@ -21,6 +21,18 @@ body {
   justify-content: center;
   align-items: center;
 }
+/* ===== Rider Image Under Card ===== */
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.under-img {
+  width: 160px;
+  margin-top: 12px;
+  filter: drop-shadow(0 0 10px red);
+}
 
 /* ===== Neon Frame ===== */
 .neon-frame {
@@ -150,7 +162,14 @@ footer {
     <div class="cards">
       <div class="card">High Performance Gear</div>
       <div class="card">Athletic Wear</div>
-      <div class="card">Rider Protection</div>
+      <div class="card-wrapper">
+  <div class="card">
+    Rider Protection
+  </div>
+    <img width="1200" height="1200" alt="mask protection" src="https://github.com/user-attachments/assets/658de6ad-8397-46bc-b0c3-477c16f96de6" />
+    
+</div>
+
 </div>
   </section>
 
