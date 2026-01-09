@@ -17,10 +17,11 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* ===== Frame ===== */
+/* ===== Neon Frame ===== */
 .neon-frame {
   position: relative;
   max-width: 1200px;
+  min-height: 100vh; /* مهم للأيقونة */
   margin: 20px auto;
   border: 3px solid red;
   box-shadow: 0 0 15px red, 0 0 40px red;
@@ -78,7 +79,7 @@ section h2 {
   margin-bottom: 30px;
 }
 
-/* ===== Products ===== */
+/* ===== Cards ===== */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -106,7 +107,7 @@ section h2 {
   margin-bottom: 12px;
 }
 
-/* ===== Button ===== */
+/* ===== Product Button ===== */
 .product-btn {
   display: inline-block;
   padding: 10px 22px;
@@ -123,8 +124,8 @@ section h2 {
 /* ===== Instagram Icon ===== */
 .instagram-icon {
   position: absolute;
-  bottom: 16px;
-  left: 16px;
+  bottom: 20px;
+  left: 20px;
   width: 52px;
   height: 52px;
   background: black;
@@ -152,6 +153,16 @@ footer {
   text-align: center;
   opacity: 0.6;
 }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 20px;
+  }
+  .card img {
+    height: 160px;
+  }
+}
 </style>
 </head>
 
@@ -171,7 +182,6 @@ footer {
 
 <section>
   <h2>Our Products</h2>
-
   <div class="cards">
     <div class="card">
       <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f">
@@ -204,17 +214,13 @@ footer {
   © 2026 Performance Gear
 </footer>
 
-<!-- Instagram -->
-<a href="https://www.instagram.com/_kombo1/"
-   class="instagram-icon"
-   target="_blank"
-   aria-label="Instagram">
+<!-- Instagram Icon -->
+<a href="https://www.instagram.com/_kombo1/" class="instagram-icon" target="_blank" aria-label="Instagram">
   <svg viewBox="0 0 448 512">
     <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.3 0-74.7-33.4-74.7-74.7s33.4-74.7 74.7-74.7 74.7 33.4 74.7 74.7-33.4 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zM398.8 80.5c-1.7-35.3-9.9-66.6-36.2-92.9C336.4-18.7 305.1-26.9 269.8-28.6c-35.5-1.7-56.1-1.7-91.6 0C142.9-26.9 111.6-18.7 85.3 7.6 59 33.9 50.8 65.2 49.1 100.5c-1.7 35.5-1.7 56.1 0 91.6 1.7 35.3 9.9 66.6 36.2 92.9 26.3 26.3 57.6 34.5 92.9 36.2 35.5 1.7 56.1 1.7 91.6 0 35.3-1.7 66.6-9.9 92.9-36.2 26.3-26.3 34.5-57.6 36.2-92.9 1.7-35.5 1.7-56.1 0-91.6z"/>
   </svg>
 </a>
 
 </div>
-
 </body>
 </html>
