@@ -26,11 +26,11 @@ body {
 .neon-frame {
   width: calc(100vw - 40px);
   min-height: calc(100vh - 40px);
-  border: 3px solid cyan;
+  border: 3px solid red;
   box-shadow:
-    0 0 15px cyan,
-    0 0 40px cyan,
-    0 0 80px cyan;
+    0 0 15px red,
+    0 0 40px red,
+    0 0 80px red;
   animation: glow 2s ease-in-out infinite alternate;
 }
 
@@ -52,7 +52,7 @@ header {
 
 header img {
   width: 160px;
-  filter: drop-shadow(0 0 20px cyan);
+  filter: drop-shadow(0 0 20px red);
 }
 
 /* ===== Hero ===== */
@@ -67,7 +67,7 @@ header img {
 
 .hero h1 {
   font-size: 3rem;
-  color: cyan;
+  color: red;
 }
 
 .hero p {
@@ -79,15 +79,15 @@ header img {
   margin-top: 30px;
   padding: 12px 30px;
   background: transparent;
-  border: 2px solid cyan;
-  color: cyan;
+  border: 2px solid red;
+  color: red;
   cursor: pointer;
   font-size: 1rem;
-  box-shadow: 0 0 15px cyan;
+  box-shadow: 0 0 15px red;
 }
 
 .hero button:hover {
-  background: cyan;
+  background: red;
   color: black;
 }
 
@@ -98,7 +98,7 @@ section {
 }
 
 section h2 {
-  color: cyan;
+  color: red;
   margin-bottom: 20px;
 }
 
