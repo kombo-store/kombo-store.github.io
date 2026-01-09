@@ -1,190 +1,136 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance Gear for Riders & Athletes</title>
 
-<title>Performance Gear for Riders & Athletes</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    body {
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .neon-frame {
+      width: calc(100vw - 40px);
+      min-height: calc(100vh - 40px);
+      border: 3px solid red;
+      box-shadow: 0 0 15px red, 0 0 40px red, 0 0 80px red;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 15px red, 0 0 40px black, 0 0 80px red;
+      }
+      to {
+        box-shadow: 0 0 25px red, 0 0 60px black, 0 0 120px red;
+      }
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+    }
+
+    header img {
+      width: 160px;
+      filter: drop-shadow(0 0 20px red);
+    }
+
+    .hero {
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: red;
+    }
+
+    .hero p {
+      margin-top: 15px;
+      opacity: 0.8;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card {
+      border: 1px solid red;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+      text-align: center;
+    }
+
+    .card-img {
+      display: block;
+      width: 120px;
+      margin: 15px auto 0;
+    }
+
+    footer {
+      padding: 20px;
+      text-align: center;
+      opacity: 0.6;
+    }
+    .card-img {
+  display: block;
+  width: 120px;
+  margin: 15px auto 0;
 }
 
-body {
-  background: #000;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-/* ===== Rider Image Under Card ===== */
-.card-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.under-img {
-  width: 160px;
-  margin-top: 12px;
-  filter: drop-shadow(0 0 10px red);
-}
-
-/* ===== Neon Frame ===== */
-.neon-frame {
-  width: calc(100vw - 40px);
-  min-height: calc(100vh - 40px);
-  border: 3px solid red;
-  box-shadow:
-    0 0 15px red,
-    0 0 40px red,
-    0 0 80px red;
-  animation: glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from {
-    box-shadow: 0 0 15px red, 0 0 40px black, 0 0 80px red;
-  }
-  to {
-    box-shadow: 0 0 25px red, 0 0 60px black, 0 0 120px red;
-  }
-}
-
-/* ===== Layout ===== */
-header {
-
-  padding: 20px;
-  text-align: center;
-}
-
-header img {
-  width: 160px;
-  filter: drop-shadow(0 0 20px red);
-}
-
-/* ===== Hero ===== */
-.hero {
-  height: 70vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  color: red;
-}
-
-.hero p {
-  margin-top: 15px;
-  opacity: 0.8;
-}
-
-.hero button {
-  margin-top: 30px;
-  padding: 12px 30px;
-  background: transparent;
-  border: 2px solid red;
-  color: red;
-  cursor: pointer;
-  font-size: 1rem;
-  box-shadow: 0 0 15px red;
-}
-
-.hero button:hover {
-  background: red;
-  color: black;
-}
-
-/* ===== Sections ===== */
-section {
-  padding: 80px 20px;
-  text-align: center;
-}
-
-section h2 {
-  color: red;
-  margin-bottom: 20px;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.card {
-  border: 1px solid red;
-  padding: 30px;
-  box-shadow: 0 0 20px rgba(0,255,255,0.3);
-}
-
-/* ===== Footer ===== */
-footer {
-  padding: 20px;
-  text-align: center;
-  opacity: 0.6;
-}
-</style>
+  </style>
 </head>
 
 <body>
+  <div class="neon-frame">
 
-<div class="neon-frame">
+    <header>
+      <img src="rider.png" alt="Logo">
+    </header>
 
-  <!-- Header -->
-  <header>
-  <img 
-    src="https://github.com/user-attachments/assets/24e77390-843e-43cb-a7fd-7bfeeaa2fed6"
-    alt="Animated Logo"
-    class="center-gif">
-</header>
+    <div class="hero">
+      <h1>Performance Gear</h1>
+      <p>Built for Riders & Athletes</p>
+    </div>
 
-  <!-- Hero -->
-  <div class="hero">
-    <h1>Performance Gear</h1>
-    <p>Built for Riders & Athletes</p>
-    <button>Explore</button>
+    <section>
+      <h2>Our Products</h2>
+      <div class="cards">
+        <div class="card">High Performance Gear</div>
+        <div class="card">Athletic Wear</div>
+        <div class="card">
+          Rider Protection
+          <img src="rider.png" class="card-img">
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Performance Gear
+    </footer>
+
   </div>
-
-  <!-- Section -->
-  <section>
-    <h2>Our Products</h2>
-    <div class="cards">
-      <div class="card">High Performance Gear</div>
-      <div class="card">Athletic Wear</div>
-      <div class="card-wrapper">
-  <div class="card">
-    Rider Protection
-  </div>
-    <img width="1200" height="1200" alt="mask protection" src="https://github.com/user-attachments/assets/658de6ad-8397-46bc-b0c3-477c16f96de6" />
-    
-</div>
-
-</div>
-  </section>
-
-  <!-- Section -->
-  <section>
-    <h2>Why Choose Us</h2>
-    <p>Designed for speed, durability and comfort.</p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    © 2026 Performance Gear
-  </footer>
-
-</div>
-
 </body>
 </html>
