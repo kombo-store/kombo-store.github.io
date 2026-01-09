@@ -16,11 +16,11 @@ body {
   background: #000;
   color: #fff;
   font-family: Arial, sans-serif;
-  min-height: 100vh;
 }
 
 /* ===== Neon Frame ===== */
 .neon-frame {
+  position: relative; /* مهم للـ Instagram */
   width: calc(100vw - 40px);
   min-height: calc(100vh - 40px);
   margin: 20px;
@@ -114,7 +114,7 @@ section h2 {
   margin-bottom: 15px;
 }
 
-/* ===== Buttons ===== */
+/* ===== Product Button ===== */
 .product-btn {
   display: inline-block;
   padding: 12px 25px;
@@ -130,23 +130,24 @@ section h2 {
   background: #ff5555;
 }
 
-/* ===== Instagram ===== */
-.instagram-link {
-  position: fixed;
+/* ===== Instagram Icon (مش بيتحرك) ===== */
+.instagram-icon {
+  position: absolute;
   bottom: 20px;
   left: 20px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+  width: 55px;
+  height: 55px;
+  background: black;
   border: 2px solid red;
-  padding: 10px 18px;
-  border-radius: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-shadow: 0 0 15px red;
 }
 
-.instagram-link:hover {
+.instagram-icon:hover {
   background: red;
-  color: black;
 }
 
 /* ===== Footer ===== */
@@ -176,22 +177,25 @@ footer {
   <h2>Our Products</h2>
 
   <div class="cards">
+
     <div class="card">
       <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f">
       <h3>High Performance Gear</h3>
-      <a href="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f" 
+      <a href="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f"
          class="product-btn" target="_blank">View Product</a>
     </div>
+
     <div class="card">
       <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f">
       <h3>Athletic Wear</h3>
-      <a href="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f" 
+      <a href="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f"
          class="product-btn" target="_blank">View Product</a>
     </div>
+
     <div class="card">
       <img src="https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd">
       <h3>Rider Protection</h3>
-      <a href="https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd" 
+      <a href="https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd"
          class="product-btn" target="_blank">View Product</a>
     </div>
 
@@ -207,13 +211,16 @@ footer {
   © 2026 Performance Gear
 </footer>
 
-</div>
-
 <!-- Instagram -->
-<a href="https://www.instagram.com/_kombo1/" 
-   class="instagram-link" target="_blank">
-Instagram
+<a href="https://www.instagram.com/_kombo1/"
+   class="instagram-icon"
+   target="_blank">
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" viewBox="0 0 24 24">
+    <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/>
+  </svg>
 </a>
+
+</div>
 
 </body>
 </html>
