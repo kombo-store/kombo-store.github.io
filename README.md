@@ -150,7 +150,10 @@ footer {
     <div class="cards">
       <div class="card">High Performance Gear</div>
       <div class="card">Athletic Wear</div>
-      <div class="card">Rider Protection</div>
+      <div class="card">
+        Rider Protection
+        <img width="300" height="100" alt="mask protection" src="https://github.com/user-attachments/assets/a2e74e78-fe95-4343-afd2-a8e490e4bdca" />
+      </div>
     </div>
   </section>
 
