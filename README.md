@@ -1,5 +1,3 @@
-![logo gif](https://github.com/user-attachments/assets/cdf3d20e-5881-4548-a83a-b3e75395b7ba)
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
