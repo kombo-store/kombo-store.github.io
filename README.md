@@ -153,10 +153,9 @@ footer {
         Athletic Wear
       </div>
       <div class="card-wrapper">
-  <div class="card">
-    Rider Protection
-  </div>
-  <img src="rider.png" alt="Rider Protection" class="under-img">
+  <div class="card">Rider Protection</div>
+  <img src=img width="150" height="200" alt="mask protection" src="https://github.com/user-attachments/assets/82676fad-def1-4dd5-b838-08390111cb85" />
+
 </div>
 
   </section>
