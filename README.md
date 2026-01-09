@@ -1,3 +1,4 @@
+![logo gif](https://github.com/user-attachments/assets/cdf3d20e-5881-4548-a83a-b3e75395b7ba)
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -132,8 +133,11 @@ footer {
 
   <!-- Header -->
   <header>
-  <img src="![logo gif]" alt="Animated Logo" class="center-gif">
-  </header>
+  <img 
+    src="https://github.com/user-attachments/assets/24e77390-843e-43cb-a7fd-7bfeeaa2fed6"
+    alt="Animated Logo"
+    class="center-gif">
+</header>
 
   <!-- Hero -->
   <div class="hero">
