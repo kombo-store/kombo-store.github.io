@@ -98,7 +98,7 @@ section {
 
 section h2 {
   color: red;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .cards {
@@ -111,7 +111,7 @@ section h2 {
 
 .card {
   border: 1px solid red;
-  padding: 30px;
+  padding: 20px;
   box-shadow: 0 0 20px rgba(255,0,0,0.3);
   display: flex;
   flex-direction: column;
@@ -125,10 +125,18 @@ section h2 {
   transform: translateY(-5px);
 }
 
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
 /* ===== Product Buttons ===== */
 .product-btn {
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 15px;
   padding: 12px 25px;
   background: red;
   color: white;
@@ -142,6 +150,13 @@ section h2 {
 .product-btn:hover {
   background: #ff5555;
   box-shadow: 0 0 20px red;
+}
+
+/* ===== Footer ===== */
+footer {
+  padding: 20px;
+  text-align: center;
+  opacity: 0.6;
 }
 </style>
 </head>
@@ -170,14 +185,17 @@ section h2 {
     <h2>Our Products</h2>
     <div class="cards">
       <div class="card">
+        <img src="https://via.placeholder.com/250x180?text=Gear" alt="High Performance Gear">
         <h3>High Performance Gear</h3>
         <a href="product1.html" class="product-btn">View Product</a>
       </div>
       <div class="card">
+        <img src="https://via.placeholder.com/250x180?text=Athletic+Wear" alt="Athletic Wear">
         <h3>Athletic Wear</h3>
         <a href="product2.html" class="product-btn">View Product</a>
       </div>
       <div class="card">
+        <img src="https://via.placeholder.com/250x180?text=Rider+Protection" alt="Rider Protection">
         <h3>Rider Protection</h3>
         <a href="product3.html" class="product-btn">View Product</a>
       </div>
