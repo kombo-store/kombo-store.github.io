@@ -191,7 +191,7 @@ footer {
         <a href="product1.html" class="product-btn">View Product</a>
       </div>
       <div class="card">
-        <img src=https://github.com/user-attachments/assets/0eed3b1d-d6ca-4e19-8eae-9fc62b665553)
+        <img width="1200" height="1200" alt="wear sport" src=https://github.com/user-attachments/assets/c5e261cf-5148-4eee-8513-d9cbe6b1b220" />
         <h3>Athletic Wear</h3>
         <a href="product2.html" class="product-btn">View Product</a>
       </div>
