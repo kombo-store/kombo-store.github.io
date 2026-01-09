@@ -149,13 +149,9 @@ footer {
     <h2>Our Products</h2>
     <div class="cards">
       <div class="card">High Performance Gear</div>
-      <div class="card">  Athletic Wear</div>
-      <div class="card-wrapper">
-  <div class="card">Rider Protection</div>
-  <img src=img width="150" height="200" alt="mask protection" src="https://github.com/user-attachments/assets/82676fad-def1-4dd5-b838-08390111cb85" />
-
+      <div class="card">Athletic Wear</div>
+      <div class="card">Rider Protection</div>
 </div>
-
   </section>
 
   <!-- Section -->
