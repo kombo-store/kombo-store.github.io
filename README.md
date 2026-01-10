@@ -12,11 +12,20 @@
 }
 
 body {
-  /* الخلفية الجديدة من رابط مباشر */
-  background: url('https://i.ibb.co/Y0tBspW/background.jpg') no-repeat center center fixed;
+  background: url('https://wall.alphacoders.com/big.php?i=1377819') no-repeat center center fixed;
   background-size: cover;
   color: #fff;
   font-family: Arial, sans-serif;
+}
+
+/* ===== Neon Animation ===== */
+@keyframes neon-glow {
+  0%, 100% {
+    text-shadow: 0 0 4px #ff0000, 0 0 8px #ff0000, 0 0 12px #ff5555, 0 0 18px #ff5555;
+  }
+  50% {
+    text-shadow: 0 0 6px #ff5555, 0 0 12px #ff0000, 0 0 18px #ff0000, 0 0 24px #ff5555;
+  }
 }
 
 /* ===== Neon Frame ===== */
@@ -40,7 +49,7 @@ header {
 
 header img {
   width: 140px;
-  filter: drop-shadow(0 0 15px red);
+  filter: drop-shadow(0 0 20px red);
 }
 
 /* ===== Hero ===== */
@@ -50,25 +59,25 @@ header img {
 }
 
 .hero h1 {
-  font-size: 2.6rem;
+  font-size: 2.8rem;
   color: red;
-  text-shadow: 0 0 8px red;
+  animation: neon-glow 1.5s ease-in-out infinite alternate;
 }
 
 .hero p {
   margin-top: 10px;
   opacity: 0.85;
-  text-shadow: 0 0 6px red;
+  animation: neon-glow 2s ease-in-out infinite alternate;
 }
 
 .hero button {
   margin-top: 22px;
-  padding: 10px 26px;
+  padding: 12px 28px;
   border: 2px solid red;
   background: transparent;
   color: red;
   cursor: pointer;
-  text-shadow: 0 0 4px red;
+  animation: neon-glow 1.8s ease-in-out infinite alternate;
 }
 
 .hero button:hover {
@@ -85,7 +94,7 @@ section {
 section h2 {
   color: red;
   margin-bottom: 30px;
-  text-shadow: 0 0 6px red;
+  animation: neon-glow 1.5s ease-in-out infinite alternate;
 }
 
 /* ===== Cards ===== */
@@ -98,12 +107,13 @@ section h2 {
 }
 
 .card {
-  background: rgba(17,17,17,0.8);
+  background: rgba(17,17,17,0.85);
   border: 1px solid red;
   padding: 18px;
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 0 8px red;
+  animation: neon-glow 2.5s ease-in-out infinite alternate;
 }
 
 .card img {
@@ -116,7 +126,6 @@ section h2 {
 
 .card h3 {
   margin-bottom: 12px;
-  text-shadow: 0 0 5px red;
 }
 
 /* ===== Product Button ===== */
@@ -128,6 +137,7 @@ section h2 {
   text-decoration: none;
   border-radius: 8px;
   box-shadow: 0 0 6px red;
+  animation: neon-glow 2s ease-in-out infinite alternate;
 }
 
 .product-btn:hover {
