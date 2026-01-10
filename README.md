@@ -13,7 +13,7 @@
 
 body {
   /* الخلفية الجديدة */
-  background: url("<img width="1920" height="1076" alt="background png" src=https://github.com/user-attachments/assets/010c67be-64fe-4fd2-9c1b-5b03b233bc2a" />
+  background: url("background png"/>
 ') no-repeat center center fixed;
   background-size: cover;
   color: #fff;
