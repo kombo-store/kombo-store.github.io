@@ -12,8 +12,8 @@
 }
 
 body {
-  /* الخلفية الجديدة */
-  background: url('<img width="1920" height="1076" alt="thumb-1920-1377819" src="https://github.com/user-attachments/assets/ac223b89-6923-4006-98ff-dbad5c31daf6" />') no-repeat center center fixed;
+  /* الخلفية الجديدة من رابط مباشر */
+  background: url('https://i.ibb.co/Y0tBspW/background.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #fff;
   font-family: Arial, sans-serif;
@@ -23,12 +23,13 @@ body {
 .neon-frame {
   position: relative;
   max-width: 1200px;
-  min-height: 100vh; /* مهم للأيقونة */
+  min-height: 100vh;
   margin: 20px auto;
   border: 3px solid red;
   box-shadow: 0 0 15px red, 0 0 40px red;
-  background-color: rgba(0,0,0,0.5); /* فلتر خفيف على الصورة لتوضيح النص */
+  background-color: rgba(0,0,0,0.6);
   border-radius: 12px;
+  padding-bottom: 80px;
 }
 
 /* ===== Header ===== */
@@ -51,11 +52,13 @@ header img {
 .hero h1 {
   font-size: 2.6rem;
   color: red;
+  text-shadow: 0 0 8px red;
 }
 
 .hero p {
   margin-top: 10px;
   opacity: 0.85;
+  text-shadow: 0 0 6px red;
 }
 
 .hero button {
@@ -65,6 +68,7 @@ header img {
   background: transparent;
   color: red;
   cursor: pointer;
+  text-shadow: 0 0 4px red;
 }
 
 .hero button:hover {
@@ -81,6 +85,7 @@ section {
 section h2 {
   color: red;
   margin-bottom: 30px;
+  text-shadow: 0 0 6px red;
 }
 
 /* ===== Cards ===== */
@@ -93,10 +98,12 @@ section h2 {
 }
 
 .card {
-  background: #111;
+  background: rgba(17,17,17,0.8);
   border: 1px solid red;
   padding: 18px;
   border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 8px red;
 }
 
 .card img {
@@ -109,6 +116,7 @@ section h2 {
 
 .card h3 {
   margin-bottom: 12px;
+  text-shadow: 0 0 5px red;
 }
 
 /* ===== Product Button ===== */
@@ -119,6 +127,7 @@ section h2 {
   color: white;
   text-decoration: none;
   border-radius: 8px;
+  box-shadow: 0 0 6px red;
 }
 
 .product-btn:hover {
@@ -139,6 +148,7 @@ section h2 {
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 12px red;
+  z-index: 10;
 }
 
 .instagram-icon svg {
@@ -156,6 +166,7 @@ footer {
   padding: 18px;
   text-align: center;
   opacity: 0.6;
+  text-shadow: 0 0 4px red;
 }
 
 /* ===== Responsive ===== */
@@ -175,7 +186,7 @@ footer {
 <div class="neon-frame">
 
 <header>
-  <img src="https://github.com/user-attachments/assets/24e77390-843e-43cb-a7fd-7bfeeaa2fed6" alt="Logo">
+  <img src="https://i.ibb.co/xs7K1px/logo.png" alt="Logo">
 </header>
 
 <div class="hero">
@@ -188,24 +199,23 @@ footer {
   <h2>Our Products</h2>
   <div class="cards">
     <div class="card">
-      <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f">
+      <img src="https://i.ibb.co/9WZxL2R/product1.jpg" alt="High Performance Gear">
       <h3>High Performance Gear</h3>
-      <a href="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f"
+      <a href="https://i.ibb.co/9WZxL2R/product1.jpg"
          class="product-btn" target="_blank">View Product</a>
     </div>
     <div class="card">
-      <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f">
+      <img src="https://i.ibb.co/9WZxL2R/product1.jpg" alt="Athletic Wear">
       <h3>Athletic Wear</h3>
-      <a href="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f"
+      <a href="https://i.ibb.co/9WZxL2R/product1.jpg"
          class="product-btn" target="_blank">View Product</a>
     </div>
     <div class="card">
-      <img src="https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd">
+      <img src="https://i.ibb.co/MRhP1vC/product3.jpg" alt="Rider Protection">
       <h3>Rider Protection</h3>
-      <a href="https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd"
+      <a href="https://i.ibb.co/MRhP1vC/product3.jpg"
          class="product-btn" target="_blank">View Product</a>
     </div>
-
   </div>
 </section>
 
