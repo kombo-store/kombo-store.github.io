@@ -11,7 +11,7 @@
   padding: 0;
 }
 
-/* ===== BODY BACKGROUND ===== */
+/* ===== BODY ===== */
 body {
   min-height: 100vh;
   background: #000;
@@ -21,37 +21,63 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== RED BLUR ===== */
+/* ===== DARK RED BLUR (CINEMATIC CORE) ===== */
 body::before {
   content: "";
   position: fixed;
-  width: 520px;
-  height: 520px;
-  background: red;
-  filter: blur(230px);
-  opacity: 0.35;
-  top: -160px;
-  left: -160px;
-  z-index: -2;
+  width: 650px;
+  height: 650px;
+  background: #7a0000; /* أحمر غامق */
+  filter: blur(260px);
+  opacity: 0.45;
+  top: -200px;
+  left: -200px;
+  z-index: -3;
 }
 
-/* ===== GRAY SMOKE ===== */
+/* ===== HEAVY GRAY SMOKE ===== */
 body::after {
   content: "";
   position: fixed;
-  width: 700px;
-  height: 700px;
+  width: 900px;
+  height: 900px;
   background: radial-gradient(
     circle,
-    rgba(200,200,200,0.35) 0%,
-    rgba(120,120,120,0.18) 40%,
-    rgba(0,0,0,0) 70%
+    rgba(200,200,200,0.45) 0%,
+    rgba(120,120,120,0.25) 35%,
+    rgba(40,40,40,0.15) 55%,
+    rgba(0,0,0,0) 75%
   );
-  filter: blur(180px);
-  opacity: 0.45;
-  bottom: -200px;
-  right: -200px;
+  filter: blur(220px);
+  opacity: 0.55;
+  bottom: -300px;
+  right: -300px;
+  z-index: -3;
+}
+
+/* ===== EXTRA SMOKE LAYER ===== */
+.smoke-layer {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at top,
+    rgba(160,160,160,0.18),
+    rgba(0,0,0,0.9)
+  );
+  filter: blur(120px);
   z-index: -2;
+}
+
+/* ===== CINEMATIC VIGNETTE ===== */
+.vignette {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,0) 40%,
+    rgba(0,0,0,0.75) 100%
+  );
+  z-index: -1;
 }
 
 /* ===== Neon Frame ===== */
@@ -60,9 +86,9 @@ body::after {
   max-width: 1200px;
   min-height: 100vh;
   margin: 20px auto;
-  border: 3px solid red;
-  box-shadow: 0 0 15px red, 0 0 40px red;
-  background-color: rgba(0,0,0,0.78);
+  border: 3px solid #8b0000;
+  box-shadow: 0 0 20px #8b0000, 0 0 60px #4d0000;
+  background-color: rgba(0,0,0,0.82);
   border-radius: 12px;
 }
 
@@ -74,47 +100,48 @@ header {
 
 header img {
   width: 140px;
-  filter: drop-shadow(0 0 15px red);
+  filter: drop-shadow(0 0 20px #8b0000);
 }
 
 /* ===== Hero ===== */
 .hero {
-  padding: 60px 20px;
+  padding: 70px 20px;
   text-align: center;
 }
 
 .hero h1 {
-  font-size: 2.6rem;
-  color: red;
+  font-size: 2.8rem;
+  color: #b30000;
+  letter-spacing: 1px;
 }
 
 .hero p {
-  margin-top: 10px;
+  margin-top: 12px;
   opacity: 0.85;
 }
 
 .hero button {
-  margin-top: 22px;
-  padding: 10px 26px;
-  border: 2px solid red;
+  margin-top: 26px;
+  padding: 12px 30px;
+  border: 2px solid #8b0000;
   background: transparent;
-  color: red;
+  color: #b30000;
   cursor: pointer;
 }
 
 .hero button:hover {
-  background: red;
+  background: #8b0000;
   color: black;
 }
 
 /* ===== Sections ===== */
 section {
-  padding: 60px 20px;
+  padding: 70px 20px;
   text-align: center;
 }
 
 section h2 {
-  color: red;
+  color: #b30000;
   margin-bottom: 30px;
 }
 
@@ -122,16 +149,17 @@ section h2 {
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
+  gap: 22px;
   max-width: 1000px;
   margin: auto;
 }
 
 .card {
-  background: #111;
-  border: 1px solid red;
+  background: rgba(15,15,15,0.95);
+  border: 1px solid #8b0000;
   padding: 18px;
   border-radius: 12px;
+  box-shadow: 0 0 15px rgba(139,0,0,0.5);
 }
 
 .card img {
@@ -150,14 +178,14 @@ section h2 {
 .product-btn {
   display: inline-block;
   padding: 10px 22px;
-  background: red;
+  background: #8b0000;
   color: white;
   text-decoration: none;
   border-radius: 8px;
 }
 
 .product-btn:hover {
-  background: #ff5555;
+  background: #b30000;
 }
 
 /* ===== Instagram Icon ===== */
@@ -168,12 +196,12 @@ section h2 {
   width: 52px;
   height: 52px;
   background: black;
-  border: 2px solid red;
+  border: 2px solid #8b0000;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 12px red;
+  box-shadow: 0 0 18px #8b0000;
 }
 
 .instagram-icon svg {
@@ -183,20 +211,20 @@ section h2 {
 }
 
 .instagram-icon:hover {
-  background: red;
+  background: #8b0000;
 }
 
 /* ===== Footer ===== */
 footer {
-  padding: 18px;
+  padding: 20px;
   text-align: center;
-  opacity: 0.6;
+  opacity: 0.55;
 }
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .hero {
-    padding: 40px 20px;
+    padding: 50px 20px;
   }
   .card img {
     height: 160px;
@@ -206,6 +234,9 @@ footer {
 </head>
 
 <body>
+
+<div class="smoke-layer"></div>
+<div class="vignette"></div>
 
 <div class="neon-frame">
 
@@ -237,6 +268,7 @@ footer {
       <h3>Rider Protection</h3>
       <a href="#" class="product-btn">View Product</a>
     </div>
+
   </div>
 </section>
 
@@ -244,12 +276,16 @@ footer {
   © 2026 Performance Gear
 </footer>
 
-<a href="https://www.instagram.com/_kombo1/" class="instagram-icon" target="_blank">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7z"/>
+<!-- Instagram -->
+<a href="https://www.instagram.com/_kombo1/"
+   class="instagram-icon"
+   target="_blank">
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" viewBox="0 0 24 24">
+    <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/>
   </svg>
 </a>
 
 </div>
+
 </body>
 </html>
