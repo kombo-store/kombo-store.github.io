@@ -13,7 +13,7 @@
 
 body {
   /* الخلفية من رابط GitHub مباشر */
-  background: url('https://github.com/user-attachments/assets/f990fc1e-586e-47cc-9a3a-219dc0134e26') no-repeat center center fixed;
+  background: url('https://github.com/user-attachments/assets/35816956-c1ac-4028-aa12-92423c963dbd') no-repeat center center fixed;
   background-size: cover;
   color: #fff;
   font-family: Arial, sans-serif;
@@ -197,7 +197,7 @@ footer {
 <div class="neon-frame">
 
 <header>
-  <img src="https://i.ibb.co/xs7K1px/logo.png" alt="Logo">
+  <img src="logo.png" alt="Logo"> <!-- ضع هنا اللوجو من جهازك -->
 </header>
 
 <div class="hero">
@@ -210,22 +210,19 @@ footer {
   <h2>Our Products</h2>
   <div class="cards">
     <div class="card">
-      <img src="https://i.ibb.co/9WZxL2R/product1.jpg" alt="High Performance Gear">
+      <img src="product1.jpg" alt="High Performance Gear">
       <h3>High Performance Gear</h3>
-      <a href="https://i.ibb.co/9WZxL2R/product1.jpg"
-         class="product-btn" target="_blank">View Product</a>
+      <a href="product1.jpg" class="product-btn" target="_blank">View Product</a>
     </div>
     <div class="card">
-      <img src="https://i.ibb.co/9WZxL2R/product1.jpg" alt="Athletic Wear">
+      <img src="product2.jpg" alt="Athletic Wear">
       <h3>Athletic Wear</h3>
-      <a href="https://i.ibb.co/9WZxL2R/product1.jpg"
-         class="product-btn" target="_blank">View Product</a>
+      <a href="product2.jpg" class="product-btn" target="_blank">View Product</a>
     </div>
     <div class="card">
-      <img src="https://i.ibb.co/MRhP1vC/product3.jpg" alt="Rider Protection">
+      <img src="product3.jpg" alt="Rider Protection">
       <h3>Rider Protection</h3>
-      <a href="https://i.ibb.co/MRhP1vC/product3.jpg"
-         class="product-btn" target="_blank">View Product</a>
+      <a href="product3.jpg" class="product-btn" target="_blank">View Product</a>
     </div>
   </div>
 </section>
@@ -240,9 +237,7 @@ footer {
 </footer>
 
 <!-- Instagram -->
-<a href="https://www.instagram.com/_kombo1/"
-   class="instagram-icon"
-   target="_blank">
+<a href="https://www.instagram.com/_kombo1/" class="instagram-icon" target="_blank">
   <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" viewBox="0 0 24 24">
     <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/>
   </svg>
