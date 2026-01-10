@@ -13,7 +13,7 @@
 
 body {
   /* الخلفية الجديدة */
-  background: url('/mnt/data/3b767292-7ee4-4b89-ad82-60f1cb5e1a2a.png') no-repeat center center fixed;
+  background: url('<img width="1920" height="1076" alt="thumb-1920-1377819" src="https://github.com/user-attachments/assets/ac223b89-6923-4006-98ff-dbad5c31daf6" />') no-repeat center center fixed;
   background-size: cover;
   color: #fff;
   font-family: Arial, sans-serif;
