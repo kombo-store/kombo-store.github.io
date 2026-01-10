@@ -187,18 +187,21 @@ footer {
 <section>
   <h2>Our Products</h2>
   <div class="cards">
+
     <div class="card">
       <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f">
       <h3>High Performance Gear</h3>
       <a href="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f"
          class="product-btn" target="_blank">View Product</a>
     </div>
+
     <div class="card">
       <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f">
       <h3>Athletic Wear</h3>
       <a href="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f"
          class="product-btn" target="_blank">View Product</a>
     </div>
+
     <div class="card">
       <img src="https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd">
       <h3>Rider Protection</h3>
