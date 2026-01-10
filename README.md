@@ -12,7 +12,8 @@
 }
 
 body {
-  background: url('https://getwallpapers.com/collection/red-and-black-4k-wallpaper') no-repeat center center fixed;
+  /* الخلفية من رابط GitHub مباشر */
+  background: url('https://github.com/user-attachments/assets/f990fc1e-586e-47cc-9a3a-219dc0134e26') no-repeat center center fixed;
   background-size: cover;
   color: #fff;
   font-family: Arial, sans-serif;
