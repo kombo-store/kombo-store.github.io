@@ -12,7 +12,7 @@
 }
 
 body {
-  background: url('https://wall.alphacoders.com/big.php?i=1377819') no-repeat center center fixed;
+  background: url('https://getwallpapers.com/collection/red-and-black-4k-wallpaper') no-repeat center center fixed;
   background-size: cover;
   color: #fff;
   font-family: Arial, sans-serif;
