@@ -13,8 +13,7 @@
 
 body {
   /* الخلفية الجديدة */
-  background: url('background png'>
-') no-repeat center center fixed;
+  background: url('background.png') no-repeat center center fixed;
   background-size: cover;
   color: #fff;
   font-family: Arial, sans-serif;
