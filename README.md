@@ -13,7 +13,8 @@
 
 body {
   /* الخلفية الجديدة من جهازك */
-  background: url('background.jpg') no-repeat center center fixed;
+  background: url("<img width="1920" height="1076" alt="background jpg" src=https://github.com/user-attachments/assets/770a16c8-a1ae-402c-8f2a-70e5fc684373"  />
+') no-repeat center center fixed;
   background-size: cover;
   color: #fff;
   font-family: Arial, sans-serif;
@@ -186,7 +187,7 @@ footer {
 <div class="neon-frame">
 
 <header>
-  <img src="logo.png" alt="Logo"> <!-- ضع هنا اسم اللوجو من جهازك -->
+  <img src="https://github.com/user-attachments/assets/24e77390-843e-43cb-a7fd-7bfeeaa2fed6" alt="Logo">
 </header>
 
 <div class="hero">
@@ -199,19 +200,22 @@ footer {
   <h2>Our Products</h2>
   <div class="cards">
     <div class="card">
-      <img src="product1.jpg" alt="High Performance Gear">
+      <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f" alt="High Performance Gear">
       <h3>High Performance Gear</h3>
-      <a href="product1.jpg" class="product-btn" target="_blank">View Product</a>
+      <a href="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f"
+         class="product-btn" target="_blank">View Product</a>
     </div>
     <div class="card">
-      <img src="product2.jpg" alt="Athletic Wear">
+      <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f" alt="Athletic Wear">
       <h3>Athletic Wear</h3>
-      <a href="product2.jpg" class="product-btn" target="_blank">View Product</a>
+      <a href="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f"
+         class="product-btn" target="_blank">View Product</a>
     </div>
     <div class="card">
-      <img src="product3.jpg" alt="Rider Protection">
+      <img src="https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd" alt="Rider Protection">
       <h3>Rider Protection</h3>
-      <a href="product3.jpg" class="product-btn" target="_blank">View Product</a>
+      <a href="https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd"
+         class="product-btn" target="_blank">View Product</a>
     </div>
   </div>
 </section>
