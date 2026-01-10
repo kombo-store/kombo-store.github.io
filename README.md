@@ -49,13 +49,13 @@ body::after {
   top: 0;
   width: 100%;
   height: 64px;
-  background: rgba(0,0,0,0.88);
+  background: rgba(0,0,0,0.9);
   backdrop-filter: blur(12px);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  z-index: 5000;
+  z-index: 9000;
   border-bottom: 1px solid rgba(255,0,0,0.3);
   box-shadow: 0 0 15px rgba(255,0,0,0.25);
 }
@@ -102,11 +102,14 @@ body::after {
 .neon-frame {
   max-width: 1200px;
   min-height: 100vh;
-  margin: 100px auto 20px;
+  margin: 0 auto;
+  padding-top: 100px;
   border: 3px solid red;
   box-shadow: 0 0 15px red, 0 0 40px red;
   background: rgba(0,0,0,0.78);
   border-radius: 12px;
+  position: relative;
+  z-index: 1;
 }
 
 /* ===== HEADER ===== */
@@ -211,22 +214,30 @@ section h2 {
 /* ===== INSTAGRAM ===== */
 .instagram-icon {
   position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 52px;
-  height: 52px;
+  bottom: 24px;
+  left: 24px;
+  width: 54px;
+  height: 54px;
   background: black;
   border: 2px solid red;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 12px red;
-  z-index: 6000;
+  box-shadow: 0 0 15px red;
+  z-index: 9500;
+  transition: 0.3s;
 }
 
 .instagram-icon:hover {
   background: red;
+  transform: scale(1.08);
+}
+
+.instagram-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: white;
 }
 
 /* ===== LIGHTBOX ===== */
@@ -238,7 +249,7 @@ section h2 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  z-index: 8000;
+  z-index: 9800;
 }
 
 #lightbox img {
@@ -313,6 +324,13 @@ section h2 {
 </footer>
 
 </div>
+
+<!-- INSTAGRAM -->
+<a href="https://www.instagram.com/_kombo1/" class="instagram-icon" target="_blank">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10z"/>
+  </svg>
+</a>
 
 <!-- LIGHTBOX -->
 <div id="lightbox">
