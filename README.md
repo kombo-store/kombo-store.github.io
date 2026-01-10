@@ -14,7 +14,7 @@
 /* ===== BODY BACKGROUND ===== */
 body {
   min-height: 100vh;
-  background: #000;
+  background: #000; /* خلفية سودا */
   color: #fff;
   font-family: Arial, sans-serif;
   position: relative;
@@ -62,9 +62,8 @@ body::after {
   margin: 20px auto;
   border: 3px solid red;
   box-shadow: 0 0 15px red, 0 0 40px red;
-  background-color: rgba(0,0,0,0.78);
+  background-color: rgba(0,0,0,0.78); /* فلتر خفيف */
   border-radius: 12px;
-  padding-bottom: 80px; /* مساحة تحت للإنستاجرام */
 }
 
 /* ===== Header ===== */
@@ -170,7 +169,7 @@ section h2 {
 
 /* ===== Instagram Icon FIXED ===== */
 .instagram-icon {
-  position: fixed;
+  position: fixed; /* ثابت مهما نزلت الصفحة */
   bottom: 20px;
   left: 20px;
   width: 52px;
