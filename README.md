@@ -5,18 +5,23 @@
 <title>Performance Gear for Riders & Athletes</title>
 
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-/* ===== BODY ===== */
+/* ===== BODY BACKGROUND ===== */
 body {
   min-height: 100vh;
   background: #000;
   color: #fff;
   font-family: Arial, sans-serif;
+  position: relative;
   overflow-x: hidden;
 }
 
-/* ===== BACKGROUND EFFECTS ===== */
+/* ===== RED BLUR ===== */
 body::before {
   content: "";
   position: fixed;
@@ -30,12 +35,18 @@ body::before {
   z-index: -2;
 }
 
+/* ===== GRAY SMOKE ===== */
 body::after {
   content: "";
   position: fixed;
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, rgba(200,200,200,0.35), rgba(0,0,0,0));
+  background: radial-gradient(
+    circle,
+    rgba(200,200,200,0.35) 0%,
+    rgba(120,120,120,0.18) 40%,
+    rgba(0,0,0,0) 70%
+  );
   filter: blur(180px);
   opacity: 0.45;
   bottom: -200px;
@@ -43,78 +54,21 @@ body::after {
   z-index: -2;
 }
 
-/* ===== TOP NAV ===== */
-.top-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 64px;
-  background: rgba(0,0,0,0.9);
-  backdrop-filter: blur(12px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 40px;
-  z-index: 9000;
-  border-bottom: 1px solid rgba(255,0,0,0.3);
-  box-shadow: 0 0 15px rgba(255,0,0,0.25);
-}
-
-.top-nav img {
-  height: 34px;
-  filter: drop-shadow(0 0 12px red);
-}
-
-.nav-links {
-  display: flex;
-  gap: 28px;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-  letter-spacing: 1px;
-  position: relative;
-  transition: 0.3s;
-}
-
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: red;
-  transition: 0.3s;
-}
-
-.nav-links a:hover {
-  color: red;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-/* ===== FRAME ===== */
+/* ===== Neon Frame ===== */
 .neon-frame {
+  position: relative;
   max-width: 1200px;
   min-height: 100vh;
-  margin: 0 auto;
-  padding-top: 100px;
+  margin: 20px auto;
   border: 3px solid red;
   box-shadow: 0 0 15px red, 0 0 40px red;
-  background: rgba(0,0,0,0.78);
+  background-color: rgba(0,0,0,0.78);
   border-radius: 12px;
-  position: relative;
-  z-index: 1;
 }
 
-/* ===== HEADER ===== */
+/* ===== Header ===== */
 header {
-  padding: 18px;
+  padding: 16px 0;
   text-align: center;
 }
 
@@ -123,7 +77,7 @@ header img {
   filter: drop-shadow(0 0 15px red);
 }
 
-/* ===== HERO ===== */
+/* ===== Hero ===== */
 .hero {
   padding: 60px 20px;
   text-align: center;
@@ -146,7 +100,6 @@ header img {
   background: transparent;
   color: red;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 .hero button:hover {
@@ -154,7 +107,7 @@ header img {
   color: black;
 }
 
-/* ===== SECTIONS ===== */
+/* ===== Sections ===== */
 section {
   padding: 60px 20px;
   text-align: center;
@@ -165,7 +118,7 @@ section h2 {
   margin-bottom: 30px;
 }
 
-/* ===== CARDS ===== */
+/* ===== Cards ===== */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -179,12 +132,6 @@ section h2 {
   border: 1px solid red;
   padding: 18px;
   border-radius: 12px;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 15px red;
 }
 
 .card img {
@@ -195,7 +142,11 @@ section h2 {
   margin-bottom: 12px;
 }
 
-/* ===== BUTTON ===== */
+.card h3 {
+  margin-bottom: 12px;
+}
+
+/* ===== Product Button ===== */
 .product-btn {
   display: inline-block;
   padding: 10px 22px;
@@ -203,35 +154,26 @@ section h2 {
   color: white;
   text-decoration: none;
   border-radius: 8px;
-  transition: 0.3s;
 }
 
 .product-btn:hover {
   background: #ff5555;
-  transform: scale(1.05);
 }
 
-/* ===== INSTAGRAM ===== */
+/* ===== Instagram Icon ===== */
 .instagram-icon {
-  position: fixed;
-  bottom: 24px;
-  left: 24px;
-  width: 54px;
-  height: 54px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 52px;
+  height: 52px;
   background: black;
   border: 2px solid red;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 15px red;
-  z-index: 9500;
-  transition: 0.3s;
-}
-
-.instagram-icon:hover {
-  background: red;
-  transform: scale(1.08);
+  box-shadow: 0 0 12px red;
 }
 
 .instagram-icon svg {
@@ -240,50 +182,30 @@ section h2 {
   fill: white;
 }
 
-/* ===== LIGHTBOX ===== */
-#lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.95);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  z-index: 9800;
+.instagram-icon:hover {
+  background: red;
 }
 
-#lightbox img {
-  max-width: 80%;
-  max-height: 80%;
-  border: 3px solid red;
-  border-radius: 12px;
+/* ===== Footer ===== */
+footer {
+  padding: 18px;
+  text-align: center;
+  opacity: 0.6;
 }
 
-#lightbox-controls button {
-  margin: 10px;
-  padding: 6px 14px;
-  background: black;
-  color: red;
-  border: 2px solid red;
-  border-radius: 6px;
-  cursor: pointer;
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 20px;
+  }
+  .card img {
+    height: 160px;
+  }
 }
 </style>
 </head>
 
 <body>
-
-<!-- TOP NAV -->
-<div class="top-nav">
-  <img src="https://github.com/user-attachments/assets/24e77390-843e-43cb-a7fd-7bfeeaa2fed6">
-  <div class="nav-links">
-    <a href="#">Products</a>
-    <a href="#">Media</a>
-    <a href="#">Athletes</a>
-    <a href="#">About</a>
-    <a href="#">Support</a>
-  </div>
-</div>
 
 <div class="neon-frame">
 
@@ -300,76 +222,34 @@ section h2 {
 <section>
   <h2>Our Products</h2>
   <div class="cards">
-    <div class="card" data-images='[
-      "https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f",
-      "https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd"
-    ]'>
+    <div class="card">
+      <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f">
+      <h3>High Performance Gear</h3>
+      <a href="#" class="product-btn">View Product</a>
+    </div>
+    <div class="card">
       <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f">
       <h3>Athletic Wear</h3>
       <a href="#" class="product-btn">View Product</a>
     </div>
-    <div class="card" data-images='[
-      "https://github.com/user-attachments/assets/ef44d2a3-a222-4fb3-ae27-e79fc5e8dffc"
-    ]'>
-      <img src="https://github.com/user-attachments/assets/ef44d2a3-a222-4fb3-ae27-e79fc5e8dffc">
-      <h3>Hoodie</h3>
+    <div class="card">
+      <img src="https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd">
+      <h3>Rider Protection</h3>
       <a href="#" class="product-btn">View Product</a>
     </div>
-
   </div>
 </section>
 
-<footer style="text-align:center;opacity:.6;padding:18px">
+<footer>
   © 2026 Performance Gear
 </footer>
 
-</div>
-
-<!-- INSTAGRAM -->
 <a href="https://www.instagram.com/_kombo1/" class="instagram-icon" target="_blank">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10z"/>
+    <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7z"/>
   </svg>
 </a>
 
-<!-- LIGHTBOX -->
-<div id="lightbox">
-  <img src="">
-  <div id="lightbox-controls">
-    <button id="prev">Prev</button>
-    <button id="next">Next</button>
-    <button id="close">Close</button>
-  </div>
 </div>
-
-<script>
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = lightbox.querySelector('img');
-const cards = document.querySelectorAll('.card');
-let imgs = [], index = 0;
-
-cards.forEach(card => {
-  card.querySelector('.product-btn').onclick = e => {
-    e.preventDefault();
-    imgs = JSON.parse(card.dataset.images);
-    index = 0;
-    lightboxImg.src = imgs[index];
-    lightbox.style.display = 'flex';
-  };
-});
-
-prev.onclick = () => {
-  index = (index - 1 + imgs.length) % imgs.length;
-  lightboxImg.src = imgs[index];
-};
-
-next.onclick = () => {
-  index = (index + 1) % imgs.length;
-  lightboxImg.src = imgs[index];
-};
-
-close.onclick = () => lightbox.style.display = 'none';
-</script>
-
 </body>
 </html>
