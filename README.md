@@ -5,35 +5,45 @@
 <title>Performance Gear for Riders & Athletes</title>
 
 <style>
-/* ===== Reset ===== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* ===== Body Background (Black + Red Transition) ===== */
+/* ===== BODY BACKGROUND (STATIC + BLUR) ===== */
 body {
   min-height: 100vh;
-  background: linear-gradient(
-    135deg,
-    #000000 0%,
-    #050505 40%,
-    #1a0000 60%,
-    #ff0000 80%,
-    #1a0000 100%
-  );
-  background-size: 400% 400%;
-  animation: redGlow 14s ease-in-out infinite;
+  background: #000;
   color: #fff;
   font-family: Arial, sans-serif;
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* ===== Background Animation ===== */
-@keyframes redGlow {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Red blur layers */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: red;
+  filter: blur(220px);
+  opacity: 0.35;
+  z-index: -1;
+}
+
+/* top left glow */
+body::before {
+  top: -150px;
+  left: -150px;
+}
+
+/* bottom right glow */
+body::after {
+  bottom: -150px;
+  right: -150px;
 }
 
 /* ===== Neon Frame ===== */
@@ -44,13 +54,13 @@ body {
   margin: 20px auto;
   border: 3px solid red;
   box-shadow: 0 0 15px red, 0 0 40px red;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 14px;
+  background-color: rgba(0,0,0,0.75);
+  border-radius: 12px;
 }
 
 /* ===== Header ===== */
 header {
-  padding: 20px 0;
+  padding: 16px 0;
   text-align: center;
 }
 
@@ -61,7 +71,7 @@ header img {
 
 /* ===== Hero ===== */
 .hero {
-  padding: 70px 20px;
+  padding: 60px 20px;
   text-align: center;
 }
 
@@ -76,13 +86,12 @@ header img {
 }
 
 .hero button {
-  margin-top: 25px;
-  padding: 12px 30px;
+  margin-top: 22px;
+  padding: 10px 26px;
   border: 2px solid red;
   background: transparent;
   color: red;
   cursor: pointer;
-  border-radius: 6px;
 }
 
 .hero button:hover {
@@ -193,7 +202,7 @@ footer {
 <div class="neon-frame">
 
 <header>
-  <img src="https://github.com/user-attachments/assets/24e77390-843e-43cb-a7fd-7bfeeaa2fed6" alt="Logo">
+  <img src="https://github.com/user-attachments/assets/24e77390-843e-43cb-a7fd-7bfeeaa2fed6">
 </header>
 
 <div class="hero">
@@ -224,18 +233,13 @@ footer {
   </div>
 </section>
 
-<section>
-  <h2>Why Choose Us</h2>
-  <p>Designed for speed, durability and comfort.</p>
-</section>
-
 <footer>
   © 2026 Performance Gear
 </footer>
 
 <a href="https://www.instagram.com/_kombo1/" class="instagram-icon" target="_blank">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/>
+    <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10z"/>
   </svg>
 </a>
 
