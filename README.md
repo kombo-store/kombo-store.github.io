@@ -5,11 +5,7 @@
 <title>Performance Gear for Riders & Athletes</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 /* ===== BODY BACKGROUND ===== */
 body {
@@ -41,12 +37,7 @@ body::after {
   position: fixed;
   width: 700px;
   height: 700px;
-  background: radial-gradient(
-    circle,
-    rgba(200,200,200,0.35) 0%,
-    rgba(120,120,120,0.18) 40%,
-    rgba(0,0,0,0) 70%
-  );
+  background: radial-gradient(circle, rgba(200,200,200,0.35) 0%, rgba(120,120,120,0.18) 40%, rgba(0,0,0,0) 70%);
   filter: blur(180px);
   opacity: 0.45;
   bottom: -200px;
@@ -83,15 +74,8 @@ header img {
   text-align: center;
 }
 
-.hero h1 {
-  font-size: 2.6rem;
-  color: red;
-}
-
-.hero p {
-  margin-top: 10px;
-  opacity: 0.85;
-}
+.hero h1 { font-size: 2.6rem; color: red; }
+.hero p { margin-top: 10px; opacity: 0.85; }
 
 .hero button {
   margin-top: 22px;
@@ -102,21 +86,11 @@ header img {
   cursor: pointer;
 }
 
-.hero button:hover {
-  background: red;
-  color: black;
-}
+.hero button:hover { background: red; color: black; }
 
 /* ===== Sections ===== */
-section {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-section h2 {
-  color: red;
-  margin-bottom: 30px;
-}
+section { padding: 60px 20px; text-align: center; }
+section h2 { color: red; margin-bottom: 30px; }
 
 /* ===== Cards ===== */
 .cards {
@@ -132,6 +106,12 @@ section h2 {
   border: 1px solid red;
   padding: 18px;
   border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 15px red;
 }
 
 .card img {
@@ -142,9 +122,7 @@ section h2 {
   margin-bottom: 12px;
 }
 
-.card h3 {
-  margin-bottom: 12px;
-}
+.card h3 { margin-bottom: 12px; }
 
 /* ===== Product Button ===== */
 .product-btn {
@@ -154,15 +132,14 @@ section h2 {
   color: white;
   text-decoration: none;
   border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
-.product-btn:hover {
-  background: #ff5555;
-}
+.product-btn:hover { background: #ff5555; transform: scale(1.05); }
 
 /* ===== Instagram Icon ===== */
 .instagram-icon {
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   left: 20px;
   width: 52px;
@@ -174,16 +151,29 @@ section h2 {
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 12px red;
+  z-index: 1000;
 }
 
-.instagram-icon svg {
-  width: 22px;
-  height: 22px;
-  fill: white;
-}
+.instagram-icon svg { width: 22px; height: 22px; fill: white; }
+.instagram-icon:hover { background: red; }
 
-.instagram-icon:hover {
+/* ===== Scroll to Top ===== */
+#scrollTop {
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
+  width: 45px;
+  height: 45px;
   background: red;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 22px;
+  z-index: 1000;
+  display: none;
 }
 
 /* ===== Footer ===== */
@@ -195,13 +185,55 @@ footer {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  .hero {
-    padding: 40px 20px;
-  }
-  .card img {
-    height: 160px;
-  }
+  .hero { padding: 40px 20px; }
+  .card img { height: 160px; }
 }
+
+/* ===== Lightbox / Carousel ===== */
+#lightbox {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  flex-direction: column;
+}
+
+#lightbox img {
+  max-width: 80%;
+  max-height: 80%;
+  border: 3px solid red;
+  border-radius: 12px;
+}
+
+#lightbox button {
+  margin-top: 15px;
+  padding: 8px 16px;
+  background: red;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#lightbox-controls {
+  margin-top: 10px;
+}
+
+#lightbox-controls button {
+  margin: 0 10px;
+  padding: 6px 12px;
+  background: black;
+  color: red;
+  border: 2px solid red;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
 </style>
 </head>
 
@@ -222,17 +254,24 @@ footer {
 <section>
   <h2>Our Products</h2>
   <div class="cards">
-    <div class="card">
+    <div class="card" data-images='[
+      "https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f",
+      "https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd"
+    ]'>
       <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f">
       <h3>High Performance Gear</h3>
       <a href="#" class="product-btn">View Product</a>
     </div>
-    <div class="card">
+    <div class="card" data-images='[
+      "https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f"
+    ]'>
       <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f">
       <h3>Athletic Wear</h3>
       <a href="#" class="product-btn">View Product</a>
     </div>
-    <div class="card">
+    <div class="card" data-images='[
+      "https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd"
+    ]'>
       <img src="https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd">
       <h3>Rider Protection</h3>
       <a href="#" class="product-btn">View Product</a>
@@ -253,7 +292,62 @@ footer {
   </svg>
 </a>
 
+<!-- Scroll to Top -->
+<div id="scrollTop">&#8679;</div>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <img src="">
+  <div id="lightbox-controls">
+    <button id="prev">Prev</button>
+    <button id="next">Next</button>
+    <button id="close">Close</button>
+  </div>
 </div>
+
+</div>
+
+<script>
+// ===== Scroll to Top =====
+const scrollTopBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 200) scrollTopBtn.style.display = 'flex';
+  else scrollTopBtn.style.display = 'none';
+});
+scrollTopBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+// ===== Lightbox =====
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox.querySelector('img');
+const cards = document.querySelectorAll('.card');
+let currentImages = [];
+let currentIndex = 0;
+
+cards.forEach(card => {
+  const btn = card.querySelector('.product-btn');
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    currentImages = JSON.parse(card.getAttribute('data-images'));
+    currentIndex = 0;
+    lightboxImg.src = currentImages[currentIndex];
+    lightbox.style.display = 'flex';
+  });
+});
+
+document.getElementById('prev').addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+  lightboxImg.src = currentImages[currentIndex];
+});
+
+document.getElementById('next').addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % currentImages.length;
+  lightboxImg.src = currentImages[currentIndex];
+});
+
+document.getElementById('close').addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
+</script>
 
 </body>
 </html>
