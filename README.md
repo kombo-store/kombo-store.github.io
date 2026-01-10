@@ -160,11 +160,11 @@ section h2 {
   background: #ff5555;
 }
 
-/* ===== Instagram Icon ثابت ===== */
+/* ===== Instagram Icon ثابتة تحت الشمال ===== */
 .instagram-icon {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
+  position: fixed; /* ثابت على الشاشة */
+  bottom: 20px;    /* 20px من تحت */
+  left: 20px;      /* 20px من الشمال */
   width: 52px;
   height: 52px;
   background: black;
@@ -174,7 +174,7 @@ section h2 {
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 12px red;
-  z-index: 1000;
+  z-index: 1000;   /* فوق كل العناصر */
 }
 
 .instagram-icon svg {
@@ -203,36 +203,6 @@ footer {
     height: 160px;
   }
 }
-
-/* ===== Lightbox ===== */
-#lightbox {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.9);
-  justify-content: center;
-  align-items: center;
-}
-
-#lightbox img {
-  max-width: 80%;
-  max-height: 80%;
-  border: 3px solid red;
-  border-radius: 10px;
-}
-
-#lightbox .close-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
-}
 </style>
 </head>
 
@@ -253,26 +223,17 @@ footer {
 <section>
   <h2>Our Products</h2>
   <div class="cards">
-    <div class="card" data-images='[
-      "https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f",
-      "https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd"
-    ]'>
+    <div class="card">
       <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f">
       <h3>High Performance Gear</h3>
       <a href="#" class="product-btn">View Product</a>
     </div>
-    <div class="card" data-images='[
-      "https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f",
-      "https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd"
-    ]'>
+    <div class="card">
       <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f">
       <h3>Athletic Wear</h3>
       <a href="#" class="product-btn">View Product</a>
     </div>
-    <div class="card" data-images='[
-      "https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd",
-      "https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f"
-    ]'>
+    <div class="card">
       <img src="https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd">
       <h3>Rider Protection</h3>
       <a href="#" class="product-btn">View Product</a>
@@ -292,43 +253,6 @@ footer {
     <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/>
   </svg>
 </a>
-
-<!-- ===== Lightbox ===== -->
-<div id="lightbox">
-  <span class="close-btn">&times;</span>
-  <img src="" alt="Product Image">
-</div>
-
-<script>
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = lightbox.querySelector('img');
-const closeBtn = lightbox.querySelector('.close-btn');
-let currentImages = [];
-let currentIndex = 0;
-
-document.querySelectorAll('.product-btn').forEach(btn => {
-  btn.addEventListener('click', e => {
-    e.preventDefault();
-    const card = btn.closest('.card');
-    currentImages = JSON.parse(card.dataset.images);
-    currentIndex = 0;
-    lightboxImg.src = currentImages[currentIndex];
-    lightbox.style.display = 'flex';
-  });
-});
-
-lightbox.addEventListener('click', e => {
-  if(e.target !== lightboxImg && e.target !== closeBtn){
-    // Next image on background click
-    currentIndex = (currentIndex + 1) % currentImages.length;
-    lightboxImg.src = currentImages[currentIndex];
-  }
-});
-
-closeBtn.addEventListener('click', () => {
-  lightbox.style.display = 'none';
-});
-</script>
 
 </div>
 
