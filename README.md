@@ -190,7 +190,7 @@ footer { padding: 18px; text-align: center; opacity: 0.6; }
       "https://github.com/user-attachments/assets/ef44d2a3-a222-4fb3-ae27-e79fc5e8dffc"
     ]'>
       <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f"> 
-      <h3>Hoodie</h3>
+      <h3>Athletic Wear</h3>
       <a href="#" class="product-btn">View Product</a>
     </div>
     <div class="card" data-images='[
@@ -198,7 +198,7 @@ footer { padding: 18px; text-align: center; opacity: 0.6; }
       "https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd"
     ]'>
       <img src="https://github.com/user-attachments/assets/ef44d2a3-a222-4fb3-ae27-e79fc5e8dffc">
-      <h3>Athletic Wear</h3>
+      <h3>Hoodie</h3>
       <a href="#" class="product-btn">View Product</a>
     </div>
     <div class="card" data-images='[
