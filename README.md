@@ -11,15 +11,47 @@
   padding: 0;
 }
 
-/* ===== BODY (STATIC CINEMATIC BACKGROUND) ===== */
+/* ===== BODY BACKGROUND ===== */
 body {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top left, rgba(120, 0, 0, 0.45), transparent 55%),
-    radial-gradient(circle at bottom right, rgba(120, 120, 120, 0.25), transparent 60%),
-    #000;
+  background: #000;
   color: #fff;
   font-family: Arial, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ===== RED BLUR ===== */
+body::before {
+  content: "";
+  position: fixed;
+  width: 520px;
+  height: 520px;
+  background: red;
+  filter: blur(230px);
+  opacity: 0.35;
+  top: -160px;
+  left: -160px;
+  z-index: -2;
+}
+
+/* ===== GRAY SMOKE ===== */
+body::after {
+  content: "";
+  position: fixed;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(
+    circle,
+    rgba(200,200,200,0.35) 0%,
+    rgba(120,120,120,0.18) 40%,
+    rgba(0,0,0,0) 70%
+  );
+  filter: blur(180px);
+  opacity: 0.45;
+  bottom: -200px;
+  right: -200px;
+  z-index: -2;
 }
 
 /* ===== Neon Frame ===== */
@@ -28,9 +60,9 @@ body {
   max-width: 1200px;
   min-height: 100vh;
   margin: 20px auto;
-  border: 3px solid #8b0000;
-  box-shadow: 0 0 15px #8b0000, 0 0 40px #4d0000;
-  background-color: rgba(0,0,0,0.75);
+  border: 3px solid red;
+  box-shadow: 0 0 15px red, 0 0 40px red;
+  background-color: rgba(0,0,0,0.78);
   border-radius: 12px;
 }
 
@@ -42,7 +74,7 @@ header {
 
 header img {
   width: 140px;
-  filter: drop-shadow(0 0 15px #8b0000);
+  filter: drop-shadow(0 0 15px red);
 }
 
 /* ===== Hero ===== */
@@ -53,7 +85,7 @@ header img {
 
 .hero h1 {
   font-size: 2.6rem;
-  color: #b30000;
+  color: red;
 }
 
 .hero p {
@@ -64,14 +96,14 @@ header img {
 .hero button {
   margin-top: 22px;
   padding: 10px 26px;
-  border: 2px solid #8b0000;
+  border: 2px solid red;
   background: transparent;
-  color: #b30000;
+  color: red;
   cursor: pointer;
 }
 
 .hero button:hover {
-  background: #8b0000;
+  background: red;
   color: black;
 }
 
@@ -82,7 +114,7 @@ section {
 }
 
 section h2 {
-  color: #b30000;
+  color: red;
   margin-bottom: 30px;
 }
 
@@ -97,7 +129,7 @@ section h2 {
 
 .card {
   background: #111;
-  border: 1px solid #8b0000;
+  border: 1px solid red;
   padding: 18px;
   border-radius: 12px;
 }
@@ -118,14 +150,14 @@ section h2 {
 .product-btn {
   display: inline-block;
   padding: 10px 22px;
-  background: #8b0000;
+  background: red;
   color: white;
   text-decoration: none;
   border-radius: 8px;
 }
 
 .product-btn:hover {
-  background: #b30000;
+  background: #ff5555;
 }
 
 /* ===== Instagram Icon ===== */
@@ -136,12 +168,12 @@ section h2 {
   width: 52px;
   height: 52px;
   background: black;
-  border: 2px solid #8b0000;
+  border: 2px solid red;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 12px #8b0000;
+  box-shadow: 0 0 12px red;
 }
 
 .instagram-icon svg {
@@ -151,7 +183,7 @@ section h2 {
 }
 
 .instagram-icon:hover {
-  background: #8b0000;
+  background: red;
 }
 
 /* ===== Footer ===== */
@@ -178,7 +210,7 @@ footer {
 <div class="neon-frame">
 
 <header>
-  <img src="https://github.com/user-attachments/assets/24e77390-843e-43cb-a7fd-7bfeeaa2fed6" alt="Logo">
+  <img src="https://github.com/user-attachments/assets/24e77390-843e-43cb-a7fd-7bfeeaa2fed6">
 </header>
 
 <div class="hero">
@@ -205,13 +237,7 @@ footer {
       <h3>Rider Protection</h3>
       <a href="#" class="product-btn">View Product</a>
     </div>
-
   </div>
-</section>
-
-<section>
-  <h2>Why Choose Us</h2>
-  <p>Designed for speed, durability and comfort.</p>
 </section>
 
 <footer>
