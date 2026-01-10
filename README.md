@@ -14,7 +14,7 @@
 /* ===== BODY BACKGROUND ===== */
 body {
   min-height: 100vh;
-  background: #000; /* خلفية سودا */
+  background: #000;
   color: #fff;
   font-family: Arial, sans-serif;
   position: relative;
@@ -27,7 +27,7 @@ body::before {
   position: fixed;
   width: 520px;
   height: 520px;
-  background: darkred;
+  background: red;
   filter: blur(230px);
   opacity: 0.35;
   top: -160px;
@@ -62,7 +62,7 @@ body::after {
   margin: 20px auto;
   border: 3px solid red;
   box-shadow: 0 0 15px red, 0 0 40px red;
-  background-color: rgba(0,0,0,0.78); /* فلتر خفيف */
+  background-color: rgba(0,0,0,0.78);
   border-radius: 12px;
 }
 
@@ -86,7 +86,6 @@ header img {
 .hero h1 {
   font-size: 2.6rem;
   color: red;
-  text-shadow: 0 0 6px red;
 }
 
 .hero p {
@@ -94,7 +93,6 @@ header img {
   opacity: 0.85;
 }
 
-/* ===== Hero Button ===== */
 .hero button {
   margin-top: 22px;
   padding: 10px 26px;
@@ -102,7 +100,6 @@ header img {
   background: transparent;
   color: red;
   cursor: pointer;
-  text-shadow: 0 0 4px red;
 }
 
 .hero button:hover {
@@ -119,7 +116,6 @@ section {
 section h2 {
   color: red;
   margin-bottom: 30px;
-  text-shadow: 0 0 4px red;
 }
 
 /* ===== Cards ===== */
@@ -136,8 +132,6 @@ section h2 {
   border: 1px solid red;
   padding: 18px;
   border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 0 8px red;
 }
 
 .card img {
@@ -160,16 +154,15 @@ section h2 {
   color: white;
   text-decoration: none;
   border-radius: 8px;
-  box-shadow: 0 0 6px red;
 }
 
 .product-btn:hover {
   background: #ff5555;
 }
 
-/* ===== Instagram Icon FIXED ===== */
+/* ===== Instagram Icon ===== */
 .instagram-icon {
-  position: fixed; /* ثابت مهما نزلت الصفحة */
+  position: absolute;
   bottom: 20px;
   left: 20px;
   width: 52px;
@@ -181,7 +174,6 @@ section h2 {
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 12px red;
-  z-index: 999;
 }
 
 .instagram-icon svg {
@@ -199,7 +191,6 @@ footer {
   padding: 18px;
   text-align: center;
   opacity: 0.6;
-  text-shadow: 0 0 4px red;
 }
 
 /* ===== Responsive ===== */
@@ -219,7 +210,7 @@ footer {
 <div class="neon-frame">
 
 <header>
-  <img src="https://github.com/user-attachments/assets/24e77390-843e-43cb-a7fd-7bfeeaa2fed6" alt="Logo">
+  <img src="https://github.com/user-attachments/assets/24e77390-843e-43cb-a7fd-7bfeeaa2fed6">
 </header>
 
 <div class="hero">
@@ -232,17 +223,17 @@ footer {
   <h2>Our Products</h2>
   <div class="cards">
     <div class="card">
-      <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f" alt="High Performance Gear">
+      <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f">
       <h3>High Performance Gear</h3>
       <a href="#" class="product-btn">View Product</a>
     </div>
     <div class="card">
-      <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f" alt="Athletic Wear">
+      <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f">
       <h3>Athletic Wear</h3>
       <a href="#" class="product-btn">View Product</a>
     </div>
     <div class="card">
-      <img src="https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd" alt="Rider Protection">
+      <img src="https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd">
       <h3>Rider Protection</h3>
       <a href="#" class="product-btn">View Product</a>
     </div>
@@ -253,8 +244,10 @@ footer {
   © 2026 Performance Gear
 </footer>
 
-<!-- Instagram FIXED -->
-<a href="https://www.instagram.com/_kombo1/" class="instagram-icon" target="_blank">
+<!-- Instagram -->
+<a href="https://www.instagram.com/_kombo1/"
+   class="instagram-icon"
+   target="_blank">
   <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" viewBox="0 0 24 24">
     <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/>
   </svg>
