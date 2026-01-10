@@ -11,73 +11,15 @@
   padding: 0;
 }
 
-/* ===== BODY ===== */
+/* ===== BODY (STATIC CINEMATIC BACKGROUND) ===== */
 body {
   min-height: 100vh;
-  background: #000;
+  background:
+    radial-gradient(circle at top left, rgba(120, 0, 0, 0.45), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(120, 120, 120, 0.25), transparent 60%),
+    #000;
   color: #fff;
   font-family: Arial, sans-serif;
-  position: relative;
-  overflow-x: hidden;
-}
-
-/* ===== DARK RED BLUR (CINEMATIC CORE) ===== */
-body::before {
-  content: "";
-  position: fixed;
-  width: 650px;
-  height: 650px;
-  background: #7a0000; /* أحمر غامق */
-  filter: blur(260px);
-  opacity: 0.45;
-  top: -200px;
-  left: -200px;
-  z-index: -3;
-}
-
-/* ===== HEAVY GRAY SMOKE ===== */
-body::after {
-  content: "";
-  position: fixed;
-  width: 900px;
-  height: 900px;
-  background: radial-gradient(
-    circle,
-    rgba(200,200,200,0.45) 0%,
-    rgba(120,120,120,0.25) 35%,
-    rgba(40,40,40,0.15) 55%,
-    rgba(0,0,0,0) 75%
-  );
-  filter: blur(220px);
-  opacity: 0.55;
-  bottom: -300px;
-  right: -300px;
-  z-index: -3;
-}
-
-/* ===== EXTRA SMOKE LAYER ===== */
-.smoke-layer {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at top,
-    rgba(160,160,160,0.18),
-    rgba(0,0,0,0.9)
-  );
-  filter: blur(120px);
-  z-index: -2;
-}
-
-/* ===== CINEMATIC VIGNETTE ===== */
-.vignette {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0,0,0,0) 40%,
-    rgba(0,0,0,0.75) 100%
-  );
-  z-index: -1;
 }
 
 /* ===== Neon Frame ===== */
@@ -87,8 +29,8 @@ body::after {
   min-height: 100vh;
   margin: 20px auto;
   border: 3px solid #8b0000;
-  box-shadow: 0 0 20px #8b0000, 0 0 60px #4d0000;
-  background-color: rgba(0,0,0,0.82);
+  box-shadow: 0 0 15px #8b0000, 0 0 40px #4d0000;
+  background-color: rgba(0,0,0,0.75);
   border-radius: 12px;
 }
 
@@ -100,29 +42,28 @@ header {
 
 header img {
   width: 140px;
-  filter: drop-shadow(0 0 20px #8b0000);
+  filter: drop-shadow(0 0 15px #8b0000);
 }
 
 /* ===== Hero ===== */
 .hero {
-  padding: 70px 20px;
+  padding: 60px 20px;
   text-align: center;
 }
 
 .hero h1 {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   color: #b30000;
-  letter-spacing: 1px;
 }
 
 .hero p {
-  margin-top: 12px;
+  margin-top: 10px;
   opacity: 0.85;
 }
 
 .hero button {
-  margin-top: 26px;
-  padding: 12px 30px;
+  margin-top: 22px;
+  padding: 10px 26px;
   border: 2px solid #8b0000;
   background: transparent;
   color: #b30000;
@@ -136,7 +77,7 @@ header img {
 
 /* ===== Sections ===== */
 section {
-  padding: 70px 20px;
+  padding: 60px 20px;
   text-align: center;
 }
 
@@ -149,17 +90,16 @@ section h2 {
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 22px;
+  gap: 20px;
   max-width: 1000px;
   margin: auto;
 }
 
 .card {
-  background: rgba(15,15,15,0.95);
+  background: #111;
   border: 1px solid #8b0000;
   padding: 18px;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(139,0,0,0.5);
 }
 
 .card img {
@@ -201,7 +141,7 @@ section h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 18px #8b0000;
+  box-shadow: 0 0 12px #8b0000;
 }
 
 .instagram-icon svg {
@@ -216,15 +156,15 @@ section h2 {
 
 /* ===== Footer ===== */
 footer {
-  padding: 20px;
+  padding: 18px;
   text-align: center;
-  opacity: 0.55;
+  opacity: 0.6;
 }
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .hero {
-    padding: 50px 20px;
+    padding: 40px 20px;
   }
   .card img {
     height: 160px;
@@ -235,13 +175,10 @@ footer {
 
 <body>
 
-<div class="smoke-layer"></div>
-<div class="vignette"></div>
-
 <div class="neon-frame">
 
 <header>
-  <img src="https://github.com/user-attachments/assets/24e77390-843e-43cb-a7fd-7bfeeaa2fed6">
+  <img src="https://github.com/user-attachments/assets/24e77390-843e-43cb-a7fd-7bfeeaa2fed6" alt="Logo">
 </header>
 
 <div class="hero">
@@ -270,6 +207,11 @@ footer {
     </div>
 
   </div>
+</section>
+
+<section>
+  <h2>Why Choose Us</h2>
+  <p>Designed for speed, durability and comfort.</p>
 </section>
 
 <footer>
