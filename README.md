@@ -58,34 +58,14 @@ body::after {
 }
 
 /* ===== Header ===== */
-header {
-  padding: 16px 0;
-  text-align: center;
-}
-
-header img {
-  width: 140px;
-  filter: drop-shadow(0 0 15px red);
-}
+header { padding: 16px 0; text-align: center; }
+header img { width: 140px; filter: drop-shadow(0 0 15px red); }
 
 /* ===== Hero ===== */
-.hero {
-  padding: 60px 20px;
-  text-align: center;
-}
-
+.hero { padding: 60px 20px; text-align: center; }
 .hero h1 { font-size: 2.6rem; color: red; }
 .hero p { margin-top: 10px; opacity: 0.85; }
-
-.hero button {
-  margin-top: 22px;
-  padding: 10px 26px;
-  border: 2px solid red;
-  background: transparent;
-  color: red;
-  cursor: pointer;
-}
-
+.hero button { margin-top: 22px; padding: 10px 26px; border: 2px solid red; background: transparent; color: red; cursor: pointer; }
 .hero button:hover { background: red; color: black; }
 
 /* ===== Sections ===== */
@@ -109,19 +89,9 @@ section h2 { color: red; margin-bottom: 30px; }
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 15px red;
-}
+.card:hover { transform: translateY(-6px); box-shadow: 0 0 15px red; }
 
-.card img {
-  width: 100%;
-  height: 190px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 12px;
-}
-
+.card img { width: 100%; height: 190px; object-fit: cover; border-radius: 10px; margin-bottom: 12px; }
 .card h3 { margin-bottom: 12px; }
 
 /* ===== Product Button ===== */
@@ -157,37 +127,8 @@ section h2 { color: red; margin-bottom: 30px; }
 .instagram-icon svg { width: 22px; height: 22px; fill: white; }
 .instagram-icon:hover { background: red; }
 
-/* ===== Scroll to Top ===== */
-#scrollTop {
-  position: fixed;
-  right: 20px;
-  bottom: 90px;
-  width: 45px;
-  height: 45px;
-  background: red;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 22px;
-  z-index: 1000;
-  display: none;
-}
-
 /* ===== Footer ===== */
-footer {
-  padding: 18px;
-  text-align: center;
-  opacity: 0.6;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-  .hero { padding: 40px 20px; }
-  .card img { height: 160px; }
-}
+footer { padding: 18px; text-align: center; opacity: 0.6; }
 
 /* ===== Lightbox / Carousel ===== */
 #lightbox {
@@ -208,17 +149,6 @@ footer {
   border-radius: 12px;
 }
 
-#lightbox button {
-  margin-top: 15px;
-  padding: 8px 16px;
-  background: red;
-  border: none;
-  color: white;
-  font-size: 18px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
 #lightbox-controls {
   margin-top: 10px;
 }
@@ -233,7 +163,6 @@ footer {
   cursor: pointer;
   font-size: 16px;
 }
-
 </style>
 </head>
 
@@ -254,23 +183,27 @@ footer {
 <section>
   <h2>Our Products</h2>
   <div class="cards">
+    <!-- كل كارد ممكن تضيف له أي عدد صور هنا -->
     <div class="card" data-images='[
       "https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f",
-      "https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd"
+      "https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd",
+      "https://github.com/user-attachments/assets/ef44d2a3-a222-4fb3-ae27-e79fc5e8dffc"
     ]'>
-      <img src="https://github.com/user-attachments/assets/ef44d2a3-a222-4fb3-ae27-e79fc5e8dffc"> 
+      <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f"> 
       <h3>Hoodie</h3>
       <a href="#" class="product-btn">View Product</a>
     </div>
     <div class="card" data-images='[
-      "https://github.com/user-attachments/assets/ef44d2a3-a222-4fb3-ae27-e79fc5e8dffc"
-      ]'> 
-      <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f">
+      "https://github.com/user-attachments/assets/ef44d2a3-a222-4fb3-ae27-e79fc5e8dffc",
+      "https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd"
+    ]'>
+      <img src="https://github.com/user-attachments/assets/ef44d2a3-a222-4fb3-ae27-e79fc5e8dffc">
       <h3>Athletic Wear</h3>
       <a href="#" class="product-btn">View Product</a>
     </div>
     <div class="card" data-images='[
-      "https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd"
+      "https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd",
+      "https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f"
     ]'>
       <img src="https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd">
       <h3>Rider Protection</h3>
@@ -292,9 +225,6 @@ footer {
   </svg>
 </a>
 
-<!-- Scroll to Top -->
-<div id="scrollTop">&#8679;</div>
-
 <!-- Lightbox -->
 <div id="lightbox">
   <img src="">
@@ -308,14 +238,6 @@ footer {
 </div>
 
 <script>
-// ===== Scroll to Top =====
-const scrollTopBtn = document.getElementById('scrollTop');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 200) scrollTopBtn.style.display = 'flex';
-  else scrollTopBtn.style.display = 'none';
-});
-scrollTopBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
-
 // ===== Lightbox =====
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = lightbox.querySelector('img');
