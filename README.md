@@ -11,7 +11,7 @@
   padding: 0;
 }
 
-/* ===== BODY BACKGROUND (STATIC + BLUR) ===== */
+/* ===== BODY BACKGROUND ===== */
 body {
   min-height: 100vh;
   background: #000;
@@ -21,29 +21,37 @@ body {
   overflow-x: hidden;
 }
 
-/* Red blur layers */
-body::before,
+/* ===== RED BLUR ===== */
+body::before {
+  content: "";
+  position: fixed;
+  width: 520px;
+  height: 520px;
+  background: red;
+  filter: blur(230px);
+  opacity: 0.35;
+  top: -160px;
+  left: -160px;
+  z-index: -2;
+}
+
+/* ===== GRAY SMOKE ===== */
 body::after {
   content: "";
   position: fixed;
-  width: 500px;
-  height: 500px;
-  background: red;
-  filter: blur(220px);
-  opacity: 0.35;
-  z-index: -1;
-}
-
-/* top left glow */
-body::before {
-  top: -150px;
-  left: -150px;
-}
-
-/* bottom right glow */
-body::after {
-  bottom: -150px;
-  right: -150px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(
+    circle,
+    rgba(200,200,200,0.35) 0%,
+    rgba(120,120,120,0.18) 40%,
+    rgba(0,0,0,0) 70%
+  );
+  filter: blur(180px);
+  opacity: 0.45;
+  bottom: -200px;
+  right: -200px;
+  z-index: -2;
 }
 
 /* ===== Neon Frame ===== */
@@ -54,7 +62,7 @@ body::after {
   margin: 20px auto;
   border: 3px solid red;
   box-shadow: 0 0 15px red, 0 0 40px red;
-  background-color: rgba(0,0,0,0.75);
+  background-color: rgba(0,0,0,0.78);
   border-radius: 12px;
 }
 
@@ -229,7 +237,6 @@ footer {
       <h3>Rider Protection</h3>
       <a href="#" class="product-btn">View Product</a>
     </div>
-
   </div>
 </section>
 
@@ -239,7 +246,7 @@ footer {
 
 <a href="https://www.instagram.com/_kombo1/" class="instagram-icon" target="_blank">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10z"/>
+    <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7z"/>
   </svg>
 </a>
 
