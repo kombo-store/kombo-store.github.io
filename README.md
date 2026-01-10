@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -11,15 +12,47 @@
   padding: 0;
 }
 
-/* ===== BODY (STATIC CINEMATIC BACKGROUND) ===== */
+/* ===== BODY BACKGROUND ===== */
 body {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top left, rgba(120, 0, 0, 0.45), transparent 55%),
-    radial-gradient(circle at bottom right, rgba(120, 120, 120, 0.25), transparent 60%),
-    #000;
+  background: #000;
   color: #fff;
   font-family: Arial, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ===== RED BLUR ===== */
+body::before {
+  content: "";
+  position: fixed;
+  width: 520px;
+  height: 520px;
+  background: red;
+  filter: blur(230px);
+  opacity: 0.35;
+  top: -160px;
+  left: -160px;
+  z-index: -2;
+}
+
+/* ===== GRAY SMOKE ===== */
+body::after {
+  content: "";
+  position: fixed;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(
+    circle,
+    rgba(200,200,200,0.35) 0%,
+    rgba(120,120,120,0.18) 40%,
+    rgba(0,0,0,0) 70%
+  );
+  filter: blur(180px);
+  opacity: 0.45;
+  bottom: -200px;
+  right: -200px;
+  z-index: -2;
 }
 
 /* ===== Neon Frame ===== */
@@ -28,9 +61,9 @@ body {
   max-width: 1200px;
   min-height: 100vh;
   margin: 20px auto;
-  border: 3px solid #8b0000;
-  box-shadow: 0 0 15px #8b0000, 0 0 40px #4d0000;
-  background-color: rgba(0,0,0,0.75);
+  border: 3px solid red;
+  box-shadow: 0 0 15px red, 0 0 40px red;
+  background-color: rgba(0,0,0,0.78);
   border-radius: 12px;
 }
 
@@ -42,7 +75,7 @@ header {
 
 header img {
   width: 140px;
-  filter: drop-shadow(0 0 15px #8b0000);
+  filter: drop-shadow(0 0 15px red);
 }
 
 /* ===== Hero ===== */
@@ -53,7 +86,7 @@ header img {
 
 .hero h1 {
   font-size: 2.6rem;
-  color: #b30000;
+  color: red;
 }
 
 .hero p {
@@ -64,14 +97,14 @@ header img {
 .hero button {
   margin-top: 22px;
   padding: 10px 26px;
-  border: 2px solid #8b0000;
+  border: 2px solid red;
   background: transparent;
-  color: #b30000;
+  color: red;
   cursor: pointer;
 }
 
 .hero button:hover {
-  background: #8b0000;
+  background: red;
   color: black;
 }
 
@@ -82,7 +115,7 @@ section {
 }
 
 section h2 {
-  color: #b30000;
+  color: red;
   margin-bottom: 30px;
 }
 
@@ -97,7 +130,7 @@ section h2 {
 
 .card {
   background: #111;
-  border: 1px solid #8b0000;
+  border: 1px solid red;
   padding: 18px;
   border-radius: 12px;
 }
@@ -118,35 +151,30 @@ section h2 {
 .product-btn {
   display: inline-block;
   padding: 10px 22px;
-  background: #8b0000;
+  background: red;
   color: white;
   text-decoration: none;
   border-radius: 8px;
 }
 
 .product-btn:hover {
-  background: #b30000;
+  background: #ff5555;
 }
 
 /* ===== Instagram Icon ===== */
 .instagram-icon {
-  position: fixed;
+  position: absolute;
   bottom: 20px;
   left: 20px;
   width: 52px;
   height: 52px;
-  background: rgba(0,0,0,0.4);
-  border: 2px solid #8b0000;
+  background: black;
+  border: 2px solid red;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 12px #8b0000;
-  backdrop-filter: blur(6px);
-  transition: all 0.3s ease;
-  animation: fadeIn 1.5s ease forwards;
-  opacity: 0;
-  z-index: 10;
+  box-shadow: 0 0 12px red;
 }
 
 .instagram-icon svg {
@@ -156,14 +184,7 @@ section h2 {
 }
 
 .instagram-icon:hover {
-  background: #8b0000;
-  transform: scale(1.15);
-  box-shadow: 0 0 20px #b30000, 0 0 40px #8b0000;
-}
-
-/* ===== Fade-in Animation ===== */
-@keyframes fadeIn {
-  to { opacity: 1; }
+  background: red;
 }
 
 /* ===== Footer ===== */
@@ -181,10 +202,6 @@ footer {
   .card img {
     height: 160px;
   }
-  .instagram-icon {
-    width: 46px;
-    height: 46px;
-  }
 }
 </style>
 </head>
@@ -194,7 +211,7 @@ footer {
 <div class="neon-frame">
 
 <header>
-  <img src="https://github.com/user-attachments/assets/24e77390-843e-43cb-a7fd-7bfeeaa2fed6" alt="Logo">
+  <img src="https://github.com/user-attachments/assets/24e77390-843e-43cb-a7fd-7bfeeaa2fed6">
 </header>
 
 <div class="hero">
@@ -221,13 +238,7 @@ footer {
       <h3>Rider Protection</h3>
       <a href="#" class="product-btn">View Product</a>
     </div>
-
   </div>
-</section>
-
-<section>
-  <h2>Why Choose Us</h2>
-  <p>Designed for speed, durability and comfort.</p>
 </section>
 
 <footer>
@@ -235,12 +246,15 @@ footer {
 </footer>
 
 <!-- Instagram -->
-<a href="https://www.instagram.com/_kombo1/" class="instagram-icon" target="_blank" aria-label="@_kombo1">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+<a href="https://www.instagram.com/_kombo1/"
+   class="instagram-icon"
+   target="_blank">
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" viewBox="0 0 24 24">
     <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/>
   </svg>
 </a>
 
 </div>
+
 </body>
 </html>
