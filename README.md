@@ -13,7 +13,7 @@
 
 body {
   /* الخلفية الجديدة */
-  background: url('/mnt/data/3b767292-7ee4-4b89-ad82-60f1cb5e1a2a.png') no-repeat center center fixed;
+  background: url('background.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #fff;
   font-family: Arial, sans-serif;
@@ -218,13 +218,13 @@ footer {
   © 2026 Performance Gear
 </footer>
 
-<!-- Instagram Icon -->
-<a href="https://www.instagram.com/USERNAME" class="instagram-icon" target="_blank" aria-label="Instagram">
-  <svg viewBox="0 0 448 512">
-    <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.3 0-74.7-33.4-74.7-74.7s33.4-74.7 74.7-74.7 74.7 33.4 74.7 74.7-33.4 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zM398.8 80.5c-1.7-35.3-9.9-66.6-36.2-92.9C336.4-18.7 305.1-26.9 269.8-28.6c-35.5-1.7-56.1-1.7-91.6 0C142.9-26.9 111.6-18.7 85.3 7.6 59 33.9 50.8 65.2 49.1 100.5c-1.7 35.5-1.7 56.1 0 91.6 1.7 35.3 9.9 66.6 36.2 92.9 26.3 26.3 57.6 34.5 92.9 36.2 35.5 1.7 56.1 1.7 91.6 0 35.3-1.7 66.6-9.9 92.9-36.2 26.3-26.3 34.5-57.6 36.2-92.9 1.7-35.5 1.7-56.1 0-91.6z"/>
+<!-- Instagram -->
+<a href="https://www.instagram.com/_kombo1/"
+   class="instagram-icon"
+   target="_blank">
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" viewBox="0 0 24 24">
+    <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/>
   </svg>
 </a>
 
 </div>
-</body>
-</html>
