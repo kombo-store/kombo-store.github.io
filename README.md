@@ -440,15 +440,15 @@
         </div>
       </div>
       <div class="product-card">
-        <img src="jacket1.jpg" alt="Jacket">
+        <img src="https://github.com/user-attachments/assets/fe29613d-32ad-4136-a616-a6bfe2dffe51" />
         <div class="product-info">
-          <h3>Red Strike Jacket</h3>
+          <h3>Black Mask</h3>
           <span>1450 EGP</span>
           <button class="add-to-cart">Add to Cart</button>
         </div>
       </div>
       <div class="product-card">
-        <img src="tshirt1.jpg" alt="Tshirt">
+        <img src="https://github.com/user-attachments/assets/9163e76d-974e-47de-9901-6bc200451d4c" />
         <div class="product-info">
           <h3>Kombo Core Tee</h3>
           <span>450 EGP</span>
