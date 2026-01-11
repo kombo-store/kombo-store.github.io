@@ -1,275 +1,349 @@
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Performance Gear for Riders & Athletes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kombo Store</title>
 
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
 
-/* ===== BODY BACKGROUND ===== */
-body {
-  min-height: 100vh;
-  background: #000;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  position: relative;
-  overflow-x: hidden;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* ===== RED BLUR ===== */
-body::before {
-  content: "";
-  position: fixed;
-  width: 520px;
-  height: 520px;
-  background: red;
-  filter: blur(230px);
-  opacity: 0.35;
-  top: -160px;
-  left: -160px;
-  z-index: -2;
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #141414, #000);
+      color: #fff;
+    }
 
-/* ===== GRAY SMOKE ===== */
-body::after {
-  content: "";
-  position: fixed;
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(200,200,200,0.35) 0%, rgba(120,120,120,0.18) 40%, rgba(0,0,0,0) 70%);
-  filter: blur(180px);
-  opacity: 0.45;
-  bottom: -200px;
-  right: -200px;
-  z-index: -2;
-}
+    /* HEADER */
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+    }
 
-/* ===== Neon Frame ===== */
-.neon-frame {
-  position: relative;
-  max-width: 1200px;
-  min-height: 100vh;
-  margin: 20px auto;
-  border: 3px solid red;
-  box-shadow: 0 0 15px red, 0 0 40px red;
-  background-color: rgba(0,0,0,0.78);
-  border-radius: 12px;
-}
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
 
-/* ===== Header ===== */
-header { padding: 16px 0; text-align: center; }
-header img { width: 140px; filter: drop-shadow(0 0 15px red); }
+    .header nav {
+      display: flex;
+    }
 
-/* ===== Hero ===== */
-.hero { padding: 60px 20px; text-align: center; }
-.hero h1 { font-size: 2.6rem; color: red; }
-.hero p { margin-top: 10px; opacity: 0.85; }
-.hero button { margin-top: 22px; padding: 10px 26px; border: 2px solid red; background: transparent; color: red; cursor: pointer; }
-.hero button:hover { background: red; color: black; }
+    .header nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #fff;
+      position: relative;
+    }
 
-/* ===== Sections ===== */
-section { padding: 60px 20px; text-align: center; }
-section h2 { color: red; margin-bottom: 30px; }
+    .header nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #ff1e1e;
+      transition: .3s;
+    }
 
-/* ===== Cards ===== */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-  max-width: 1000px;
-  margin: auto;
-}
+    .header nav a:hover::after {
+      width: 100%;
+    }
 
-.card {
-  background: #111;
-  border: 1px solid red;
-  padding: 18px;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    /* CART */
+    .cart {
+      position: relative;
+      font-size: 24px;
+      cursor: pointer;
+    }
 
-.card:hover { transform: translateY(-6px); box-shadow: 0 0 15px red; }
+    #cart-count {
+      position: absolute;
+      top: -8px;
+      right: -12px;
+      background: #ff1e1e;
+      color: #fff;
+      font-size: 14px;
+      padding: 2px 7px;
+      border-radius: 50%;
+      font-weight: bold;
+    }
 
-.card img { width: 100%; height: 190px; object-fit: cover; border-radius: 10px; margin-bottom: 12px; }
-.card h3 { margin-bottom: 12px; }
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
 
-/* ===== Product Button ===== */
-.product-btn {
-  display: inline-block;
-  padding: 10px 22px;
-  background: red;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      transition: 0.3s;
+    }
 
-.product-btn:hover { background: #ff5555; transform: scale(1.05); }
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background: url("hero.jpg") center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-left: 60px;
+    }
 
-/* ===== Instagram Icon ===== */
-.instagram-icon {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 52px;
-  height: 52px;
-  background: black;
-  border: 2px solid red;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 12px red;
-  z-index: 1000;
-}
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.65);
+    }
 
-.instagram-icon svg { width: 22px; height: 22px; fill: white; }
-.instagram-icon:hover { background: red; }
+    .hero-content {
+      position: relative;
+      max-width: 600px;
+    }
 
-/* ===== Footer ===== */
-footer { padding: 18px; text-align: center; opacity: 0.6; }
+    .hero h1 {
+      font-size: 70px;
+      letter-spacing: 4px;
+      margin-bottom: 20px;
+    }
 
-/* ===== Lightbox / Carousel ===== */
-#lightbox {
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.95);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-  flex-direction: column;
-}
+    .hero p {
+      color: #ccc;
+      margin-bottom: 30px;
+    }
 
-#lightbox img {
-  max-width: 80%;
-  max-height: 80%;
-  border: 3px solid red;
-  border-radius: 12px;
-}
+    .main-btn {
+      background: #ff1e1e;
+      padding: 15px 45px;
+      border: none;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      transition: .3s;
+    }
 
-#lightbox-controls {
-  margin-top: 10px;
-}
+    .main-btn:hover {
+      background: #c70000;
+      transform: translateY(-3px);
+    }
 
-#lightbox-controls button {
-  margin: 0 10px;
-  padding: 6px 12px;
-  background: black;
-  color: red;
-  border: 2px solid red;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
-}
-</style>
+    /* PRODUCTS */
+    .products {
+      padding: 120px 60px;
+      background: #000;
+    }
+
+    .products h2 {
+      font-size: 40px;
+      margin-bottom: 60px;
+      letter-spacing: 3px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    .product-card {
+      background: #111;
+      overflow: hidden;
+      transition: .4s;
+      position: relative;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      transition: .4s;
+    }
+
+    .product-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-info h3 {
+      margin-bottom: 10px;
+    }
+
+    .product-info span {
+      color: #ff1e1e;
+      font-weight: bold;
+    }
+
+    .product-info button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      background: transparent;
+      border: 1px solid #ff1e1e;
+      color: #fff;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .product-info button:hover {
+      background: #ff1e1e;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+
+      .header nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 200px;
+        height: 100%;
+        background: #111;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s;
+        gap: 30px;
+        z-index: 999;
+      }
+
+      .header nav.active {
+        right: 0;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .hero {
+        padding-left: 30px;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-<div class="neon-frame">
-
-<header>
-  <img src="https://github.com/user-attachments/assets/24e77390-843e-43cb-a7fd-7bfeeaa2fed6">
-</header>
-
-<div class="hero">
-  <h1>Performance Gear</h1>
-  <p>Built for Riders & Athletes</p>
-  <button>Explore</button>
-</div>
-
-<section>
-  <h2>Our Products</h2>
-  <div class="cards">
-    <!-- كل كارد ممكن تضيف له أي عدد صور هنا -->
-    <div class="card" data-images='[
-      "https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f",
-      "https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd",
-      "https://github.com/user-attachments/assets/ef44d2a3-a222-4fb3-ae27-e79fc5e8dffc"
-    ]'>
-      <img src="https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f"> 
-      <h3>Athletic Wear</h3>
-      <a href="#" class="product-btn">View Product</a>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">KOMBO</div>
+    <nav>
+      <a href="#">Shop</a>
+      <a href="#">Collections</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="cart">
+      🛒 <span id="cart-count">0</span>
     </div>
-    <div class="card" data-images='[
-      "https://github.com/user-attachments/assets/ef44d2a3-a222-4fb3-ae27-e79fc5e8dffc",
-      "https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd"
-    ]'>
-      <img src="https://github.com/user-attachments/assets/ef44d2a3-a222-4fb3-ae27-e79fc5e8dffc">
-      <h3>Hoodie</h3>
-      <a href="#" class="product-btn">View Product</a>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-    <div class="card" data-images='[
-      "https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd",
-      "https://github.com/user-attachments/assets/6d62477c-299b-4aeb-ba55-9a00a471930f"
-    ]'>
-      <img src="https://github.com/user-attachments/assets/82290cd4-5806-460d-b310-7569734e6dfd">
-      <h3>Rider Protection</h3>
-      <a href="#" class="product-btn">View Product</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>WEAR THE POWER</h1>
+      <p>Streetwear built for dominance</p>
+      <button class="main-btn">SHOP NOW</button>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  © 2026 Performance Gear
-</footer>
+  <!-- PRODUCTS -->
+  <section class="products">
+    <h2>KOMBO DROPS</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <img src="hoodie1.jpg" alt="Hoodie">
+        <div class="product-info">
+          <h3>Black Shadow Hoodie</h3>
+          <span>950 EGP</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="jacket1.jpg" alt="Jacket">
+        <div class="product-info">
+          <h3>Red Strike Jacket</h3>
+          <span>1450 EGP</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="tshirt1.jpg" alt="Tshirt">
+        <div class="product-info">
+          <h3>Kombo Core Tee</h3>
+          <span>450 EGP</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Instagram -->
-<a href="https://www.instagram.com/_kombo1/"
-   class="instagram-icon"
-   target="_blank">
-  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" viewBox="0 0 24 24">
-    <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/>
-  </svg>
-</a>
+  <!-- JS -->
+  <script>
+    // Add to Cart
+    let cartCount = 0;
+    const cartCountEl = document.getElementById('cart-count');
+    const addButtons = document.querySelectorAll('.add-to-cart');
 
-<!-- Lightbox -->
-<div id="lightbox">
-  <img src="">
-  <div id="lightbox-controls">
-    <button id="prev">Prev</button>
-    <button id="next">Next</button>
-    <button id="close">Close</button>
-  </div>
-</div>
+    addButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        cartCount++;
+        cartCountEl.textContent = cartCount;
+        btn.textContent = "Added";
+        btn.disabled = true;
+        btn.style.background = "#555";
+      });
+    });
 
-</div>
+    // Hamburger Menu
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.querySelector('.header nav');
 
-<script>
-// ===== Lightbox =====
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = lightbox.querySelector('img');
-const cards = document.querySelectorAll('.card');
-let currentImages = [];
-let currentIndex = 0;
-
-cards.forEach(card => {
-  const btn = card.querySelector('.product-btn');
-  btn.addEventListener('click', e => {
-    e.preventDefault();
-    currentImages = JSON.parse(card.getAttribute('data-images'));
-    currentIndex = 0;
-    lightboxImg.src = currentImages[currentIndex];
-    lightbox.style.display = 'flex';
-  });
-});
-
-document.getElementById('prev').addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-  lightboxImg.src = currentImages[currentIndex];
-});
-
-document.getElementById('next').addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % currentImages.length;
-  lightboxImg.src = currentImages[currentIndex];
-});
-
-document.getElementById('close').addEventListener('click', () => {
-  lightbox.style.display = 'none';
-});
-</script>
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      hamburger.classList.toggle('open');
+    });
+  </script>
 
 </body>
 </html>
