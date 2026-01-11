@@ -23,7 +23,7 @@
     #cart-count{position:absolute;top:-8px;right:-12px;background:#ff1e1e;color:#fff;font-size:14px;padding:2px 7px;border-radius:50%;font-weight:bold}
     .hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px}
     .hamburger span{width:25px;height:3px;background:#fff;transition:0.3s}
-    .hero{height:100vh;background:url("https://i.ibb.co/9Yk8h1J/hero.jpg") center/cover no-repeat;position:relative;display:flex;align-items:center;padding-left:60px;opacity:0;transform:translateY(20px);transition:1s ease}
+    .hero{height:100vh;background:url("https://ibb.co/jPjz72wJ") center/cover no-repeat;position:relative;display:flex;align-items:center;padding-left:60px;opacity:0;transform:translateY(20px);transition:1s ease}
     .hero.visible{opacity:1;transform:translateY(0)}
     .overlay{position:absolute;inset:0;background:rgba(0,0,0,.65)}
     .hero-content{position:relative;max-width:600px}
@@ -92,8 +92,8 @@
   <h2>KOMBO DROPS</h2>
   <div class="products-grid">
     <div class="product-card">
-      <a href="https://i.ibb.co/2NqvF1R/hoodie1.jpg" class="product-link">
-        <img src="https://i.ibb.co/2NqvF1R/hoodie1.jpg" alt="Black Shadow Hoodie">
+      <a href="https://github.com/user-attachments/assets/9b2c9f43-ff92-4061-a769-246c21bc2b19" class="product-link">
+        <img src="https://github.com/user-attachments/assets/9b2c9f43-ff92-4061-a769-246c21bc2b19" alt="Black Shadow Hoodie">
       </a>
       <div class="product-info">
         <h3>Black Shadow Hoodie</h3>
@@ -102,8 +102,8 @@
       </div>
     </div>
     <div class="product-card">
-      <a href="https://i.ibb.co/3pK2HfC/jacket1.jpg" class="product-link">
-        <img src="https://i.ibb.co/3pK2HfC/jacket1.jpg" alt="Black Mask">
+      <a href="https://github.com/user-attachments/assets/67d45d88-bc57-48e1-8862-4ecb5ef3ef3e" class="product-link">
+        <img src="https://github.com/user-attachments/assets/67d45d88-bc57-48e1-8862-4ecb5ef3ef3e" alt="Black Mask">
       </a>
       <div class="product-info">
         <h3>Black Mask</h3>
@@ -112,8 +112,8 @@
       </div>
     </div>
     <div class="product-card">
-      <a href="https://i.ibb.co/N7sHkrB/tshirt1.jpg" class="product-link">
-        <img src="https://i.ibb.co/N7sHkrB/tshirt1.jpg" alt="Compression كومبريشن">
+      <a href="https://github.com/user-attachments/assets/174d668e-6656-4701-878d-e773a6043995" class="product-link">
+        <img src="https://github.com/user-attachments/assets/174d668e-6656-4701-878d-e773a6043995" alt="Compression كومبريشن">
       </a>
       <div class="product-info">
         <h3>Compression كومبريشن</h3>
