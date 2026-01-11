@@ -432,7 +432,7 @@
     <h2>KOMBO DROPS</h2>
     <div class="products-grid">
       <div class="product-card">
-        <img src="hoodie1.jpg" alt="Hoodie">
+        <img src="https://github.com/user-attachments/assets/a3156f11-7b4e-4878-b49f-16dd748f0426" >
         <div class="product-info">
           <h3>Black Shadow Hoodie</h3>
           <span>950 EGP</span>
