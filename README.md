@@ -173,12 +173,13 @@
       font-weight: bold;
       color: #fff;
       cursor: pointer;
-      transition: .3s;
+      transition: all 0.3s ease;
     }
 
     .main-btn:hover {
       background: #c70000;
-      transform: translateY(-3px);
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(255,0,0,0.5);
     }
 
     /* PRODUCTS */
@@ -210,19 +211,32 @@
     .product-card {
       background: #111;
       overflow: hidden;
-      transition: .4s;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.6s ease;
       position: relative;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .product-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(255,0,0,0.4);
     }
 
     .product-card img {
       width: 100%;
       height: 420px;
       object-fit: cover;
-      transition: .4s;
+      transition: transform 0.5s ease;
     }
 
     .product-card:hover img {
-      transform: scale(1.1);
+      transform: scale(1.12);
     }
 
     .product-info {
@@ -246,11 +260,14 @@
       border: 1px solid #ff1e1e;
       color: #fff;
       cursor: pointer;
-      transition: .3s;
+      transition: all 0.3s ease;
     }
 
     .product-info button:hover {
       background: #ff1e1e;
+      color: #fff;
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 5px 15px rgba(255,30,30,0.5);
     }
 
     /* FOOTER */
@@ -330,6 +347,35 @@
       text-align: center;
       padding-top: 20px;
       color: #aaa;
+    }
+
+    /* LIGHTBOX */
+    #lightbox {
+      position: fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 99999;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 6px;
+      box-shadow: 0 0 20px rgba(255,0,0,0.5);
+      transform: scale(0.7);
+      opacity: 0;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    #lightbox.show img {
+      transform: scale(1);
+      opacity: 1;
     }
 
     /* RESPONSIVE */
@@ -432,26 +478,26 @@
     <h2>KOMBO DROPS</h2>
     <div class="products-grid">
       <div class="product-card">
-        <img src="https://github.com/user-attachments/assets/a3156f11-7b4e-4878-b49f-16dd748f0426" >
+        <a href="hoodie1.jpg" class="product-link"><img src="https://github.com/user-attachments/assets/923a76f3-ad22-44e8-b658-6f7df04e34a0"> </a>
         <div class="product-info">
           <h3>Black Shadow Hoodie</h3>
-          <span>950 EGP</span>
+          <span>450 EGP</span>
           <button class="add-to-cart">Add to Cart</button>
         </div>
       </div>
       <div class="product-card">
-        <img src="https://github.com/user-attachments/assets/fe29613d-32ad-4136-a616-a6bfe2dffe51" />
+        <a href="jacket1.jpg" class="product-link"><img src="https://github.com/user-attachments/assets/428489db-e1f5-4745-ad63-00122a50b7d6" /> </a>
         <div class="product-info">
           <h3>Black Mask</h3>
-          <span>1450 EGP</span>
+          <span>150 EGP</span>
           <button class="add-to-cart">Add to Cart</button>
         </div>
       </div>
       <div class="product-card">
-        <img src="https://github.com/user-attachments/assets/9163e76d-974e-47de-9901-6bc200451d4c" />
+        <a href="tshirt1.jpg" class="product-link"><img src="https://github.com/user-attachments/assets/a0406241-2835-47ee-8faf-02e1c45ae6af" /> </a>
         <div class="product-info">
-          <h3>Kombo Core Tee</h3>
-          <span>450 EGP</span>
+          <h3>compression كومبريشن</h3>
+          <span>400 EGP</span>
           <button class="add-to-cart">Add to Cart</button>
         </div>
       </div>
@@ -491,13 +537,16 @@
     </div>
   </footer>
 
+  <!-- LIGHTBOX -->
+  <div id="lightbox">
+    <img src="" alt="Product Image">
+  </div>
+
   <!-- JS -->
   <script>
-    // Loader + Fade-in
+    // Loader + Fade-in Hero, Products, Footer
     window.addEventListener('load', () => {
-      const loader = document.getElementById('loader');
-      loader.style.display = 'none';
-
+      document.getElementById('loader').style.display = 'none';
       document.querySelector('.hero').classList.add('visible');
       document.querySelector('.products').classList.add('visible');
       document.querySelector('.footer').classList.add('visible');
@@ -506,9 +555,7 @@
     // Add to Cart
     let cartCount = 0;
     const cartCountEl = document.getElementById('cart-count');
-    const addButtons = document.querySelectorAll('.add-to-cart');
-
-    addButtons.forEach(btn => {
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
       btn.addEventListener('click', () => {
         cartCount++;
         cartCountEl.textContent = cartCount;
@@ -521,11 +568,40 @@
     // Hamburger Menu
     const hamburger = document.getElementById('hamburger');
     const nav = document.querySelector('.header nav');
-
     hamburger.addEventListener('click', () => {
       nav.classList.toggle('active');
       hamburger.classList.toggle('open');
     });
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    document.querySelectorAll('.product-link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        lightboxImg.src = link.href;
+        lightbox.style.display = 'flex';
+        lightbox.classList.add('show');
+      });
+    });
+
+    lightbox.addEventListener('click', e => {
+      if(e.target !== lightboxImg) {
+        lightbox.style.display = 'none';
+        lightbox.classList.remove('show');
+      }
+    });
+
+    // Fade-in products on scroll
+    const productCards = document.querySelectorAll('.product-card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+    productCards.forEach(card => observer.observe(card));
   </script>
 
 </body>
