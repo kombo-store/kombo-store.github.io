@@ -1,18 +1,18 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kombo Store</title>
 
-<link rel="icon" href="https://i.ibb.co/jPjz72wJ" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:Poppins,sans-serif;
   background:url("https://wall.alphacoders.com/big.php?i=1377819") center/cover fixed;
   color:#fff;
-  min-height:100vh;
 }
 body::before{
   content:"";
@@ -24,71 +24,109 @@ body::before{
 
 /* HEADER */
 header{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:20px 50px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:20px 40px;
+  backdrop-filter:blur(10px);
+  z-index:999;
 }
-.logo{
-  font-size:28px;
-  font-weight:bold;
-  color:#ff1e1e;
-}
-.cart{
-  cursor:pointer;
-  position:relative;
-}
+.logo{font-size:28px;font-weight:800;color:#ff1e1e}
+.cart{cursor:pointer;font-size:24px;position:relative}
 #cart-count{
   position:absolute;
   top:-8px;
   right:-10px;
   background:#ff1e1e;
-  color:#fff;
-  font-size:12px;
-  padding:2px 6px;
+  padding:2px 7px;
   border-radius:50%;
+  font-size:12px;
 }
 
 /* HERO */
 .hero{
-  text-align:center;
-  padding:80px 20px;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  padding-left:60px;
 }
-.hero h1{
-  font-size:48px;
-  margin-bottom:10px;
-}
-.hero span{color:#ff1e1e}
-
-/* PRODUCTS */
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-  padding:40px;
-}
-.product{
-  background:rgba(0,0,0,.7);
-  border:1px solid #333;
-  padding:15px;
-  text-align:center;
-}
-.product img{
-  width:100%;
-  cursor:pointer;
-}
-.product h3{
-  margin:12px 0;
-}
-.product p{
-  color:#ff1e1e;
-  margin-bottom:10px;
-}
-.product button{
-  padding:10px 15px;
+.hero h1{font-size:64px}
+.hero button{
+  margin-top:20px;
+  padding:15px 40px;
   border:none;
   background:#ff1e1e;
   color:#fff;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* PRODUCTS */
+.products{
+  padding:120px 60px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:40px;
+}
+.card{
+  background:#111;
+  overflow:hidden;
+}
+.card img{
+  width:100%;
+  height:380px;
+  object-fit:cover;
+  cursor:pointer;
+}
+.card .info{padding:20px}
+.card button{
+  width:100%;
+  margin-top:10px;
+  padding:10px;
+  background:none;
+  border:1px solid #ff1e1e;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* CART PANEL */
+#cart-panel{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:360px;
+  height:100%;
+  background:#111;
+  padding:20px;
+  transition:.4s;
+  z-index:1000;
+}
+#cart-panel.active{right:0}
+#cart-items li{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+.qty button{
+  background:#ff1e1e;
+  border:none;
+  color:#fff;
+  width:25px;
+  cursor:pointer;
+}
+#total{margin-top:15px;font-weight:bold}
+#checkout{
+  margin-top:15px;
+  width:100%;
+  padding:12px;
+  background:#25d366;
+  border:none;
   cursor:pointer;
 }
 
@@ -98,79 +136,12 @@ header{
   inset:0;
   background:rgba(0,0,0,.9);
   display:none;
-  align-items:center;
   justify-content:center;
-  z-index:9999;
+  align-items:center;
 }
 #lightbox img{
   max-width:90%;
   max-height:90%;
-}
-
-/* CART PANEL */
-#cart-panel{
-  position:fixed;
-  top:0;
-  right:-380px;
-  width:350px;
-  height:100%;
-  background:#111;
-  padding:25px;
-  transition:.4s;
-  z-index:99999;
-  display:flex;
-  flex-direction:column;
-}
-#cart-panel.active{right:0}
-#cart-panel h3{
-  text-align:center;
-  margin-bottom:20px;
-  color:#ff1e1e;
-}
-#cart-items{
-  list-style:none;
-  flex:1;
-  overflow-y:auto;
-}
-.cart-item{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:10px;
-  border-bottom:1px solid #333;
-  padding-bottom:6px;
-}
-.qty{
-  display:flex;
-  gap:6px;
-  align-items:center;
-}
-.qty button{
-  width:24px;height:24px;
-  background:#222;
-  color:#fff;
-  border:1px solid #444;
-  cursor:pointer;
-}
-#total{
-  text-align:center;
-  color:#ff1e1e;
-  margin:15px 0;
-}
-#checkout{
-  background:#25d366;
-  border:none;
-  padding:12px;
-  font-weight:bold;
-  cursor:pointer;
-  margin-bottom:10px;
-}
-#close-cart{
-  background:#222;
-  border:1px solid #444;
-  padding:10px;
-  color:#fff;
-  cursor:pointer;
 }
 </style>
 </head>
@@ -178,122 +149,118 @@ header{
 <body>
 
 <header>
-  <div class="logo">Kombo Store</div>
+  <div class="logo">KOMBO</div>
   <div class="cart">🛒 <span id="cart-count">0</span></div>
 </header>
 
 <section class="hero">
-  <h1>Streetwear <span>Dominance</span></h1>
-  <p>Hoodies • Masks • Compression</p>
+  <div>
+    <h1>WEAR THE POWER</h1>
+    <button>SHOP NOW</button>
+  </div>
 </section>
 
 <section class="products">
-  <div class="product">
-    <img src="https://i.ibb.co/jPjz72wJ" class="zoom">
-    <h3>Black Hoodie</h3>
-    <p>450 EGP</p>
-    <button class="add-to-cart" data-price="450">Add to Cart</button>
-  </div>
+  <div class="grid">
 
-  <div class="product">
-    <img src="https://i.ibb.co/jPjz72wJ" class="zoom">
-    <h3>Street Mask</h3>
-    <p>150 EGP</p>
-    <button class="add-to-cart" data-price="150">Add to Cart</button>
-  </div>
+    <div class="card">
+      <img src="https://github.com/user-attachments/assets/9b2c9f43-ff92-4061-a769-246c21bc2b19">
+      <div class="info">
+        <h3>Black Hoodie</h3>
+        <p>450</p>
+        <button class="add">Add to Cart</button>
+      </div>
+    </div>
 
-  <div class="product">
-    <img src="https://i.ibb.co/jPjz72wJ" class="zoom">
-    <h3>Compression Shirt</h3>
-    <p>400 EGP</p>
-    <button class="add-to-cart" data-price="400">Add to Cart</button>
+    <div class="card">
+      <img src="https://github.com/user-attachments/assets/67d45d88-bc57-48e1-8862-4ecb5ef3ef3e">
+      <div class="info">
+        <h3>Black Mask</h3>
+        <p>150</p>
+        <button class="add">Add to Cart</button>
+      </div>
+    </div>
+
   </div>
 </section>
-
-<!-- LIGHTBOX -->
-<div id="lightbox">
-  <img src="">
-</div>
 
 <!-- CART -->
 <div id="cart-panel">
   <h3>Your Cart</h3>
   <ul id="cart-items"></ul>
-  <p id="total"></p>
-  <button id="checkout">Checkout via WhatsApp</button>
-  <button id="close-cart">Close</button>
+  <div id="total">Total: 0 EGP</div>
+  <button id="checkout">Checkout WhatsApp</button>
 </div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox"><img></div>
 
 <script>
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-const cartCount=document.getElementById("cart-count");
-const cartPanel=document.getElementById("cart-panel");
-const cartItems=document.getElementById("cart-items");
-const totalEl=document.getElementById("total");
+const cartBtn = document.querySelector(".cart");
+const panel = document.getElementById("cart-panel");
+const list = document.getElementById("cart-items");
+const totalEl = document.getElementById("total");
+const countEl = document.getElementById("cart-count");
 
-function save(){
-  localStorage.setItem("cart",JSON.stringify(cart));
-  render();
-}
-
+/* RENDER CART */
 function render(){
-  cartItems.innerHTML="";
-  let count=0,total=0;
-
-  cart.forEach((i,idx)=>{
-    count+=i.qty;
-    total+=i.qty*i.price;
-    cartItems.innerHTML+=`
-      <li class="cart-item">
-        <span>${i.name}</span>
+  list.innerHTML="";
+  let total=0;
+  cart.forEach((p,i)=>{
+    total+=p.price*p.qty;
+    list.innerHTML+=`
+      <li>
+        ${p.name}
         <div class="qty">
-          <button onclick="chg(${idx},-1)">-</button>
-          <span>${i.qty}</span>
-          <button onclick="chg(${idx},1)">+</button>
+          <button onclick="chg(${i},-1)">-</button>
+          ${p.qty}
+          <button onclick="chg(${i},1)">+</button>
         </div>
       </li>`;
   });
-
-  cartCount.textContent=count;
-  totalEl.textContent=cart.length?`Total: ${total} EGP`:"";
+  totalEl.textContent=`Total: ${total} EGP`;
+  countEl.textContent=cart.length;
+  localStorage.setItem("cart",JSON.stringify(cart));
 }
 
 function chg(i,v){
   cart[i].qty+=v;
-  if(cart[i].qty<=0)cart.splice(i,1);
-  save();
+  if(cart[i].qty<=0) cart.splice(i,1);
+  render();
 }
 
-document.querySelectorAll(".add-to-cart").forEach(b=>{
+/* ADD */
+document.querySelectorAll(".add").forEach((b,idx)=>{
   b.onclick=()=>{
-    const name=b.parentElement.querySelector("h3").textContent;
-    const price=+b.dataset.price;
-    const f=cart.find(x=>x.name===name);
+    const card=b.closest(".card");
+    const name=card.querySelector("h3").textContent;
+    const price=+card.querySelector("p").textContent;
+    const f=cart.find(p=>p.name===name);
     f?f.qty++:cart.push({name,price,qty:1});
-    save();
-  };
+    render();
+  }
 });
 
-document.querySelector(".cart").onclick=()=>cartPanel.classList.add("active");
-document.getElementById("close-cart").onclick=()=>cartPanel.classList.remove("active");
+/* OPEN CART */
+cartBtn.onclick=()=>panel.classList.toggle("active");
 
+/* CHECKOUT */
 document.getElementById("checkout").onclick=()=>{
-  if(!cart.length)return;
-  let msg="Hello Kombo Store,%0A";
-  cart.forEach(i=>msg+=`${i.name} x${i.qty}%0A`);
-  window.open("https://wa.me/201XXXXXXXXX?text="+msg,"_blank");
+  let msg="Order:%0A";
+  cart.forEach(p=>msg+=`${p.name} x${p.qty}%0A`);
+  window.open(`https://wa.me/201XXXXXXXXX?text=${msg}`);
 };
 
 /* LIGHTBOX */
-const lb=document.getElementById("lightbox");
-document.querySelectorAll(".zoom").forEach(img=>{
+document.querySelectorAll(".card img").forEach(img=>{
   img.onclick=()=>{
-    lb.style.display="flex";
-    lb.querySelector("img").src=img.src;
+    document.getElementById("lightbox").style.display="flex";
+    document.querySelector("#lightbox img").src=img.src;
   }
 });
-lb.onclick=()=>lb.style.display="none";
+document.getElementById("lightbox").onclick=()=>lightbox.style.display="none";
 
 render();
 </script>
