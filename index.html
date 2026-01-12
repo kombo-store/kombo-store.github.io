@@ -91,6 +91,23 @@ body::before{
 .footer button:hover{background:#c70000}
 .footer-bottom{border-top:1px solid #333;text-align:center;padding-top:20px;color:#aaa}
 
+/* Cart Panel */
+#cart-panel{
+  position:fixed;top:0;right:-400px;width:400px;height:100%;background:#111;padding:20px;box-shadow:-5px 0 25px rgba(255,0,0,.5);transition:0.4s;z-index:9999;overflow-y:auto;
+}
+#cart-panel.open{right:0;}
+#cart-panel h2{margin-bottom:20px;color:#ff1e1e;}
+.cart-item{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px;border-bottom:1px solid #333;padding-bottom:10px;}
+.cart-item img{width:60px;height:60px;object-fit:cover;border-radius:6px;margin-right:10px;}
+.cart-item-info{flex:1}
+.cart-item-info h4{margin-bottom:5px;font-size:16px;}
+.cart-item-info span{color:#ff1e1e;font-weight:bold;}
+.qty-control{display:flex;gap:5px;align-items:center;margin-top:5px;}
+.qty-control button{padding:2px 8px;background:#ff1e1e;border:none;color:#fff;cursor:pointer}
+#cart-total{margin-top:20px;font-size:18px;font-weight:bold;color:#ff1e1e;}
+.checkout-btn{margin-top:20px;width:100%;padding:12px;background:#ff1e1e;border:none;color:#fff;cursor:pointer;font-weight:bold;transition:0.3s}
+.checkout-btn:hover{background:#c70000;}
+
 /* Lightbox */
 #lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);display:none;justify-content:center;align-items:center;z-index:99999}
 #lightbox img{max-width:90%;max-height:90%;border-radius:6px;box-shadow:0 0 20px rgba(255,0,0,.5);transform:scale(0.7);opacity:0;transition:transform .4s ease,opacity .4s ease}
@@ -108,6 +125,7 @@ body::before{
   .footer-content{grid-template-columns:1fr;text-align:center}
   .footer form{flex-direction:column}
   .footer input{width:100%}
+  #cart-panel{width:100%;}
 }
 </style>
 </head>
@@ -123,7 +141,7 @@ body::before{
     <a href="#">About</a>
     <a href="#">Contact</a>
   </nav>
-  <div class="cart">🛒 <span id="cart-count">0</span></div>
+  <div class="cart" id="cart-icon">🛒 <span id="cart-count">0</span></div>
   <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </header>
 
@@ -172,6 +190,14 @@ body::before{
   </div>
 </section>
 
+<!-- Cart Panel -->
+<div id="cart-panel">
+  <h2>Your Cart</h2>
+  <div id="cart-items"></div>
+  <div id="cart-total">Total: 0 EGP</div>
+  <button class="checkout-btn" id="checkout-btn">Checkout</button>
+</div>
+
 <footer class="footer">
   <div class="footer-content">
     <div class="brand">
@@ -213,37 +239,87 @@ window.addEventListener('load',()=>{
   document.querySelector('.footer').classList.add('visible');
 });
 
-// Cart
-const cart = [];
-const cartCountEl=document.getElementById('cart-count');
+// Cart logic
+let cart = JSON.parse(localStorage.getItem('komboCart')) || [];
+const cartCountEl = document.getElementById('cart-count');
+const cartPanel = document.getElementById('cart-panel');
+const cartItemsEl = document.getElementById('cart-items');
+const checkoutBtn = document.getElementById('checkout-btn');
+
+function updateCartPanel(){
+  cartItemsEl.innerHTML = '';
+  let total = 0;
+  cart.forEach((item,index)=>{
+    total += item.price*item.qty;
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `
+      <img src="${item.img}" alt="${item.name}">
+      <div class="cart-item-info">
+        <h4>${item.name}</h4>
+        <span>${item.price} EGP</span>
+        <div class="qty-control">
+          <button class="dec" data-index="${index}">-</button>
+          <span>${item.qty}</span>
+          <button class="inc" data-index="${index}">+</button>
+        </div>
+      </div>
+    `;
+    cartItemsEl.appendChild(div);
+  });
+  document.getElementById('cart-total').textContent = `Total: ${total} EGP`;
+  cartCountEl.textContent = cart.reduce((a,b)=>a+b.qty,0);
+  localStorage.setItem('komboCart',JSON.stringify(cart));
+}
+
 document.querySelectorAll('.add-to-cart').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const card = btn.closest('.product-card');
     const name = card.dataset.name;
     const price = parseFloat(card.dataset.price);
     const img = card.querySelector('img').src;
-
-    // Add to cart array
-    cart.push({name,price,img,qty:1});
+    const exist = cart.find(i=>i.name===name);
+    if(exist){
+      exist.qty++;
+    }else{
+      cart.push({name,price,img,qty:1});
+    }
     localStorage.setItem('komboCart',JSON.stringify(cart));
-
-    cartCountEl.textContent=cart.length;
-    btn.textContent="Added";
-    btn.disabled=true;
-    btn.style.opacity="0.7";
-
-    // Redirect to checkout
-    window.location.href="checkout.html";
+    updateCartPanel();
+    btn.textContent="Added"; btn.disabled=true; btn.style.opacity="0.7";
+    cartPanel.classList.add('open');
   });
+});
+
+// Quantity buttons
+cartItemsEl.addEventListener('click',e=>{
+  if(e.target.classList.contains('inc')){
+    let idx = e.target.dataset.index;
+    cart[idx].qty++;
+    updateCartPanel();
+  }
+  if(e.target.classList.contains('dec')){
+    let idx = e.target.dataset.index;
+    cart[idx].qty--;
+    if(cart[idx].qty===0) cart.splice(idx,1);
+    updateCartPanel();
+  }
+});
+
+// Open cart panel
+document.getElementById('cart-icon').addEventListener('click',()=>{
+  cartPanel.classList.toggle('open');
+});
+
+// Checkout redirect
+checkoutBtn.addEventListener('click',()=>{
+  window.location.href='checkout.html';
 });
 
 // Hamburger
 const hamburger=document.getElementById('hamburger');
 const nav=document.querySelector('.header nav');
-hamburger.addEventListener('click',()=>{
-  nav.classList.toggle('active');
-  hamburger.classList.toggle('open');
-});
+hamburger.addEventListener('click',()=>{nav.classList.toggle('active');hamburger.classList.toggle('open');});
 
 // Lightbox
 const lightbox=document.getElementById('lightbox');
@@ -257,22 +333,19 @@ document.querySelectorAll('.product-link').forEach(link=>{
   });
 });
 lightbox.addEventListener('click',e=>{
-  if(e.target!==lightboxImg){
-    lightbox.style.display='none';
-    lightbox.classList.remove('show');
-  }
+  if(e.target!==lightboxImg){lightbox.style.display='none';lightbox.classList.remove('show');}
 });
 
 // Scroll animation
 const productCards=document.querySelectorAll('.product-card');
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
+    if(entry.isIntersecting){entry.target.classList.add('visible');}
   })
 },{threshold:.2});
 productCards.forEach(card=>observer.observe(card));
+
+updateCartPanel();
 </script>
 
 </body>
