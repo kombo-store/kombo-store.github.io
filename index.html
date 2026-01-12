@@ -1,269 +1,301 @@
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kombo Store</title>
-  <meta name="description" content="Kombo Store - Streetwear built for dominance. Shop hoodies, masks, and compression wear.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kombo Store</title>
 
-  <!-- Favicon -->
-  <link rel="icon" href="https://i.ibb.co/jPjz72wJ" type="image/png">
+<link rel="icon" href="https://i.ibb.co/jPjz72wJ" type="image/png">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:url("https://wall.alphacoders.com/big.php?i=1377819") center/cover fixed;
+  color:#fff;
+  min-height:100vh;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:-1;
+}
 
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box} 
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 40px;
+}
+.logo{
+  font-size:28px;
+  font-weight:bold;
+  color:#ff1e1e;
+}
+.cart{
+  cursor:pointer;
+  position:relative;
+}
+#cart-count{
+  position:absolute;
+  top:-8px;
+  right:-10px;
+  background:#ff1e1e;
+  color:#fff;
+  font-size:12px;
+  padding:2px 6px;
+  border-radius:50%;
+}
 
-    /* Overlay على كل الصفحة */
-    body{
-      font-family:'Poppins',sans-serif;
-      background: url("https://i.ibb.co/jPjz72wJ") center/cover no-repeat;
-      color:#fff;
-      overflow-x:hidden;
-      position:relative;
-    }
-    body::before{
-      content:'';
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.55);
-      z-index:-1;
-    }
+/* HERO */
+.hero{
+  text-align:center;
+  padding:80px 20px;
+}
+.hero h1{
+  font-size:48px;
+  margin-bottom:10px;
+}
+.hero span{color:#ff1e1e}
 
-    /* Loader */
-    #loader{position:fixed;inset:0;background:#000;display:flex;justify-content:center;align-items:center;z-index:9999}
-    .spinner{width:60px;height:60px;border:6px solid #333;border-top:6px solid #ff1e1e;border-radius:50%;animation:spin 1s linear infinite}
-    @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  padding:40px;
+}
+.product{
+  background:rgba(0,0,0,.7);
+  border:1px solid #333;
+  padding:15px;
+  text-align:center;
+}
+.product img{
+  width:100%;
+  cursor:pointer;
+}
+.product h3{
+  margin:12px 0;
+}
+.product p{
+  color:#ff1e1e;
+  margin-bottom:10px;
+}
+.product button{
+  padding:10px 15px;
+  border:none;
+  background:#ff1e1e;
+  color:#fff;
+  cursor:pointer;
+}
 
-    /* Header */
-    .header{position:fixed;top:0;width:100%;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(12px);z-index:1000}
-    .logo{font-size:28px;font-weight:800;letter-spacing:2px}
-    .header nav{display:flex}
-    .header nav a{margin:0 15px;text-decoration:none;color:#fff;position:relative}
-    .header nav a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:#ff1e1e;transition:.3s}
-    .header nav a:hover::after{width:100%}
-    .cart{position:relative;font-size:24px;cursor:pointer}
-    #cart-count{position:absolute;top:-8px;right:-12px;background:#ff1e1e;color:#fff;font-size:14px;padding:2px 7px;border-radius:50%;font-weight:bold}
-    .hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px}
-    .hamburger span{width:25px;height:3px;background:#fff;transition:0.3s}
+/* LIGHTBOX */
+#lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+#lightbox img{
+  max-width:90%;
+  max-height:90%;
+}
 
-    /* HERO */
-    .hero{
-      height:100vh;
-      background: url("https://i.ibb.co/jPjz72wJ") center/cover no-repeat;
-      position:relative;
-      display:flex;
-      align-items:center;
-      padding-left:60px;
-      opacity:0;
-      transform:translateY(20px);
-      transition:1s ease;
-    }
-    .hero.visible{opacity:1;transform:translateY(0)}
-    .overlay{position:absolute;inset:0;background:rgba(0,0,0,.65)}
-    .hero-content{position:relative;max-width:600px}
-    .hero h1{font-size:70px;letter-spacing:4px;margin-bottom:20px}
-    .hero p{color:#ccc;margin-bottom:30px}
-    .main-btn{background:#ff1e1e;padding:15px 45px;border:none;font-weight:bold;color:#fff;cursor:pointer;transition:all .3s ease}
-    .main-btn:hover{background:#c70000;transform:translateY(-5px) scale(1.05);box-shadow:0 10px 25px rgba(255,0,0,.5)}
-
-    /* PRODUCTS */
-    .products{padding:120px 60px;background:#000;opacity:0;transform:translateY(20px);transition:1s ease}
-    .products.visible{opacity:1;transform:translateY(0)}
-    .products h2{font-size:40px;margin-bottom:60px;letter-spacing:3px}
-    .products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px}
-    .product-card{background:#111;overflow:hidden;transition:transform .4s ease,box-shadow .4s ease,opacity .6s ease;position:relative;cursor:pointer;opacity:0;transform:translateY(20px)}
-    .product-card.visible{opacity:1;transform:translateY(0)}
-    .product-card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(255,0,0,.4)}
-    .product-card img{width:100%;height:420px;object-fit:cover;transition:transform .5s ease}
-    .product-card:hover img{transform:scale(1.12)}
-    .product-info{padding:20px}
-    .product-info h3{margin-bottom:10px}
-    .product-info span{color:#ff1e1e;font-weight:bold}
-    .product-info button{margin-top:15px;width:100%;padding:12px;background:transparent;border:1px solid #ff1e1e;color:#fff;cursor:pointer;transition:all .3s ease}
-    .product-info button:hover{background:#ff1e1e;color:#fff;transform:translateY(-2px) scale(1.03);box-shadow:0 5px 15px rgba(255,30,30,.5)}
-
-    /* FOOTER */
-    .footer{background:#111;color:#fff;padding:60px;font-size:14px;opacity:0;transform:translateY(20px);transition:1s ease}
-    .footer.visible{opacity:1;transform:translateY(0)}
-    .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:40px}
-    .footer h2,.footer h3{margin-bottom:15px;color:#ff1e1e}
-    .footer a{display:block;text-decoration:none;color:#fff;margin-bottom:8px;transition:.3s}
-    .footer a:hover{color:#ff1e1e}
-    .footer img{width:24px;height:24px;margin-right:10px}
-    .footer form{display:flex;gap:10px;margin-top:10px}
-    .footer input{flex:1;padding:8px;border:none;border-radius:4px}
-    .footer button{padding:8px 15px;background:#ff1e1e;border:none;color:#fff;cursor:pointer;transition:.3s}
-    .footer button:hover{background:#c70000}
-    .footer-bottom{border-top:1px solid #333;text-align:center;padding-top:20px;color:#aaa}
-
-    /* LIGHTBOX */
-    #lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);display:none;justify-content:center;align-items:center;z-index:99999}
-    #lightbox img{max-width:90%;max-height:90%;border-radius:6px;box-shadow:0 0 20px rgba(255,0,0,.5);transform:scale(0.7);opacity:0;transition:transform .4s ease,opacity .4s ease}
-    #lightbox.show img{transform:scale(1);opacity:1}
-
-    /* Responsive */
-    @media(max-width:768px){
-      .header nav{position:fixed;top:0;right:-100%;width:200px;height:100%;background:#111;flex-direction:column;align-items:center;justify-content:center;transition:.3s;gap:30px;z-index:999}
-      .header nav.active{right:0}
-      .hamburger{display:flex}
-      .products-grid{grid-template-columns:1fr;gap:20px}
-      .hero{padding-left:30px;text-align:center;justify-content:center}
-      .hero h1{font-size:48px}
-      .hero p{font-size:18px}
-      .footer-content{grid-template-columns:1fr;text-align:center}
-      .footer form{flex-direction:column}
-      .footer input{width:100%}
-    }
-  </style>
+/* CART PANEL */
+#cart-panel{
+  position:fixed;
+  top:0;
+  right:-380px;
+  width:350px;
+  height:100%;
+  background:#111;
+  padding:25px;
+  transition:.4s;
+  z-index:99999;
+  display:flex;
+  flex-direction:column;
+}
+#cart-panel.active{right:0}
+#cart-panel h3{
+  text-align:center;
+  margin-bottom:20px;
+  color:#ff1e1e;
+}
+#cart-items{
+  list-style:none;
+  flex:1;
+  overflow-y:auto;
+}
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+  border-bottom:1px solid #333;
+  padding-bottom:6px;
+}
+.qty{
+  display:flex;
+  gap:6px;
+  align-items:center;
+}
+.qty button{
+  width:24px;height:24px;
+  background:#222;
+  color:#fff;
+  border:1px solid #444;
+  cursor:pointer;
+}
+#total{
+  text-align:center;
+  color:#ff1e1e;
+  margin:15px 0;
+}
+#checkout{
+  background:#25d366;
+  border:none;
+  padding:12px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-bottom:10px;
+}
+#close-cart{
+  background:#222;
+  border:1px solid #444;
+  padding:10px;
+  color:#fff;
+  cursor:pointer;
+}
+</style>
 </head>
+
 <body>
 
-<div id="loader"><div class="spinner"></div></div>
-
-<header class="header">
-  <div class="logo">KOMBO</div>
-  <nav>
-    <a href="#">Shop</a>
-    <a href="#">Collections</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-  </nav>
+<header>
+  <div class="logo">Kombo Store</div>
   <div class="cart">🛒 <span id="cart-count">0</span></div>
-  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </header>
 
 <section class="hero">
-  <div class="overlay"></div>
-  <div class="hero-content">
-    <h1>WEAR THE POWER</h1>
-    <p>Streetwear built for dominance</p>
-    <button class="main-btn">SHOP NOW</button>
-  </div>
+  <h1>Streetwear <span>Dominance</span></h1>
+  <p>Hoodies • Masks • Compression</p>
 </section>
 
 <section class="products">
-  <h2>KOMBO DROPS</h2>
-  <div class="products-grid">
-    <div class="product-card">
-      <a href="https://github.com/user-attachments/assets/9b2c9f43-ff92-4061-a769-246c21bc2b19" class="product-link">
-        <img src="https://github.com/user-attachments/assets/9b2c9f43-ff92-4061-a769-246c21bc2b19" loading="lazy" alt="Black Shadow Hoodie">
-      </a>
-      <div class="product-info">
-        <h3>Black Shadow Hoodie</h3>
-        <span>450 EGP</span>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <a href="https://github.com/user-attachments/assets/67d45d88-bc57-48e1-8862-4ecb5ef3ef3e" class="product-link">
-        <img src="https://github.com/user-attachments/assets/67d45d88-bc57-48e1-8862-4ecb5ef3ef3e" loading="lazy" alt="Black Mask">
-      </a>
-      <div class="product-info">
-        <h3>Black Mask</h3>
-        <span>150 EGP</span>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <a href="https://github.com/user-attachments/assets/174d668e-6656-4701-878d-e773a6043995" class="product-link">
-        <img src="https://github.com/user-attachments/assets/174d668e-6656-4701-878d-e773a6043995" loading="lazy" alt="Compression كومبريشن">
-      </a>
-      <div class="product-info">
-        <h3>Compression كومبريشن</h3>
-        <span>400 EGP</span>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-    </div>
+  <div class="product">
+    <img src="https://i.ibb.co/jPjz72wJ" class="zoom">
+    <h3>Black Hoodie</h3>
+    <p>450 EGP</p>
+    <button class="add-to-cart" data-price="450">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <img src="https://i.ibb.co/jPjz72wJ" class="zoom">
+    <h3>Street Mask</h3>
+    <p>150 EGP</p>
+    <button class="add-to-cart" data-price="150">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <img src="https://i.ibb.co/jPjz72wJ" class="zoom">
+    <h3>Compression Shirt</h3>
+    <p>400 EGP</p>
+    <button class="add-to-cart" data-price="400">Add to Cart</button>
   </div>
 </section>
 
-<footer class="footer">
-  <div class="footer-content">
-    <div class="brand">
-      <h2>KOMBO STORE</h2>
-      <p>Streetwear built for dominance</p>
-    </div>
-    <div class="links">
-      <h3>Links</h3>
-      <a href="#">Shop</a>
-      <a href="#">Collections</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </div>
-    <div class="social">
-      <h3>Follow Us</h3>
-      <a href="#"><img src="instagram.svg" alt="instagram" /></a>
-    </div>
-    <div class="newsletter">
-      <h3>Newsletter</h3>
-      <form>
-        <input type="email" placeholder="Enter your email" required>
-        <button type="submit">Subscribe</button>
-      </form>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 Kombo Store. All Rights Reserved.</p>
-  </div>
-</footer>
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <img src="">
+</div>
 
-<div id="lightbox"><img src="" alt="Product Image"></div>
+<!-- CART -->
+<div id="cart-panel">
+  <h3>Your Cart</h3>
+  <ul id="cart-items"></ul>
+  <p id="total"></p>
+  <button id="checkout">Checkout via WhatsApp</button>
+  <button id="close-cart">Close</button>
+</div>
 
 <script>
-window.addEventListener('load',()=>{
-  document.getElementById('loader').style.display='none';
-  document.querySelector('.hero').classList.add('visible');
-  document.querySelector('.products').classList.add('visible');
-  document.querySelector('.footer').classList.add('visible');
-});
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-let cartCount=0;
-const cartCountEl=document.getElementById('cart-count');
-document.querySelectorAll('.add-to-cart').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    cartCount++;
-    cartCountEl.textContent=cartCount;
-    btn.textContent="Added";
-    btn.disabled=true;
-    btn.style.background="#ff1e1e";
-    btn.style.opacity="0.7";
+const cartCount=document.getElementById("cart-count");
+const cartPanel=document.getElementById("cart-panel");
+const cartItems=document.getElementById("cart-items");
+const totalEl=document.getElementById("total");
+
+function save(){
+  localStorage.setItem("cart",JSON.stringify(cart));
+  render();
+}
+
+function render(){
+  cartItems.innerHTML="";
+  let count=0,total=0;
+
+  cart.forEach((i,idx)=>{
+    count+=i.qty;
+    total+=i.qty*i.price;
+    cartItems.innerHTML+=`
+      <li class="cart-item">
+        <span>${i.name}</span>
+        <div class="qty">
+          <button onclick="chg(${idx},-1)">-</button>
+          <span>${i.qty}</span>
+          <button onclick="chg(${idx},1)">+</button>
+        </div>
+      </li>`;
   });
+
+  cartCount.textContent=count;
+  totalEl.textContent=cart.length?`Total: ${total} EGP`:"";
+}
+
+function chg(i,v){
+  cart[i].qty+=v;
+  if(cart[i].qty<=0)cart.splice(i,1);
+  save();
+}
+
+document.querySelectorAll(".add-to-cart").forEach(b=>{
+  b.onclick=()=>{
+    const name=b.parentElement.querySelector("h3").textContent;
+    const price=+b.dataset.price;
+    const f=cart.find(x=>x.name===name);
+    f?f.qty++:cart.push({name,price,qty:1});
+    save();
+  };
 });
 
-const hamburger=document.getElementById('hamburger');
-const nav=document.querySelector('.header nav');
-hamburger.addEventListener('click',()=>{
-  nav.classList.toggle('active');
-  hamburger.classList.toggle('open');
-});
+document.querySelector(".cart").onclick=()=>cartPanel.classList.add("active");
+document.getElementById("close-cart").onclick=()=>cartPanel.classList.remove("active");
 
-const lightbox=document.getElementById('lightbox');
-const lightboxImg=lightbox.querySelector('img');
-document.querySelectorAll('.product-link').forEach(link=>{
-  link.addEventListener('click',e=>{
-    e.preventDefault();
-    lightboxImg.src=link.href;
-    lightbox.style.display='flex';
-    lightbox.classList.add('show');
-  });
-});
-lightbox.addEventListener('click',e=>{
-  if(e.target!==lightboxImg){
-    lightbox.style.display='none';
-    lightbox.classList.remove('show');
+document.getElementById("checkout").onclick=()=>{
+  if(!cart.length)return;
+  let msg="Hello Kombo Store,%0A";
+  cart.forEach(i=>msg+=`${i.name} x${i.qty}%0A`);
+  window.open("https://wa.me/201XXXXXXXXX?text="+msg,"_blank");
+};
+
+/* LIGHTBOX */
+const lb=document.getElementById("lightbox");
+document.querySelectorAll(".zoom").forEach(img=>{
+  img.onclick=()=>{
+    lb.style.display="flex";
+    lb.querySelector("img").src=img.src;
   }
 });
+lb.onclick=()=>lb.style.display="none";
 
-const productCards=document.querySelectorAll('.product-card');
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
-  })
-},{threshold:.2});
-productCards.forEach(card=>observer.observe(card));
+render();
 </script>
 
 </body>
