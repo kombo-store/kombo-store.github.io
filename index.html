@@ -1,268 +1,346 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kombo Store</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<meta name="description" content="Kombo Store - Streetwear built for dominance. Shop hoodies, masks, and compression wear.">
+<link rel="icon" href="https://i.ibb.co/jPjz72wJ" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  font-family:Poppins,sans-serif;
-  background:url("https://wall.alphacoders.com/big.php?i=1377819") center/cover fixed;
+  font-family:'Poppins',sans-serif;
+  background: url("https://i.ibb.co/jPjz72wJ") center/cover no-repeat;
   color:#fff;
+  overflow-x:hidden;
+  position:relative;
 }
 body::before{
-  content:"";
+  content:'';
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.65);
+  background:rgba(0,0,0,.55);
   z-index:-1;
 }
 
-/* HEADER */
-header{
-  position:fixed;
-  top:0;
-  width:100%;
-  padding:20px 50px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  backdrop-filter:blur(10px);
-  z-index:999;
-}
-.logo{font-size:28px;font-weight:800;color:#ff1e1e}
-.cart{cursor:pointer;font-size:24px;position:relative}
-#cart-count{
-  position:absolute;
-  top:-8px;
-  right:-10px;
-  background:#ff1e1e;
-  padding:2px 7px;
-  border-radius:50%;
-  font-size:12px;
-}
+/* Loader */
+#loader{position:fixed;inset:0;background:#000;display:flex;justify-content:center;align-items:center;z-index:9999}
+.spinner{width:60px;height:60px;border:6px solid #333;border-top:6px solid #ff1e1e;border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
 
-/* HERO */
+/* Header */
+.header{position:fixed;top:0;width:100%;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(12px);z-index:1000}
+.logo{font-size:28px;font-weight:800;letter-spacing:2px}
+.header nav{display:flex}
+.header nav a{margin:0 15px;text-decoration:none;color:#fff;position:relative}
+.header nav a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:#ff1e1e;transition:.3s}
+.header nav a:hover::after{width:100%}
+.cart{position:relative;font-size:24px;cursor:pointer}
+#cart-count{position:absolute;top:-8px;right:-12px;background:#ff1e1e;color:#fff;font-size:14px;padding:2px 7px;border-radius:50%;font-weight:bold}
+.hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px}
+.hamburger span{width:25px;height:3px;background:#fff;transition:0.3s}
+
+/* Hero */
 .hero{
   height:100vh;
+  background: url("https://i.ibb.co/jPjz72wJ") center/cover no-repeat;
+  position:relative;
   display:flex;
   align-items:center;
   padding-left:60px;
+  opacity:0;
+  transform:translateY(20px);
+  transition:1s ease;
 }
-.hero h1{font-size:64px}
-.hero button{
-  margin-top:20px;
-  padding:15px 40px;
-  border:none;
-  background:#ff1e1e;
-  color:#fff;
-  font-weight:bold;
-  cursor:pointer;
-}
+.hero.visible{opacity:1;transform:translateY(0)}
+.overlay{position:absolute;inset:0;background:rgba(0,0,0,.65)}
+.hero-content{position:relative;max-width:600px}
+.hero h1{font-size:70px;letter-spacing:4px;margin-bottom:20px}
+.hero p{color:#ccc;margin-bottom:30px}
+.main-btn{background:#ff1e1e;padding:15px 45px;border:none;font-weight:bold;color:#fff;cursor:pointer;transition:all .3s ease}
+.main-btn:hover{background:#c70000;transform:translateY(-5px) scale(1.05);box-shadow:0 10px 25px rgba(255,0,0,.5)}
 
-/* PRODUCTS */
-.products{
-  padding:120px 60px;
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:40px;
-}
-.card{
-  background:#111;
-  overflow:hidden;
-}
-.card img{
-  width:100%;
-  height:380px;
-  object-fit:cover;
-  cursor:pointer;
-}
-.card .info{padding:20px}
-.card button{
-  width:100%;
-  margin-top:10px;
-  padding:10px;
-  background:none;
-  border:1px solid #ff1e1e;
-  color:#fff;
-  cursor:pointer;
-}
+/* Products */
+.products{padding:120px 60px;background:#000;opacity:0;transform:translateY(20px);transition:1s ease}
+.products.visible{opacity:1;transform:translateY(0)}
+.products h2{font-size:40px;margin-bottom:60px;letter-spacing:3px}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px}
+.product-card{background:#111;overflow:hidden;transition:transform .4s ease,box-shadow .4s ease,opacity .6s ease;position:relative;cursor:pointer;opacity:0;transform:translateY(20px)}
+.product-card.visible{opacity:1;transform:translateY(0)}
+.product-card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(255,0,0,.4)}
+.product-card img{width:100%;height:420px;object-fit:cover;transition:transform .5s ease}
+.product-card:hover img{transform:scale(1.12)}
+.product-info{padding:20px}
+.product-info h3{margin-bottom:10px}
+.product-info span{color:#ff1e1e;font-weight:bold}
+.product-info button{margin-top:15px;width:100%;padding:12px;background:transparent;border:1px solid #ff1e1e;color:#fff;cursor:pointer;transition:all .3s ease}
+.product-info button:hover{background:#ff1e1e;color:#fff;transform:translateY(-2px) scale(1.03);box-shadow:0 5px 15px rgba(255,30,30,.5)}
 
-/* CART PANEL */
+/* Footer */
+.footer{background:#111;color:#fff;padding:60px;font-size:14px;opacity:0;transform:translateY(20px);transition:1s ease}
+.footer.visible{opacity:1;transform:translateY(0)}
+.footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:40px}
+.footer h2,.footer h3{margin-bottom:15px;color:#ff1e1e}
+.footer a{display:block;text-decoration:none;color:#fff;margin-bottom:8px;transition:.3s}
+.footer a:hover{color:#ff1e1e}
+.footer img{width:24px;height:24px;margin-right:10px}
+.footer form{display:flex;gap:10px;margin-top:10px}
+.footer input{flex:1;padding:8px;border:none;border-radius:4px}
+.footer button{padding:8px 15px;background:#ff1e1e;border:none;color:#fff;cursor:pointer;transition:.3s}
+.footer button:hover{background:#c70000}
+.footer-bottom{border-top:1px solid #333;text-align:center;padding-top:20px;color:#aaa}
+
+/* Lightbox */
+#lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);display:none;justify-content:center;align-items:center;z-index:99999}
+#lightbox img{max-width:90%;max-height:90%;border-radius:6px;box-shadow:0 0 20px rgba(255,0,0,.5);transform:scale(0.7);opacity:0;transition:transform .4s ease,opacity .4s ease}
+#lightbox.show img{transform:scale(1);opacity:1}
+
+/* Cart Panel */
 #cart-panel{
   position:fixed;
+  right:-400px;
   top:0;
-  right:-100%;
-  width:360px;
+  width:350px;
   height:100%;
   background:#111;
   padding:20px;
-  transition:.4s;
-  z-index:1000;
+  box-shadow:-5px 0 20px rgba(0,0,0,.7);
+  transition:right .3s ease;
+  z-index:10000;
+  display:flex;
+  flex-direction:column;
 }
 #cart-panel.active{right:0}
-#cart-items li{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:10px;
-}
-.qty button{
-  background:#ff1e1e;
-  border:none;
-  color:#fff;
-  width:25px;
-  cursor:pointer;
-}
-#total{margin-top:15px;font-weight:bold}
-#checkout{
-  margin-top:15px;
-  width:100%;
-  padding:12px;
-  background:#25d366;
-  border:none;
-  cursor:pointer;
-}
+#cart-panel h2{margin-bottom:20px;color:#ff1e1e;text-align:center}
+.cart-item{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;border-bottom:1px solid #333;padding-bottom:10px}
+.cart-item span{color:#fff}
+.cart-item button{background:red;color:#fff;border:none;padding:2px 6px;cursor:pointer}
+#cart-total{margin-top:auto;color:#ff1e1e;font-weight:bold;text-align:center;margin-bottom:10px}
+#checkout-btn{background:#ff1e1e;color:#fff;padding:12px;border:none;cursor:pointer;transition:.3s;font-weight:bold}
+#checkout-btn:hover{background:#c70000}
 
-/* LIGHTBOX */
-#lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.9);
-  display:none;
-  justify-content:center;
-  align-items:center;
-}
-#lightbox img{
-  max-width:90%;
-  max-height:90%;
+/* Responsive */
+@media(max-width:768px){
+  .header nav{position:fixed;top:0;right:-100%;width:200px;height:100%;background:#111;flex-direction:column;align-items:center;justify-content:center;transition:.3s;gap:30px;z-index:999}
+  .header nav.active{right:0}
+  .hamburger{display:flex}
+  .products-grid{grid-template-columns:1fr;gap:20px}
+  .hero{padding-left:30px;text-align:center;justify-content:center}
+  .hero h1{font-size:48px}
+  .hero p{font-size:18px}
+  .footer-content{grid-template-columns:1fr;text-align:center}
+  .footer form{flex-direction:column}
+  .footer input{width:100%}
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<div id="loader"><div class="spinner"></div></div>
+
+<header class="header">
   <div class="logo">KOMBO</div>
-  <div class="cart">🛒 <span id="cart-count">0</span></div>
+  <nav>
+    <a href="#">Shop</a>
+    <a href="#">Collections</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+  <div class="cart" id="cart-btn">🛒 <span id="cart-count">0</span></div>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </header>
 
 <section class="hero">
-  <div>
+  <div class="overlay"></div>
+  <div class="hero-content">
     <h1>WEAR THE POWER</h1>
-    <button>SHOP NOW</button>
+    <p>Streetwear built for dominance</p>
+    <button class="main-btn">SHOP NOW</button>
   </div>
 </section>
 
 <section class="products">
-  <div class="grid">
-
-    <div class="card">
-      <img src="https://github.com/user-attachments/assets/9b2c9f43-ff92-4061-a769-246c21bc2b19">
-      <div class="info">
-        <h3>Black Hoodie</h3>
-        <p>450</p>
-        <button class="add">Add to Cart</button>
+  <h2>KOMBO DROPS</h2>
+  <div class="products-grid">
+    <div class="product-card" data-name="Black Shadow Hoodie" data-price="450">
+      <a href="https://github.com/user-attachments/assets/9b2c9f43-ff92-4061-a769-246c21bc2b19" class="product-link">
+        <img src="https://github.com/user-attachments/assets/9b2c9f43-ff92-4061-a769-246c21bc2b19" loading="lazy" alt="Black Shadow Hoodie">
+      </a>
+      <div class="product-info">
+        <h3>Black Shadow Hoodie</h3>
+        <span>450 EGP</span>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
     </div>
-
-    <div class="card">
-      <img src="https://github.com/user-attachments/assets/67d45d88-bc57-48e1-8862-4ecb5ef3ef3e">
-      <div class="info">
+    <div class="product-card" data-name="Black Mask" data-price="150">
+      <a href="https://github.com/user-attachments/assets/67d45d88-bc57-48e1-8862-4ecb5ef3ef3e" class="product-link">
+        <img src="https://github.com/user-attachments/assets/67d45d88-bc57-48e1-8862-4ecb5ef3ef3e" loading="lazy" alt="Black Mask">
+      </a>
+      <div class="product-info">
         <h3>Black Mask</h3>
-        <p>150</p>
-        <button class="add">Add to Cart</button>
+        <span>150 EGP</span>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
     </div>
-
+    <div class="product-card" data-name="Compression كومبريشن" data-price="400">
+      <a href="https://github.com/user-attachments/assets/174d668e-6656-4701-878d-e773a6043995" class="product-link">
+        <img src="https://github.com/user-attachments/assets/174d668e-6656-4701-878d-e773a6043995" loading="lazy" alt="Compression كومبريشن">
+      </a>
+      <div class="product-info">
+        <h3>Compression كومبريشن</h3>
+        <span>400 EGP</span>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- CART -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="brand">
+      <h2>KOMBO STORE</h2>
+      <p>Streetwear built for dominance</p>
+    </div>
+    <div class="links">
+      <h3>Links</h3>
+      <a href="#">Shop</a>
+      <a href="#">Collections</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="social">
+      <h3>Follow Us</h3>
+      <a href="#"><img src="instagram.svg" alt="instagram" /></a>
+    </div>
+    <div class="newsletter">
+      <h3>Newsletter</h3>
+      <form>
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Kombo Store. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- Cart Panel -->
 <div id="cart-panel">
-  <h3>Your Cart</h3>
-  <ul id="cart-items"></ul>
-  <div id="total">Total: 0 EGP</div>
-  <button id="checkout">Checkout WhatsApp</button>
+  <h2>Your Cart</h2>
+  <div id="cart-items"></div>
+  <div id="cart-total">Total: 0 EGP</div>
+  <button id="checkout-btn">Checkout via WhatsApp</button>
 </div>
 
-<!-- LIGHTBOX -->
-<div id="lightbox"><img></div>
+<div id="lightbox"><img src="" alt="Product Image"></div>
 
 <script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+// Loader & animations
+window.addEventListener('load',()=>{
+  document.getElementById('loader').style.display='none';
+  document.querySelector('.hero').classList.add('visible');
+  document.querySelector('.products').classList.add('visible');
+  document.querySelector('.footer').classList.add('visible');
+});
 
-const cartBtn = document.querySelector(".cart");
-const panel = document.getElementById("cart-panel");
-const list = document.getElementById("cart-items");
-const totalEl = document.getElementById("total");
-const countEl = document.getElementById("cart-count");
+// Hero intersection
+const productCards=document.querySelectorAll('.product-card');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  })
+},{threshold:.2});
+productCards.forEach(card=>observer.observe(card));
 
-/* RENDER CART */
-function render(){
-  list.innerHTML="";
-  let total=0;
-  cart.forEach((p,i)=>{
-    total+=p.price*p.qty;
-    list.innerHTML+=`
-      <li>
-        ${p.name}
-        <div class="qty">
-          <button onclick="chg(${i},-1)">-</button>
-          ${p.qty}
-          <button onclick="chg(${i},1)">+</button>
-        </div>
-      </li>`;
+// Lightbox
+const lightbox=document.getElementById('lightbox');
+const lightboxImg=lightbox.querySelector('img');
+document.querySelectorAll('.product-link').forEach(link=>{
+  link.addEventListener('click',e=>{
+    e.preventDefault();
+    lightboxImg.src=link.href;
+    lightbox.style.display='flex';
+    lightbox.classList.add('show');
   });
-  totalEl.textContent=`Total: ${total} EGP`;
-  countEl.textContent=cart.length;
-  localStorage.setItem("cart",JSON.stringify(cart));
-}
-
-function chg(i,v){
-  cart[i].qty+=v;
-  if(cart[i].qty<=0) cart.splice(i,1);
-  render();
-}
-
-/* ADD */
-document.querySelectorAll(".add").forEach((b,idx)=>{
-  b.onclick=()=>{
-    const card=b.closest(".card");
-    const name=card.querySelector("h3").textContent;
-    const price=+card.querySelector("p").textContent;
-    const f=cart.find(p=>p.name===name);
-    f?f.qty++:cart.push({name,price,qty:1});
-    render();
+});
+lightbox.addEventListener('click',e=>{
+  if(e.target!==lightboxImg){
+    lightbox.style.display='none';
+    lightbox.classList.remove('show');
   }
 });
 
-/* OPEN CART */
-cartBtn.onclick=()=>panel.classList.toggle("active");
+// Hamburger
+const hamburger=document.getElementById('hamburger');
+const nav=document.querySelector('.header nav');
+hamburger.addEventListener('click',()=>{
+  nav.classList.toggle('active');
+  hamburger.classList.toggle('open');
+});
 
-/* CHECKOUT */
-document.getElementById("checkout").onclick=()=>{
-  let msg="Order:%0A";
-  cart.forEach(p=>msg+=`${p.name} x${p.qty}%0A`);
-  window.open(`https://wa.me/201XXXXXXXXX?text=${msg}`);
-};
+// Cart functionality
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+const cartBtn=document.getElementById('cart-btn');
+const cartPanel=document.getElementById('cart-panel');
+const cartItemsEl=document.getElementById('cart-items');
+const cartTotalEl=document.getElementById('cart-total');
 
-/* LIGHTBOX */
-document.querySelectorAll(".card img").forEach(img=>{
-  img.onclick=()=>{
-    document.getElementById("lightbox").style.display="flex";
-    document.querySelector("#lightbox img").src=img.src;
+function renderCart(){
+  cartItemsEl.innerHTML='';
+  let total=0;
+  cart.forEach((item,index)=>{
+    total+=item.price*item.qty;
+    const div=document.createElement('div');
+    div.className='cart-item';
+    div.innerHTML=`<span>${item.name} (${item.qty})</span> <span>${item.price*item.qty} EGP</span> <button data-index="${index}">x</button>`;
+    cartItemsEl.appendChild(div);
+  });
+  cartTotalEl.textContent=`Total: ${total} EGP`;
+  localStorage.setItem('cart',JSON.stringify(cart));
+}
+
+cartBtn.addEventListener('click',()=>cartPanel.classList.toggle('active'));
+
+document.getElementById('checkout-btn').addEventListener('click',()=>{
+  if(cart.length===0) return alert('Cart is empty!');
+  let text='Hello, I want to order:%0A';
+  cart.forEach(item=>text+=`${item.name} x${item.qty} = ${item.price*item.qty} EGP%0A`);
+  text+=`Total: ${cart.reduce((a,b)=>a+b.price*b.qty,0)} EGP`;
+  window.open(`https://wa.me/201234567890?text=${text}`,'_blank');
+});
+
+document.addEventListener('click',e=>{
+  if(e.target.matches('.cart-item button')){
+    const index=e.target.dataset.index;
+    cart.splice(index,1);
+    renderCart();
   }
 });
-document.getElementById("lightbox").onclick=()=>lightbox.style.display="none";
 
-render();
+document.querySelectorAll('.add-to-cart').forEach((btn,index)=>{
+  btn.addEventListener('click',()=>{
+    const card=btn.closest('.product-card');
+    const name=card.dataset.name;
+    const price=parseInt(card.dataset.price);
+    const existing=cart.find(item=>item.name===name);
+    if(existing){
+      existing.qty++;
+    }else{
+      cart.push({name,price,qty:1});
+    }
+    renderCart();
+    btn.textContent='Added';
+    btn.disabled=true;
+    btn.style.opacity='0.7';
+  });
+});
+
+renderCart();
 </script>
 
 </body>
