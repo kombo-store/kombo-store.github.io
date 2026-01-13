@@ -91,6 +91,20 @@
       transform: translateY(-2px);
     }
 
+    /* ===== DROPS ===== */
+    .drops{padding:80px 60px;text-align:center}
+    .drops h2{font-size:36px;margin-bottom:40px}
+    .drops-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px}
+    .drop-card{background:rgba(0,0,0,0.6);padding:25px;border-radius:20px}
+    .drop-card img{width:100%;border-radius:15px;margin-bottom:15px}
+    .drop-card button{margin-top:10px;padding:10px 20px;border:none;border-radius:20px;background:#ff3c00;color:#fff;cursor:pointer}
+
+    /* ===== FEATURES ===== */
+    .features{display:flex;justify-content:space-around;padding:60px;background:rgba(0,0,0,0.7)}
+    .feature{font-size:18px;font-weight:600}
+
+    footer{text-align:center;padding:30px;background:#000;opacity:.8}
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       header {
@@ -199,6 +213,42 @@
   <section class="hero" style="margin-top:40px">
     <button onclick="addToCart('Performance Gear',1)">Add Sample Product</button>
   </section>
+
+  <!-- ===== KOMBO DROPS ===== -->
+  <section class="drops">
+    <h2>Kombo Drops</h2>
+    <div class="drops-grid">
+      <div class="drop-card">
+        <img src="https://i.ibb.co/0ZxYF2k/hoodie.png" alt="Hoodie">
+        <h3>Kombo Hoodie</h3>
+        <p>Limited edition street power.</p>
+        <button onclick="addToCart('Kombo Hoodie',1)">Add to Cart</button>
+      </div>
+      <div class="drop-card">
+        <img src="https://i.ibb.co/9wqZK3P/jacket.png" alt="Jacket">
+        <h3>Kombo Jacket</h3>
+        <p>Built for riders & athletes.</p>
+        <button onclick="addToCart('Kombo Jacket',1)">Add to Cart</button>
+      </div>
+      <div class="drop-card">
+        <img src="https://i.ibb.co/6g9kzQb/tshirt.png" alt="Tee">
+        <h3>Kombo Tee</h3>
+        <p>Everyday essential wear.</p>
+        <button onclick="addToCart('Kombo Tee',1)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="features">
+    <div class="feature">🔥 High Performance Fabric</div>
+    <div class="feature">💪 Athlete Tested</div>
+    <div class="feature">⚡ Limited Drops Only</div>
+  </section>
+
+  <footer>
+    <p>© 2026 KOMBO STORE — Built for Power</p>
+  </footer>
 
   <div id="cart-panel">
     <div class="cart-header">
