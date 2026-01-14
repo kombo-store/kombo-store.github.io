@@ -4,240 +4,348 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kombo Store</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="https://i.ibb.co/jPjz72wJ" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-
-/* ===== BODY + BACKGROUND ===== */
 body{
   font-family:'Poppins',sans-serif;
-  min-height:100vh;
+  background: url("https://i.ibb.co/jPjz72wJ") center/cover no-repeat;
   color:#fff;
-  background: url("https://i.ibb.co/bMHbRk7n/background-jpg.png") center/cover no-repeat fixed;
+  overflow-x:hidden;
   position:relative;
 }
-
 body::before{
   content:'';
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.65);
-  z-index:0;
-}
-
-header,
-.hero,
-.products,
-footer{
-  position:relative;
-  z-index:1;
-}
-
-/* ===== HEADER ===== */
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 60px;
-  position:fixed;
-  top:0;
-  width:100%;
   background:rgba(0,0,0,.55);
-  backdrop-filter:blur(8px);
-  z-index:1000;
+  z-index:-1;
 }
 
-.logo{font-weight:700;font-size:24px}
+/* Loader */
+#loader{position:fixed;inset:0;background:#000;display:flex;justify-content:center;align-items:center;z-index:9999}
+.spinner{width:60px;height:60px;border:6px solid #333;border-top:6px solid #ff1e1e;border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
 
-nav a{
-  color:#fff;
-  text-decoration:none;
-  margin-left:30px;
-  font-weight:500;
-  opacity:.85;
-  transition:.3s;
-}
-nav a:hover{opacity:1}
+/* Header */
+.header{position:fixed;top:0;width:100%;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(12px);z-index:1000}
+.logo{font-size:28px;font-weight:800;letter-spacing:2px}
+.header nav{display:flex}
+.header nav a{margin:0 15px;text-decoration:none;color:#fff;position:relative}
+.header nav a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:#ff1e1e;transition:.3s}
+.header nav a:hover::after{width:100%}
+.cart{position:relative;font-size:24px;cursor:pointer}
+#cart-count{position:absolute;top:-8px;right:-12px;background:#ff1e1e;color:#fff;font-size:14px;padding:2px 7px;border-radius:50%;font-weight:bold}
+.hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px}
+.hamburger span{width:25px;height:3px;background:#fff;transition:0.3s}
 
-.cart{position:relative;cursor:pointer;font-size:22px}
-#cart-count{
-  position:absolute;
-  top:-8px;
-  right:-10px;
-  background:#ff3c00;
-  color:#fff;
-  font-size:12px;
-  padding:2px 6px;
-  border-radius:50%;
-  font-weight:bold;
-}
-
-/* ===== HERO ===== */
+/* Hero */
 .hero{
   height:100vh;
+  background: url("https://i.ibb.co/jPjz72wJ") center/cover no-repeat;
+  position:relative;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:120px 60px 0; /* الحل الصح */
-  max-width:700px;
+  align-items:center;
+  padding-left:60px;
   opacity:0;
   transform:translateY(20px);
   transition:1s ease;
 }
-
 .hero.visible{opacity:1;transform:translateY(0)}
-.hero h1{font-size:52px;margin-bottom:20px}
-.hero p{opacity:.85;margin-bottom:35px}
+.overlay{position:absolute;inset:0;background:rgba(0,0,0,.65)}
+.hero-content{position:relative;max-width:600px}
+.hero h1{font-size:70px;letter-spacing:4px;margin-bottom:20px}
+.hero p{color:#ccc;margin-bottom:30px}
+.main-btn{background:#ff1e1e;padding:15px 45px;border:none;font-weight:bold;color:#fff;cursor:pointer;transition:all .3s ease}
+.main-btn:hover{background:#c70000;transform:translateY(-5px) scale(1.05);box-shadow:0 10px 25px rgba(255,0,0,.5)}
 
-.hero button{
-  padding:14px 36px;
-  border:none;
-  border-radius:30px;
-  background:#ff3c00;
-  color:#fff;
-  cursor:pointer;
-  transition:.3s;
-  font-weight:600;
-}
-.hero button:hover{background:#ff5a2a;transform:translateY(-2px)}
-
-/* ===== PRODUCTS ===== */
-.products{
-  padding:80px 60px;
-  opacity:0;
-  transform:translateY(20px);
-  transition:1s ease;
-}
+/* Products */
+.products{padding:120px 60px;background:#000;opacity:0;transform:translateY(20px);transition:1s ease}
 .products.visible{opacity:1;transform:translateY(0)}
-
-.products-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
-
-.product-card{
-  background:#111;
-  border-radius:16px;
-  overflow:hidden;
-  cursor:pointer;
-  opacity:0;
-  transform:translateY(20px);
-  transition:.4s ease;
-}
+.products h2{font-size:40px;margin-bottom:60px;letter-spacing:3px}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px}
+.product-card{background:#111;overflow:hidden;transition:transform .4s ease,box-shadow .4s ease,opacity .6s ease;position:relative;cursor:pointer;opacity:0;transform:translateY(20px)}
 .product-card.visible{opacity:1;transform:translateY(0)}
-.product-card:hover{
-  transform:translateY(-8px) scale(1.03);
-  box-shadow:0 20px 40px rgba(255,60,0,.4);
-}
-
-.product-card img{
-  width:100%;
-  height:340px;
-  object-fit:cover;
-  transition:.4s;
-}
-.product-card:hover img{transform:scale(1.08)}
-
+.product-card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(255,0,0,.4)}
+.product-card img{width:100%;height:420px;object-fit:cover;transition:transform .5s ease}
+.product-card:hover img{transform:scale(1.12)}
 .product-info{padding:20px}
-.product-info span{color:#ff3c00;font-weight:600}
+.product-info h3{margin-bottom:10px}
+.product-info span{color:#ff1e1e;font-weight:bold}
+.product-info button{margin-top:15px;width:100%;padding:12px;background:#ff1e1e;border:none;color:#fff;cursor:pointer;transition:all .3s ease}
+.product-info button:hover{background:#c70000;transform:translateY(-2px) scale(1.03);box-shadow:0 5px 15px rgba(255,30,30,.5)}
 
-.product-info button{
-  margin-top:14px;
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:30px;
-  background:#ff3c00;
-  color:#fff;
-  cursor:pointer;
+/* Footer */
+.footer{background:#111;color:#fff;padding:60px;font-size:14px;opacity:0;transform:translateY(20px);transition:1s ease}
+.footer.visible{opacity:1;transform:translateY(0)}
+.footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:40px}
+.footer h2,.footer h3{margin-bottom:15px;color:#ff1e1e}
+.footer a{display:block;text-decoration:none;color:#fff;margin-bottom:8px;transition:.3s}
+.footer a:hover{color:#ff1e1e}
+.footer img{width:24px;height:24px;margin-right:10px}
+.footer form{display:flex;gap:10px;margin-top:10px}
+.footer input{flex:1;padding:8px;border:none;border-radius:4px}
+.footer button{padding:8px 15px;background:#ff1e1e;border:none;color:#fff;cursor:pointer;transition:.3s}
+.footer button:hover{background:#c70000}
+.footer-bottom{border-top:1px solid #333;text-align:center;padding-top:20px;color:#aaa}
+
+/* Cart Panel */
+#cart-panel{
+  position:fixed;top:0;right:-400px;width:400px;height:100%;background:#111;padding:20px;box-shadow:-5px 0 25px rgba(255,0,0,.5);transition:0.4s;z-index:9999;overflow-y:auto;
 }
-.product-info button:hover{background:#ff5a2a}
+#cart-panel.open{right:0;}
+#cart-panel h2{margin-bottom:20px;color:#ff1e1e;}
+.cart-item{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px;border-bottom:1px solid #333;padding-bottom:10px;}
+.cart-item img{width:60px;height:60px;object-fit:cover;border-radius:6px;margin-right:10px;}
+.cart-item-info{flex:1}
+.cart-item-info h4{margin-bottom:5px;font-size:16px;}
+.cart-item-info span{color:#ff1e1e;font-weight:bold;}
+.qty-control{display:flex;gap:5px;align-items:center;margin-top:5px;}
+.qty-control button{padding:2px 8px;background:#ff1e1e;border:none;color:#fff;cursor:pointer}
+#cart-total{margin-top:20px;font-size:18px;font-weight:bold;color:#ff1e1e;}
+.checkout-btn{margin-top:20px;width:100%;padding:12px;background:#ff1e1e;border:none;color:#fff;cursor:pointer;font-weight:bold;transition:0.3s}
+.checkout-btn:hover{background:#c70000;}
 
-/* ===== FOOTER ===== */
-footer{
-  text-align:center;
-  padding:30px;
-  background:#000;
-  opacity:.8;
-}
+/* Lightbox */
+#lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);display:none;justify-content:center;align-items:center;z-index:99999}
+#lightbox img{max-width:90%;max-height:90%;border-radius:6px;box-shadow:0 0 20px rgba(255,0,0,.5);transform:scale(0.7);opacity:0;transition:transform .4s ease,opacity .4s ease}
+#lightbox.show img{transform:scale(1);opacity:1}
 
-/* ===== RESPONSIVE ===== */
+/* Responsive */
 @media(max-width:768px){
-  header{padding:20px}
-  nav{display:none}
-  .hero{padding:120px 25px 0}
-  .hero h1{font-size:34px}
-  .products{padding:60px 25px}
-  .product-card img{height:260px}
+  .header nav{position:fixed;top:0;right:-100%;width:200px;height:100%;background:#111;flex-direction:column;align-items:center;justify-content:center;transition:.3s;gap:30px;z-index:999}
+  .header nav.active{right:0}
+  .hamburger{display:flex}
+  .products-grid{grid-template-columns:1fr;gap:20px}
+  .hero{padding-left:30px;text-align:center;justify-content:center}
+  .hero h1{font-size:48px}
+  .hero p{font-size:18px}
+  .footer-content{grid-template-columns:1fr;text-align:center}
+  .footer form{flex-direction:column}
+  .footer input{width:100%}
+  #cart-panel{width:100%;}
 }
 </style>
 </head>
-
 <body>
 
-<header>
+<div id="loader"><div class="spinner"></div></div>
+
+<header class="header">
   <div class="logo">KOMBO</div>
   <nav>
-    <a href="#">Home</a>
     <a href="#">Shop</a>
+    <a href="#">Collections</a>
     <a href="#">About</a>
     <a href="#">Contact</a>
   </nav>
-  <div class="cart">🛒<span id="cart-count">0</span></div>
+  <div class="cart" id="cart-icon">🛒 <span id="cart-count">0</span></div>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </header>
 
 <section class="hero">
-  <h1>Performance Gear<br>Built for Power</h1>
-  <p>Premium apparel for riders & athletes. Built to move. Designed to win.</p>
-  <button>Shop Now</button>
-</section>
-
-<section class="products">
-  <h2>Kombo Drops</h2>
-  <div class="products-grid">
-
-    <div class="product-card" data-name="Hoodie" data-price="450">
-      <img src="https://i.ibb.co/k60KLWxy/hoodie.jpg">
-      <div class="product-info">
-        <h3>Hoodie</h3>
-        <span>450 EGP</span>
-        <button>Buy</button>
-      </div>
-    </div>
-
-    <div class="product-card" data-name="Compression" data-price="600">
-      <img src="https://i.ibb.co/dwT1M05C/compression.jpg">
-      <div class="product-info">
-        <h3>Compression</h3>
-        <span>600 EGP</span>
-        <button>Buy</button>
-      </div>
-    </div>
-
-    <div class="product-card" data-name="Black Mask" data-price="300">
-      <img src="https://i.ibb.co/WvxSjYyc/black-mask.jpg">
-      <div class="product-info">
-        <h3>Black Mask</h3>
-        <span>300 EGP</span>
-        <button>Buy</button>
-      </div>
-    </div>
-
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>WEAR THE POWER</h1>
+    <p>Streetwear built for dominance</p>
+    <button class="main-btn">SHOP NOW</button>
   </div>
 </section>
 
-<footer>
-  © 2026 KOMBO STORE — Built for Power
+<section class="products">
+  <h2>KOMBO DROPS</h2>
+  <div class="products-grid">
+    <div class="product-card" data-name="Black Shadow Hoodie" data-price="450">
+      <a href="https://github.com/user-attachments/assets/9b2c9f43-ff92-4061-a769-246c21bc2b19" class="product-link">
+        <img src="https://github.com/user-attachments/assets/9b2c9f43-ff92-4061-a769-246c21bc2b19" loading="lazy" alt="Black Shadow Hoodie">
+      </a>
+      <div class="product-info">
+        <h3>Black Shadow Hoodie</h3>
+        <span>450 EGP</span>
+        <button class="add-to-cart">Buy</button>
+      </div>
+    </div>
+    <div class="product-card" data-name="Black Mask" data-price="150">
+      <a href="https://github.com/user-attachments/assets/67d45d88-bc57-48e1-8862-4ecb5ef3ef3e" class="product-link">
+        <img src="https://github.com/user-attachments/assets/67d45d88-bc57-48e1-8862-4ecb5ef3ef3e" loading="lazy" alt="Black Mask">
+      </a>
+      <div class="product-info">
+        <h3>Black Mask</h3>
+        <span>150 EGP</span>
+        <button class="add-to-cart">Buy</button>
+      </div>
+    </div>
+    <div class="product-card" data-name="Compression كومبريشن" data-price="400">
+      <a href="https://github.com/user-attachments/assets/174d668e-6656-4701-878d-e773a6043995" class="product-link">
+        <img src="https://github.com/user-attachments/assets/174d668e-6656-4701-878d-e773a6043995" loading="lazy" alt="Compression كومبريشن">
+      </a>
+      <div class="product-info">
+        <h3>Compression كومبريشن</h3>
+        <span>400 EGP</span>
+        <button class="add-to-cart">Buy</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cart Panel -->
+<div id="cart-panel">
+  <h2>Your Cart</h2>
+  <div id="cart-items"></div>
+  <div id="cart-total">Total: 0 EGP</div>
+  <button class="checkout-btn" id="checkout-btn">Checkout</button>
+</div>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="brand">
+      <h2>KOMBO STORE</h2>
+      <p>Streetwear built for dominance</p>
+    </div>
+    <div class="links">
+      <h3>Links</h3>
+      <a href="#">Shop</a>
+      <a href="#">Collections</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="social">
+      <h3>Follow Us</h3>
+      <a href="#"><img src="instagram.svg" alt="instagram" /></a>
+    </div>
+    <div class="newsletter">
+      <h3>Newsletter</h3>
+      <form>
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Kombo Store. All Rights Reserved.</p>
+  </div>
 </footer>
 
+<div id="lightbox"><img src="" alt="Product Image"></div>
+
 <script>
+// Loader + Reveal
 window.addEventListener('load',()=>{
+  document.getElementById('loader').style.display='none';
   document.querySelector('.hero').classList.add('visible');
   document.querySelector('.products').classList.add('visible');
+  document.querySelector('.footer').classList.add('visible');
 });
+
+// Cart logic
+let cart = JSON.parse(localStorage.getItem('komboCart')) || [];
+const cartCountEl = document.getElementById('cart-count');
+const cartPanel = document.getElementById('cart-panel');
+const cartItemsEl = document.getElementById('cart-items');
+const checkoutBtn = document.getElementById('checkout-btn');
+
+function updateCartPanel(){
+  cartItemsEl.innerHTML = '';
+  let total = 0;
+  cart.forEach((item,index)=>{
+    total += item.price*item.qty;
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `
+      <img src="${item.img}" alt="${item.name}">
+      <div class="cart-item-info">
+        <h4>${item.name}</h4>
+        <span>${item.price} EGP</span>
+        <div class="qty-control">
+          <button class="dec" data-index="${index}">-</button>
+          <span>${item.qty}</span>
+          <button class="inc" data-index="${index}">+</button>
+        </div>
+      </div>
+    `;
+    cartItemsEl.appendChild(div);
+  });
+  document.getElementById('cart-total').textContent = `Total: ${total} EGP`;
+  cartCountEl.textContent = cart.reduce((a,b)=>a+b.qty,0);
+  localStorage.setItem('komboCart',JSON.stringify(cart));
+}
+
+document.querySelectorAll('.add-to-cart').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const card = btn.closest('.product-card');
+    const name = card.dataset.name;
+    const price = parseFloat(card.dataset.price);
+    const img = card.querySelector('img').src;
+    const exist = cart.find(i=>i.name===name);
+    if(exist){
+      exist.qty++;
+    }else{
+      cart.push({name,price,img,qty:1});
+    }
+    localStorage.setItem('komboCart',JSON.stringify(cart));
+    updateCartPanel();
+    btn.textContent="Added"; btn.disabled=true; btn.style.opacity="0.7";
+    cartPanel.classList.add('open');
+  });
+});
+
+// Quantity buttons
+cartItemsEl.addEventListener('click',e=>{
+  if(e.target.classList.contains('inc')){
+    let idx = e.target.dataset.index;
+    cart[idx].qty++;
+    updateCartPanel();
+  }
+  if(e.target.classList.contains('dec')){
+    let idx = e.target.dataset.index;
+    cart[idx].qty--;
+    if(cart[idx].qty===0) cart.splice(idx,1);
+    updateCartPanel();
+  }
+});
+
+// Open cart panel
+document.getElementById('cart-icon').addEventListener('click',()=>{
+  cartPanel.classList.toggle('open');
+});
+
+// Checkout redirect
+checkoutBtn.addEventListener('click',()=>{
+  window.location.href='checkout.html';
+});
+
+// Hamburger
+const hamburger=document.getElementById('hamburger');
+const nav=document.querySelector('.header nav');
+hamburger.addEventListener('click',()=>{nav.classList.toggle('active');hamburger.classList.toggle('open');});
+
+// Lightbox
+const lightbox=document.getElementById('lightbox');
+const lightboxImg=lightbox.querySelector('img');
+document.querySelectorAll('.product-link').forEach(link=>{
+  link.addEventListener('click',e=>{
+    e.preventDefault();
+    lightboxImg.src=link.href;
+    lightbox.style.display='flex';
+    lightbox.classList.add('show');
+  });
+});
+lightbox.addEventListener('click',e=>{
+  if(e.target!==lightboxImg){lightbox.style.display='none';lightbox.classList.remove('show');}
+});
+
+// Scroll animation
+const productCards=document.querySelectorAll('.product-card');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){entry.target.classList.add('visible');}
+  })
+},{threshold:.2});
+productCards.forEach(card=>observer.observe(card));
+
+updateCartPanel();
 </script>
 
 </body>
