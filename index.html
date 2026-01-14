@@ -4,25 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kombo Store</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+
+/* ===== BODY + BACKGROUND ===== */
 body{
   font-family:'Poppins',sans-serif;
   min-height:100vh;
   color:#fff;
-  background: url("https://i.ibb.co/0YcD0rY/bg-image.jpg") center/cover no-repeat fixed;
+  background:url("https://i.ibb.co/0YcD0rY/bg-image.jpg") center/cover no-repeat fixed;
   position:relative;
-  padding-top:90px; 
-}
-
 }
 
 body::before{
   content:'';
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.6);
+  background:rgba(0,0,0,.65);
   z-index:0;
 }
 
@@ -41,16 +42,37 @@ header{
   align-items:center;
   padding:20px 60px;
   position:fixed;
+  top:0;
   width:100%;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(8px);
   z-index:1000;
 }
+
 .logo{font-weight:700;font-size:24px}
+
 nav a{
-  color:#fff;text-decoration:none;margin-left:30px;font-weight:500;opacity:.85;transition:.3s
+  color:#fff;
+  text-decoration:none;
+  margin-left:30px;
+  font-weight:500;
+  opacity:.85;
+  transition:.3s;
 }
 nav a:hover{opacity:1}
+
 .cart{position:relative;cursor:pointer;font-size:22px}
-#cart-count{position:absolute;top:-8px;right:-10px;background:#ff3c00;color:#fff;font-size:12px;padding:2px 6px;border-radius:50%;font-weight:bold}
+#cart-count{
+  position:absolute;
+  top:-8px;
+  right:-10px;
+  background:#ff3c00;
+  color:#fff;
+  font-size:12px;
+  padding:2px 6px;
+  border-radius:50%;
+  font-weight:bold;
+}
 
 /* ===== HERO ===== */
 .hero{
@@ -58,67 +80,102 @@ nav a:hover{opacity:1}
   display:flex;
   flex-direction:column;
   justify-content:center;
-  padding:0 60px;
+  padding:120px 60px 0; /* الحل الصح */
   max-width:700px;
   opacity:0;
   transform:translateY(20px);
   transition:1s ease;
 }
+
 .hero.visible{opacity:1;transform:translateY(0)}
 .hero h1{font-size:52px;margin-bottom:20px}
 .hero p{opacity:.85;margin-bottom:35px}
+
 .hero button{
-  padding:14px 36px;border:none;border-radius:30px;background:#ff3c00;color:#fff;cursor:pointer;transition:.3s;font-weight:600;
+  padding:14px 36px;
+  border:none;
+  border-radius:30px;
+  background:#ff3c00;
+  color:#fff;
+  cursor:pointer;
+  transition:.3s;
+  font-weight:600;
 }
 .hero button:hover{background:#ff5a2a;transform:translateY(-2px)}
 
 /* ===== PRODUCTS ===== */
-.products{padding:80px 60px;opacity:0;transform:translateY(20px);transition:1s ease}
+.products{
+  padding:80px 60px;
+  opacity:0;
+  transform:translateY(20px);
+  transition:1s ease;
+}
 .products.visible{opacity:1;transform:translateY(0)}
-.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
+
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+
 .product-card{
-  background:#111;border-radius:16px;overflow:hidden;transition:transform .4s ease,box-shadow .4s ease;cursor:pointer;opacity:0;transform:translateY(20px)
+  background:#111;
+  border-radius:16px;
+  overflow:hidden;
+  cursor:pointer;
+  opacity:0;
+  transform:translateY(20px);
+  transition:.4s ease;
 }
 .product-card.visible{opacity:1;transform:translateY(0)}
-.product-card:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 20px 40px rgba(255,60,0,.4)}
-.product-card img{width:100%;height:340px;object-fit:cover;transition:transform .4s ease}
+.product-card:hover{
+  transform:translateY(-8px) scale(1.03);
+  box-shadow:0 20px 40px rgba(255,60,0,.4);
+}
+
+.product-card img{
+  width:100%;
+  height:340px;
+  object-fit:cover;
+  transition:.4s;
+}
 .product-card:hover img{transform:scale(1.08)}
+
 .product-info{padding:20px}
-.product-info h3{margin-bottom:8px}
 .product-info span{color:#ff3c00;font-weight:600}
-.product-info button{margin-top:14px;width:100%;padding:12px;border:none;border-radius:30px;background:#ff3c00;color:#fff;cursor:pointer;transition:.3s}
+
+.product-info button{
+  margin-top:14px;
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:30px;
+  background:#ff3c00;
+  color:#fff;
+  cursor:pointer;
+}
 .product-info button:hover{background:#ff5a2a}
 
-/* ===== CART PANEL ===== */
-#cart-panel{
-  position:fixed;top:0;right:-380px;width:360px;height:100%;background:#111;z-index:9999;transition:.4s ease;
-  padding:25px;display:flex;flex-direction:column;
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;
+  padding:30px;
+  background:#000;
+  opacity:.8;
 }
-#cart-panel.active{right:0}
-.cart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;color:#ff3c00}
-.cart-items{flex:1;color:#ccc;font-size:14px}
-.cart-item{display:flex;justify-content:space-between;margin-bottom:12px}
-.continue-btn,.checkout-btn{margin-top:10px;padding:12px;border:none;cursor:pointer;font-weight:bold}
-.continue-btn{background:#333;color:#fff}
-.checkout-btn{background:#ff3c00;color:#fff}
-
-/* ===== LIGHTBOX ===== */
-#lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);display:none;justify-content:center;align-items:center;z-index:99999}
-#lightbox img{max-width:90%;max-height:90%;border-radius:6px;box-shadow:0 0 20px rgba(255,0,0,.5);transform:scale(0.7);opacity:0;transition:transform .4s ease,opacity .4s ease}
-#lightbox.show img{transform:scale(1);opacity:1}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:768px){
   header{padding:20px}
   nav{display:none}
-  .hero{padding:0 25px}
+  .hero{padding:120px 25px 0}
   .hero h1{font-size:34px}
   .products{padding:60px 25px}
   .product-card img{height:260px}
-  #cart-panel{width:100%}
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -141,133 +198,46 @@ nav a:hover{opacity:1}
 <section class="products">
   <h2>Kombo Drops</h2>
   <div class="products-grid">
-    <div class="product-card" data-name="Hoodie هودى" data-price="450">
-      <img src="https://i.ibb.co/k60KLWxy/hoodie.jpg" alt="Hoodie هودى" class="product-img">
+
+    <div class="product-card" data-name="Hoodie" data-price="450">
+      <img src="https://i.ibb.co/k60KLWxy/hoodie.jpg">
       <div class="product-info">
-        <h3>Hoodie هودى</h3>
+        <h3>Hoodie</h3>
         <span>450 EGP</span>
-        <button class="add-to-cart">Buy</button>
+        <button>Buy</button>
       </div>
     </div>
-    <div class="product-card" data-name="Compression كمبريشن" data-price="600">
-      <img src="https://i.ibb.co/dwT1M05C/compression.jpg" alt="Compression كمبريشن" class="product-img">
+
+    <div class="product-card" data-name="Compression" data-price="600">
+      <img src="https://i.ibb.co/dwT1M05C/compression.jpg">
       <div class="product-info">
-        <h3>Compression كمبريشن</h3>
+        <h3>Compression</h3>
         <span>600 EGP</span>
-        <button class="add-to-cart">Buy</button>
+        <button>Buy</button>
       </div>
     </div>
+
     <div class="product-card" data-name="Black Mask" data-price="300">
-      <img src="https://i.ibb.co/WvxSjYyc/black-mask.jpg" alt="Black Mask" class="product-img">
+      <img src="https://i.ibb.co/WvxSjYyc/black-mask.jpg">
       <div class="product-info">
         <h3>Black Mask</h3>
         <span>300 EGP</span>
-        <button class="add-to-cart">Buy</button>
+        <button>Buy</button>
       </div>
     </div>
+
   </div>
 </section>
 
-<footer style="text-align:center;padding:30px;background:#000;opacity:.8">
+<footer>
   © 2026 KOMBO STORE — Built for Power
 </footer>
 
-<div id="cart-panel">
-  <div class="cart-header">
-    <h3>Your Cart</h3>
-    <span id="close-cart">✖</span>
-  </div>
-  <div class="cart-items"></div>
-  <div style="margin-top:15px;font-weight:bold">Total: <span id="cart-total">0</span> EGP</div>
-  <button class="continue-btn">Continue Shopping</button>
-  <button class="checkout-btn">Checkout</button>
-</div>
-
-<div id="lightbox"><img src="" alt="Product Image"></div>
-
 <script>
-// Reveal Hero + Products
 window.addEventListener('load',()=>{
   document.querySelector('.hero').classList.add('visible');
   document.querySelector('.products').classList.add('visible');
 });
-
-// Cart Logic
-let cart=JSON.parse(localStorage.getItem('komboCart'))||[];
-const cartCount=document.getElementById('cart-count');
-const cartItems=document.querySelector('#cart-panel .cart-items');
-const cartTotal=document.getElementById('cart-total');
-
-function updateCart(){
-  cartCount.textContent=cart.reduce((sum,i)=>sum+i.qty,0);
-  cartItems.innerHTML=cart.length===0?'<p>No items yet</p>':'';
-  let total=0;
-  cart.forEach(item=>{
-    total+=item.price*item.qty;
-    const div=document.createElement('div');
-    div.className='cart-item';
-    div.innerHTML=`<span>${item.name} x${item.qty}</span><span onclick="removeItem('${item.name}')" style="cursor:pointer">❌</span>`;
-    cartItems.appendChild(div);
-  });
-  cartTotal.textContent=total;
-  localStorage.setItem('komboCart',JSON.stringify(cart));
-}
-
-function addToCart(name,price){
-  const item=cart.find(i=>i.name===name);
-  if(item){item.qty+=1}else{cart.push({name,price,qty:1})}
-  updateCart();
-}
-
-function removeItem(name){
-  cart=cart.filter(i=>i.name!==name);
-  updateCart();
-}
-
-function checkout(){
-  let msg='Order:%0A';
-  cart.forEach(i=>msg+=`${i.name} x${i.qty}%0A`);
-  window.open(`https://wa.me/201000000000?text=${msg}`,'_blank');
-}
-
-document.querySelectorAll('.add-to-cart').forEach((btn)=>{
-  btn.addEventListener('click',()=>{
-    const card=btn.closest('.product-card');
-    addToCart(card.dataset.name,parseFloat(card.dataset.price));
-  });
-});
-
-document.querySelector('.cart').onclick=()=>document.getElementById('cart-panel').classList.add('active');
-document.getElementById('close-cart').onclick=()=>document.getElementById('cart-panel').classList.remove('active');
-document.querySelector('.continue-btn').onclick=()=>document.getElementById('cart-panel').classList.remove('active');
-document.querySelector('.checkout-btn').onclick=checkout;
-
-updateCart();
-
-// Lightbox
-const lightbox=document.getElementById('lightbox');
-const lightboxImg=lightbox.querySelector('img');
-document.querySelectorAll('.product-img').forEach(img=>{
-  img.addEventListener('click',()=>{
-    lightboxImg.src=img.src;
-    lightbox.style.display='flex';
-    setTimeout(()=>lightbox.classList.add('show'),10);
-  });
-});
-lightbox.addEventListener('click',e=>{
-  if(e.target!==lightboxImg){
-    lightbox.classList.remove('show');
-    setTimeout(()=>lightbox.style.display='none',400);
-  }
-});
-
-// Scroll animation for products
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting) entry.target.classList.add('visible');
-  });
-},{threshold:.2});
-document.querySelectorAll('.product-card').forEach(card=>observer.observe(card));
 </script>
 
 </body>
